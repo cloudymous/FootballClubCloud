@@ -8,6 +8,7 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.generated.design.R.attr.colorAccent
 import org.jetbrains.anko.sdk25.coroutines.onClick
+import java.util.ArrayList
 
 class MainMenu : AppCompatActivity() {
 
@@ -16,60 +17,77 @@ class MainMenu : AppCompatActivity() {
         MainActivityUI().setContentView(this)
     }
 
+
+    fun initlist(){
+        data class ClubFootball (val nama: String, val imageClub: Int, val descriptionClub: String)
+
+        var clubs: ArrayList<ClubFootball>()
+        clubs.add(ClubFootball("Real Madrid", R.drawable.ic_launcher_background, "Tim Kesayangan"))
+
+    }
+
+
     class MainActivityUI : AnkoComponent<MainMenu> {
         override fun createView(ui: AnkoContext<MainMenu>) = with(ui) {
+
+//            verticalLayout {
+//                padding = dip(16)
+//
+//                val name = editText {
+//                    hint = "What's your name?"
+//                }
+//
+//                linearLayout {
+//
+//                    button("Say Hello") {
+//                        textColor = Color.WHITE
+//                        onClick { toast("Hello, ${name.text}!") }
+//                    }.lparams(weight = 1.0F)
+//
+//                    button("Say Goodbye") {
+//                        textColor = Color.WHITE
+//                        onClick { toast("Goodbye, ${name.text}!") }
+//                    }.lparams(weight = 1.0F)
+//
+//                }
+//
+//                button("Next Intent") {
+//                    textColor = Color.WHITE
+//                    onClick {
+//                        startActivity<DetailClub>()
+//                    }
+//                }
+//
+//                button("Say Hello") {
+//                    textColor = Color.WHITE
+//                    onClick {
+//                        alert("Happy Coding!", "Hello, ${name.text}!") {
+//                            yesButton { toast("Oh…") }
+//                            noButton {}
+//                        }.show()
+//                    }
+//                }.lparams(width = matchParent) {
+//                    topMargin = dip(5)
+//                }
+//
+//
+//                button("Show Selector") {
+//                    textColor = Color.WHITE
+//                    onClick {
+//                        val club = listOf("Barcelona", "Real Madrid", "Bayern Munchen", "Liverpool")
+//                        selector("Hello, ${name.text}! What's football club do you love?", club) { _, i ->
+//                            toast("So you love ${club[i]}, right?")
+//                        }
+//                    }
+//                }.lparams(width = matchParent) {
+//                    topMargin = dip(5)
+//                }
+//            }
+
             verticalLayout {
-                padding = dip(16)
-
-                val name = editText {
-                    hint = "What's your name?"
-                }
-
-                linearLayout {
-
-                    button("Say Hello") {
-                        textColor = Color.WHITE
-                        onClick { toast("Hello, ${name.text}!") }
-                    }.lparams(weight = 1.0F)
-
-                    button("Say Goodbye") {
-                        textColor = Color.WHITE
-                        onClick { toast("Goodbye, ${name.text}!") }
-                    }.lparams(weight = 1.0F)
-
-                }
-
-                button("Next Intent") {
-                    textColor = Color.WHITE
-                    onClick {
-                        startActivity<DetailClub>()
-                    }
-                }
-
-                button("Say Hello") {
-                    textColor = Color.WHITE
-                    onClick {
-                        alert("Happy Coding!", "Hello, ${name.text}!") {
-                            yesButton { toast("Oh…") }
-                            noButton {}
-                        }.show()
-                    }
-                }.lparams(width = matchParent) {
-                    topMargin = dip(5)
-                }
+                padding = dip (16)
 
 
-                button("Show Selector") {
-                    textColor = Color.WHITE
-                    onClick {
-                        val club = listOf("Barcelona", "Real Madrid", "Bayern Munchen", "Liverpool")
-                        selector("Hello, ${name.text}! What's football club do you love?", club) { _, i ->
-                            toast("So you love ${club[i]}, right?")
-                        }
-                    }
-                }.lparams(width = matchParent) {
-                    topMargin = dip(5)
-                }
             }
         }
 
