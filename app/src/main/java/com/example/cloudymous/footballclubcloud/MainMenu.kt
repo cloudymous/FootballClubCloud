@@ -15,22 +15,32 @@ class MainMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MainActivityUI().setContentView(this)
-    }
 
-
-    fun initlist(){
-        data class ClubFootball (val nama: String, val imageClub: Int, val descriptionClub: String)
-
-        var clubs: ArrayList<ClubFootball>()
-        clubs.add(ClubFootball("Real Madrid", R.drawable.ic_launcher_background, "Tim Kesayangan"))
+        initlist()
 
     }
 
 
     class MainActivityUI : AnkoComponent<MainMenu> {
         override fun createView(ui: AnkoContext<MainMenu>) = with(ui) {
+            verticalLayout {
+                padding = dip (16)
 
-//            verticalLayout {
+
+            }
+        }
+
+    }
+
+    private fun initlist(){
+        data class ClubFootball (val nama: String, val imageClub: Int, val descriptionClub: String)
+
+        val clubs: ArrayList<ClubFootball> = ArrayList ()
+        clubs.add(ClubFootball("Real Madrid", R.drawable.ic_launcher_background, "Tim Kesayangan"))
+
+    }
+
+    //            verticalLayout {
 //                padding = dip(16)
 //
 //                val name = editText {
@@ -84,12 +94,5 @@ class MainMenu : AppCompatActivity() {
 //                }
 //            }
 
-            verticalLayout {
-                padding = dip (16)
 
-
-            }
-        }
-
-    }
 }
