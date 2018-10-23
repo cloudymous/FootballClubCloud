@@ -29,7 +29,7 @@ class MainMenu : AppCompatActivity() {
                 }.lparams(width = dip(50), height = dip(50))
 
                 val namaClub = textView("Real Madrid"){
-                    textSize = 20f
+                    textSize = 18f
                     textColor = Color.BLACK
                     textAlignment = View.TEXT_ALIGNMENT_CENTER
                 }.lparams{
