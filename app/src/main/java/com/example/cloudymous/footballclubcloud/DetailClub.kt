@@ -10,36 +10,47 @@ import org.jetbrains.anko.*
 
 class DetailClub : AppCompatActivity() {
 
-    private var namaClubExtra: String = ""
-    private var deskripsiClubExtra: String = ""
-    private lateinit var namaClubTV: TextView
-    private lateinit var deskripsiClubTV: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DetailClubUI().setContentView(this)
 
-        verticalLayout {
-            padding = dip(16)
+    }
 
-            namaClubTV = textView() {
-                textSize = 20f
-                textColor = Color.BLACK
-                textAlignment = View.TEXT_ALIGNMENT_CENTER
-            }
+    class DetailClubUI : AnkoComponent<DetailClub> {
 
-
-            deskripsiClubTV = textView("Club Impian ada di tengah peluh") {
-                textColor = Color.BLACK
-            }
-        }
-
+        private var namaClubExtra: String = ""
+        private var deskripsiClubExtra: String = ""
+        private lateinit var namaClubTV: TextView
+        private lateinit var deskripsiClubTV: TextView
         val intent = intent
-        namaClubExtra = intent.getStringExtra("namaClubExt")
-        deskripsiClubExtra = intent.getStringExtra("deskripsiClub")
 
-        namaClubTV.text = namaClubExtra
-        deskripsiClubTV.text = deskripsiClubExtra
+        override fun createView(ui: AnkoContext<DetailClub>) = with(ui) {
 
+            verticalLayout {
+                padding = dip(16)
+
+                namaClubTV = textView() {
+                    textSize = 20f
+                    textColor = Color.BLACK
+                    textAlignment = View.TEXT_ALIGNMENT_CENTER
+                }
+
+
+                deskripsiClubTV = textView("Club Impian ada di tengah peluh") {
+                    textColor = Color.BLACK
+                }
+
+                namaClubExtra = intent.getStringExtra("namaClubExt")
+                deskripsiClubExtra = intent.getStringExtra("deskripsiClub")
+
+                namaClubTV.text = namaClubExtra
+                deskripsiClubTV.text = deskripsiClubExtra
+
+            }
+
+        }
     }
 
 }
