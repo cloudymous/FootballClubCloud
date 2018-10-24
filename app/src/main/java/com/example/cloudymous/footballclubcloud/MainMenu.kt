@@ -12,13 +12,17 @@ import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class MainMenu : AppCompatActivity() {
 
+    private val clubs: MutableList<Clubs> = mutableListOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MainMenuUI().setContentView(this)
 
+
     }
 
     class MainMenuUI : AnkoComponent<MainMenu> {
+
         override fun createView(ui: AnkoContext<MainMenu>) = with(ui) {
             linearLayout {
                 lparams(width = matchParent, height = wrapContent)
@@ -37,7 +41,7 @@ class MainMenu : AppCompatActivity() {
                     marginStart = dip(16)
                 }
 
-                onClick { startActivity<DetailClub>("namaClubExt" to "${namaClub.text}", "deskripsiClub" to "Impian Ada di tengah peluh" ) }
+//                onClick { startActivity<DetailClub>("namaClubExt" to "${namaClub.text}", "deskripsiClub" to "Impian Ada di tengah peluh" ) }
 
             }
         }
