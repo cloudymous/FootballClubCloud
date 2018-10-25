@@ -24,7 +24,6 @@ class DetailClub : AppCompatActivity() {
         private var deskripsiClubExtra: String = ""
         private lateinit var namaClubTV: TextView
         private lateinit var deskripsiClubTV: TextView
-        val intent = intent
 
         override fun createView(ui: AnkoContext<DetailClub>) = with(ui) {
 
@@ -42,8 +41,8 @@ class DetailClub : AppCompatActivity() {
                     textColor = Color.BLACK
                 }
 
-                namaClubExtra = intent.getStringExtra("namaClubExt")
-                deskripsiClubExtra = intent.getStringExtra("deskripsiClub")
+//                namaClubExtra = intent.getStringExtra("namaClubExt")
+//                deskripsiClubExtra = intent.getStringExtra("deskripsiClub")
 
                 namaClubTV.text = namaClubExtra
                 deskripsiClubTV.text = deskripsiClubExtra
