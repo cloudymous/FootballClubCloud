@@ -1,17 +1,14 @@
 package com.example.cloudymous.footballclubcloud
 
 
-import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
-import android.view.Gravity
-import android.view.View
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
 import com.example.cloudymous.footballclubcloud.R.array.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
-import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class MainMenu : AppCompatActivity() {
 
@@ -20,10 +17,13 @@ class MainMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MainMenuUI().setContentView(this)
+
+        val list = findViewById<RecyclerView>(R.id.listnya)
+
         loadData()
 
-//        val adapter: ClubAdapter = ClubAdapter(ArrayList<Clubs>())
-//        MainMenuUI(adapter).setContentView(this)
+        list.layoutManager = LinearLayoutManager(this)
+        list.adapter = ClubAdapter(this, clubs)
 
     }
 
@@ -35,9 +35,8 @@ class MainMenu : AppCompatActivity() {
                 padding = dip(16)
 
                 recyclerView {
+                    id = R.id.listnya
                     lparams(width = matchParent, height = wrapContent)
-                    layoutManager = LinearLayout(ctx)
-                    adapter = mAdapter
                 }
             }
         }
