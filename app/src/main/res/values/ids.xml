@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="name" type="id"/>
+    <item name="gambar" type="id"/>
+    <item name="desk" type="id"/>
+    <item name="list_club" type="id"/>
+</resources>
