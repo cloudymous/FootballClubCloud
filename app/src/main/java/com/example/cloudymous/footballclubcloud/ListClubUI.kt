@@ -7,8 +7,8 @@ import org.jetbrains.anko.*
 
 class ListClubUI : AnkoComponent<MainMenu> {
 
-    val IdImageView = 1
-    val IdClubName = 2
+//        val IdImageView = 1
+//        val IdClubName = 2
 
     override fun createView(ui: AnkoContext<MainMenu>) = with(ui) {
         var list_club = linearLayout {
@@ -16,22 +16,19 @@ class ListClubUI : AnkoComponent<MainMenu> {
             padding = dip(16)
 
             imageView {
-                id = IdImageView
+                id = R.id.image
                 setImageResource(R.drawable.img_madrid)
             }.lparams(width = dip(50), height = dip(50))
 
-            textView("Real Madrid"){
-                id = IdClubName
+            textView("Real Madrid") {
+                id = R.id.name
                 textSize = 18f
                 textColor = Color.BLACK
                 textAlignment = View.TEXT_ALIGNMENT_CENTER
-            }.lparams{
+            }.lparams {
                 gravity = Gravity.CENTER_VERTICAL
                 marginStart = dip(16)
             }
-
-//            onClick { startActivity<DetailClub>("namaClubExt" to "${namaClub.text}", "deskripsiClub" to "Impian Ada di tengah peluh" ) }
-
         }
     }
 }
