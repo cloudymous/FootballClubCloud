@@ -12,6 +12,17 @@
         <item>Arsenal FC</item>
     </string-array>
 
+    <string-array name="club_desc">
+        <item>Barcelona FC adalah</item>
+        <item>Real Madrid FC adalah</item>
+        <item>Bayern Munchen FC adalah</item>
+        <item>Manchester City FC adalah</item>
+        <item>Manchester United FC adalah</item>
+        <item>Chelsea FC adalah</item>
+        <item>AC Milan FC adalah</item>
+        <item>Arsenal FC adalah</item>
+    </string-array>
+
     <array name="club_image">
         <item>@drawable/img_barca</item>
         <item>@drawable/img_madrid</item>
