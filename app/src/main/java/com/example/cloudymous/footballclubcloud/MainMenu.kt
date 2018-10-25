@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Layout
 import android.view.Gravity
 import android.view.View
+import com.example.cloudymous.footballclubcloud.R.array.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 
@@ -18,6 +19,7 @@ class MainMenu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         MainMenuUI().setContentView(this)
 
+        loadData()
 
     }
 
@@ -45,6 +47,20 @@ class MainMenu : AppCompatActivity() {
 
             }
         }
+    }
+
+    private fun loadData(){
+        val nama = resources.getStringArray(club_name)
+        val desc = resources.getStringArray(club_desc)
+        val image = resources.obtainTypedArray(club_image)
+
+        clubs.clear()
+
+        for (i in nama.indices){
+            clubs.add(Clubs(nama[i], desc[i], image.getResourceId(i,0)))
+        }
+
+        image.recycle()
     }
 
 
