@@ -19,10 +19,11 @@ class MainMenu : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        MainMenuUI().setContentView(this)
+        MainMenuUI().setContentView(this)
+        loadData()
 
-        val adapter: ClubAdapter = ClubAdapter(ArrayList<Clubs>())
-        MainMenuUI(adapter).setContentView(this)
+//        val adapter: ClubAdapter = ClubAdapter(ArrayList<Clubs>())
+//        MainMenuUI(adapter).setContentView(this)
 
     }
 
@@ -42,48 +43,19 @@ class MainMenu : AppCompatActivity() {
         }
     }
 
-    class ListClubUI : AnkoComponent<MainMenu> {
-
-        val IdImageView = 1
-        val IdClubName = 2
-
-        override fun createView(ui: AnkoContext<MainMenu>) = with(ui) {
-            var list_club = linearLayout {
-                lparams(width = matchParent, height = wrapContent)
-                padding = dip(16)
-
-                imageView {
-                    id = IdImageView
-                    setImageResource(R.drawable.img_madrid)
-                }.lparams(width = dip(50), height = dip(50))
-
-                textView("Real Madrid"){
-                    id = IdClubName
-                    textSize = 18f
-                    textColor = Color.BLACK
-                    textAlignment = View.TEXT_ALIGNMENT_CENTER
-                }.lparams{
-                    gravity = Gravity.CENTER_VERTICAL
-                    marginStart = dip(16)
-                }
-            }
-        }
-    }
-
-    private fun loadData(){
+    private fun loadData() {
         val nama = resources.getStringArray(club_name)
         val desc = resources.getStringArray(club_desc)
         val image = resources.obtainTypedArray(club_image)
 
         clubs.clear()
 
-        for (i in nama.indices){
-            clubs.add(Clubs(nama[i], desc[i], image.getResourceId(i,0)))
+        for (i in nama.indices) {
+            clubs.add(Clubs(nama[i], desc[i], image.getResourceId(i, 0)))
         }
 
         image.recycle()
     }
-
 
 
 }
