@@ -7,8 +7,10 @@ import android.os.Bundle
 import android.text.Layout
 import android.view.Gravity
 import android.view.View
+import android.widget.LinearLayout
 import com.example.cloudymous.footballclubcloud.R.array.*
 import org.jetbrains.anko.*
+import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class MainMenu : AppCompatActivity() {
@@ -17,9 +19,10 @@ class MainMenu : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        MainMenuUI().setContentView(this)
+//        MainMenuUI().setContentView(this)
 
-        loadData()
+        val adapter: ClubAdapter = ClubAdapter(ArrayList<Clubs>())
+        MainMenuUI(adapter).setContentView(this)
 
     }
 
@@ -30,11 +33,32 @@ class MainMenu : AppCompatActivity() {
                 lparams(width = matchParent, height = wrapContent)
                 padding = dip(16)
 
+                recyclerView {
+                    lparams(width = matchParent, height = wrapContent)
+                    layoutManager = LinearLayout(ctx)
+                    adapter = mAdapter
+                }
+            }
+        }
+    }
+
+    class ListClubUI : AnkoComponent<MainMenu> {
+
+        val IdImageView = 1
+        val IdClubName = 2
+
+        override fun createView(ui: AnkoContext<MainMenu>) = with(ui) {
+            var list_club = linearLayout {
+                lparams(width = matchParent, height = wrapContent)
+                padding = dip(16)
+
                 imageView {
+                    id = IdImageView
                     setImageResource(R.drawable.img_madrid)
                 }.lparams(width = dip(50), height = dip(50))
 
-                val namaClub = textView("Real Madrid"){
+                textView("Real Madrid"){
+                    id = IdClubName
                     textSize = 18f
                     textColor = Color.BLACK
                     textAlignment = View.TEXT_ALIGNMENT_CENTER
@@ -42,9 +66,6 @@ class MainMenu : AppCompatActivity() {
                     gravity = Gravity.CENTER_VERTICAL
                     marginStart = dip(16)
                 }
-
-//                onClick { startActivity<DetailClub>("namaClubExt" to "${namaClub.text}", "deskripsiClub" to "Impian Ada di tengah peluh" ) }
-
             }
         }
     }
