@@ -7,7 +7,6 @@ import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
-import kotlinx.android.extensions.LayoutContainer
 import org.jetbrains.anko.*
 
 class ClubAdapter(private val context: Context, private val items: List<Clubs>, private val listener: (Clubs) -> Unit)
