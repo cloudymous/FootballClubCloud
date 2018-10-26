@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud
+package com.example.cloudymous.footballclubcloud.Club
 
 import android.content.Context
 import android.graphics.Color
@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.cloudymous.footballclubcloud.R
 import com.squareup.picasso.Picasso
 import org.jetbrains.anko.*
 
@@ -14,7 +15,11 @@ class ClubAdapter(private val context: Context, private val items: List<Clubs>, 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {
-        return TeamViewHolder(ListClubUI().createView(AnkoContext.create(parent.context, parent)))
+        return TeamViewHolder(
+            ListClubUI().createView(
+                AnkoContext.create(parent.context, parent)
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: TeamViewHolder, position: Int) {

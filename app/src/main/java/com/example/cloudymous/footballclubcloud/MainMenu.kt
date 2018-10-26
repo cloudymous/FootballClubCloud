@@ -5,7 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.example.cloudymous.footballclubcloud.Club.ClubAdapter
+import com.example.cloudymous.footballclubcloud.Club.Clubs
 import com.example.cloudymous.footballclubcloud.R.array.*
+import com.example.cloudymous.footballclubcloud.View.DetailClub
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 
@@ -22,7 +25,7 @@ class MainMenu : AppCompatActivity() {
         loadData()
 
         list.layoutManager = LinearLayoutManager(this)
-        list.adapter = ClubAdapter(this, clubs){
+        list.adapter = ClubAdapter(this, clubs) {
             startActivity<DetailClub>("namaClubExt" to it.namaClub, "deskClubExt" to it.deskripsiClub)
         }
 
