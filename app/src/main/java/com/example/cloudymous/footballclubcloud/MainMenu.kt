@@ -35,7 +35,6 @@ class MainMenu : AppCompatActivity() {
         override fun createView(ui: AnkoContext<MainMenu>) = with(ui) {
             linearLayout {
                 lparams(width = matchParent, height = wrapContent)
-                padding = dip(8)
 
                 recyclerView {
                     id = R.id.listnya
