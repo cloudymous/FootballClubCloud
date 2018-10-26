@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.LinearLayout
-import android.widget.Toast
 import com.example.cloudymous.footballclubcloud.R.array.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
@@ -25,8 +23,9 @@ class MainMenu : AppCompatActivity() {
 
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = ClubAdapter(this, clubs){
-            val toast = Toast.makeText(applicationContext, it.namaClub, Toast.LENGTH_SHORT)
-            toast.show()
+//            val toast = Toast.makeText(applicationContext, it.namaClub, Toast.LENGTH_SHORT)
+//            toast.show()
+            startActivity<DetailClub>("namaClubExt" to it.namaClub, "deskClubExt" to it.deskripsiClub)
         }
 
     }
@@ -36,7 +35,7 @@ class MainMenu : AppCompatActivity() {
         override fun createView(ui: AnkoContext<MainMenu>) = with(ui) {
             linearLayout {
                 lparams(width = matchParent, height = wrapContent)
-                padding = dip(16)
+                padding = dip(8)
 
                 recyclerView {
                     id = R.id.listnya
