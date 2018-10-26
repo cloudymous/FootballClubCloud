@@ -3,16 +3,19 @@ package com.example.cloudymous.footballclubcloud.View
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Layout
+import android.view.Gravity
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
+import com.example.cloudymous.footballclubcloud.R
 import org.jetbrains.anko.*
 
 class DetailClub : AppCompatActivity() {
 
     private var namaClubExtra: String = ""
     private var deskripsiClubExtra: String = ""
-    private lateinit var namaClubTV: TextView
-    private lateinit var deskripsiClubTV: TextView
+    private var imageClubExtra: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,25 +23,31 @@ class DetailClub : AppCompatActivity() {
         verticalLayout {
             padding = dip(16)
 
-            namaClubTV = textView() {
+            val intent = intent
+            imageClubExtra = intent.getIntExtra("imgClubExtra", 0)
+            namaClubExtra = intent.getStringExtra("namaClubExt")
+            deskripsiClubExtra = intent.getStringExtra("deskClubExt")
+
+            imageView{
+                setImageResource(imageClubExtra)
+            }.lparams{
+                width = dip(50)
+                height = dip (50)
+                gravity = Gravity.CENTER_HORIZONTAL
+            }
+
+            textView(namaClubExtra) {
                 textSize = 20f
                 textColor = Color.BLACK
                 textAlignment = View.TEXT_ALIGNMENT_CENTER
             }
 
 
-            deskripsiClubTV = textView() {
+            textView(deskripsiClubExtra) {
                 textColor = Color.BLACK
             }
 
         }
-
-        val intent = intent
-        namaClubExtra = intent.getStringExtra("namaClubExt")
-        deskripsiClubExtra = intent.getStringExtra("deskClubExt")
-
-        namaClubTV.text = namaClubExtra
-        deskripsiClubTV.text = deskripsiClubExtra
 
     }
 }
