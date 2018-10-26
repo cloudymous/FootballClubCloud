@@ -13,14 +13,14 @@
     </string-array>
 
     <string-array name="club_desc">
-        <item>Barcelona FC adalah</item>
-        <item>Real Madrid FC adalah</item>
-        <item>Bayern Munchen FC adalah</item>
-        <item>Manchester City FC adalah</item>
-        <item>Manchester United FC adalah</item>
-        <item>Chelsea FC adalah</item>
-        <item>AC Milan FC adalah</item>
-        <item>Arsenal FC adalah</item>
+        <item>Futbol Club Barcelona, known simply as Barcelona and colloquially as Barça ([ˈbaɾsə]), is a professional football club based in Barcelona, Catalonia, Spain.</item>
+        <item>Real Madrid Club de Fútbol (Spanish pronunciation: [reˈal maˈðɾið ˈkluβ ðe ˈfuðβol]; "Royal Madrid Football Club"), commonly known as Real Madrid, is a professional football club based in Madrid, Spain.</item>
+        <item>Fußball-Club Bayern München e.V., commonly known as FC Bayern München (German pronunciation: [ʔɛf tseː ˈbaɪɐn ˈmʏnçn̩]), FCB, Bayern Munich, or FC Bayern, is a German sports club based in Munich, Bavaria (Bayern).</item>
+        <item>Manchester City Football Club, commonly known as City, is a football club in Manchester, England. Founded in 1880 as St. Mark's (West Gorton), it became Ardwick Association Football Club in 1887 and Manchester City in 1894.</item>
+        <item>Manchester United Football Club, commonly known as Man. United or simply United, is a professional football club based in Old Trafford, Greater Manchester, England, that competes in the Premier League, the top flight of English football. </item>
+        <item>Chelsea Football Club is a professional football club in London, England, that competes in the Premier League. Founded in 1905, the club's home ground since then has been Stamford Bridge.</item>
+        <item>Associazione Calcio Milan (Italian pronunciation: [assotʃatˈtsjoːne ˈkaltʃo ˈmiːlan]), commonly referred to as A.C. Milan or simply Milan, is a professional football club in Milan, Italy, founded in 1899.</item>
+        <item>Arsenal Football Club is a professional football club based in Islington, London, England, that plays in the Premier League, the top flight of English football.</item>
     </string-array>
 
     <array name="club_image">
