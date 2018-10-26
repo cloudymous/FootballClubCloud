@@ -10,18 +10,22 @@ import com.squareup.picasso.Picasso
 import org.jetbrains.anko.*
 
 class ClubAdapter(private val context: Context, private val items: List<Clubs>)
-    : RecyclerView.Adapter<ClubAdapter.ViewHolder>() {
+    : RecyclerView.Adapter<ClubAdapter.TeamViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(LayoutInflater.from(context).inflate(ListClubUI(), parent, false))
+//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+//        ViewHolder(LayoutInflater.from(context).inflate(ListClubUI(), parent, false))
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {
+        return TeamViewHolder(ListClubUI().createView(AnkoContext.create(parent.context, parent)))
+    }
+
+    override fun onBindViewHolder(holder: TeamViewHolder, position: Int) {
         holder.bindItem(items[position])
     }
 
     override fun getItemCount(): Int = items.size
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
+    class TeamViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
         private val name = view.findViewById<TextView>(R.id.nama_club)
 //        private val deskripsi = view.findViewById<TextView>(R.id.desk_club)
@@ -35,12 +39,12 @@ class ClubAdapter(private val context: Context, private val items: List<Clubs>)
     }
 }
 
-class ListClubUI : AnkoComponent<MainMenu> {
+class ListClubUI : AnkoComponent<ViewGroup> {
 
-    override fun createView(ui: AnkoContext<MainMenu>) = with(ui) {
+    override fun createView(ui: AnkoContext<ViewGroup>) = with(ui) {
         linearLayout {
             lparams(width = matchParent, height = wrapContent)
-            padding = dip(16)
+            padding = dip(8)
             id = R.id.list_club
 
             imageView {
