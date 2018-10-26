@@ -26,7 +26,11 @@ class MainMenu : AppCompatActivity() {
 
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = ClubAdapter(this, clubs) {
-            startActivity<DetailClub>("namaClubExt" to it.namaClub, "deskClubExt" to it.deskripsiClub)
+            startActivity<DetailClub>(
+                "namaClubExt" to "${it.namaClub}",
+                "deskClubExt" to "${it.deskripsiClub}",
+                "imgClubExt" to "${it.imageClub}"
+            )
         }
 
     }
