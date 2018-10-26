@@ -16,7 +16,6 @@ class DetailClub : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        DetailClubUI().setContentView(this)
 
         verticalLayout {
             padding = dip(16)
@@ -44,9 +43,4 @@ class DetailClub : AppCompatActivity() {
     }
 }
 
-//    class DetailClubUI : AnkoComponent<DetailClub> {
-//
-//
-//
-//        override fun createView(ui: AnkoContext<DetailClub>) = with(ui) {
 

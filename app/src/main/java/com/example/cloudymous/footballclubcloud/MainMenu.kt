@@ -23,8 +23,6 @@ class MainMenu : AppCompatActivity() {
 
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = ClubAdapter(this, clubs){
-//            val toast = Toast.makeText(applicationContext, it.namaClub, Toast.LENGTH_SHORT)
-//            toast.show()
             startActivity<DetailClub>("namaClubExt" to it.namaClub, "deskClubExt" to it.deskripsiClub)
         }
 
