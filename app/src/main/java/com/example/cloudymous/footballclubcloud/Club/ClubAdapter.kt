@@ -36,7 +36,7 @@ class ClubAdapter(private val context: Context, private val items: List<Clubs>, 
         fun bindItem(items: Clubs, listener: (Clubs) -> Unit) {
 
             name.text = items.namaClub
-            items.imageClub?.let { Picasso.get().load(it).into(gambar) }
+            items.imageClub?.let { Picasso.get().load(it).resize(100,100).into(gambar) }
             itemView.setOnClickListener{
                 listener(items)
             }
@@ -56,7 +56,8 @@ class ListClubUI : AnkoComponent<ViewGroup> {
             imageView {
                 id = R.id.gambar_club
                 //setImageResource(R.drawable.img_madrid)
-            }.lparams(width = dip(50), height = dip(50))
+            }
+//                .lparams(width = dip(50), height = dip(50))
 
             textView() {
                 id = R.id.nama_club
