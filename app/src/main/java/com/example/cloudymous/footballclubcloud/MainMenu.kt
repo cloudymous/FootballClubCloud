@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.example.cloudymous.footballclubcloud.R.array.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
@@ -23,7 +24,10 @@ class MainMenu : AppCompatActivity() {
         loadData()
 
         list.layoutManager = LinearLayoutManager(this)
-        list.adapter = ClubAdapter(this, clubs)
+        list.adapter = ClubAdapter(this, clubs){
+            val toast = Toast.makeText(applicationContext, it.namaClub, Toast.LENGTH_SHORT)
+            toast.show()
+        }
 
     }
 
