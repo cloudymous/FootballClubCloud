@@ -28,8 +28,8 @@ class DetailClub : AppCompatActivity() {
             namaClubExtra = intent.getStringExtra("namaClubExt")
             deskripsiClubExtra = intent.getStringExtra("deskClubExt")
 
-            imageView{
-                setImageResource(imageClubExtra)
+            imageView(){
+
             }.lparams{
                 width = dip(50)
                 height = dip (50)

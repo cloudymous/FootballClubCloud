@@ -8,10 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.cloudymous.footballclubcloud.R
 import com.squareup.picasso.Picasso
+import kotlinx.android.extensions.LayoutContainer
 import org.jetbrains.anko.*
 
-class ClubAdapter(private val context: Context, private val items: List<Clubs>, private val listener: (Clubs) -> Unit)
-    : RecyclerView.Adapter<ClubAdapter.TeamViewHolder>() {
+class ClubAdapter(private val context: Context, private val items: List<Clubs>, private val listener: (Clubs) -> Unit) :
+    RecyclerView.Adapter<ClubAdapter.TeamViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {
@@ -28,16 +29,17 @@ class ClubAdapter(private val context: Context, private val items: List<Clubs>, 
 
     override fun getItemCount(): Int = items.size
 
-    class TeamViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    //    class TeamViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class TeamViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
+        LayoutContainer {
 
-        private val name = view.findViewById<TextView>(R.id.nama_club)
-        private val gambar = view.findViewById<ImageView>(R.id.gambar_club)
+        private val name = containerView.find<TextView>(R.id.namaClubTV)
+        private val gambar = containerView.find<ImageView>(R.id.gambarClubIV)
 
         fun bindItem(items: Clubs, listener: (Clubs) -> Unit) {
-
             name.text = items.namaClub
             items.imageClub?.let { Picasso.get().load(it).into(gambar) }
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 listener(items)
             }
 
@@ -49,17 +51,21 @@ class ListClubUI : AnkoComponent<ViewGroup> {
 
     override fun createView(ui: AnkoContext<ViewGroup>) = with(ui) {
         linearLayout {
-            lparams(width = matchParent, height = wrapContent)
-            padding = dip(8)
+            lparams(width = matchParent, height = dip(100))
+            padding = dip(16)
             id = R.id.list_club
 
             imageView {
-                id = R.id.gambar_club
-                //setImageResource(R.drawable.img_madrid)
-            }.lparams(width = dip(50), height = dip(50))
+                id = R.id.gambarClubIV
+            }.lparams {
+                width = dip(50)
+                height = dip(50)
+                gravity = Gravity.CENTER_VERTICAL
+                marginStart = dip(8)
+            }
 
             textView() {
-                id = R.id.nama_club
+                id = R.id.namaClubTV
                 textSize = 18f
                 textColor = Color.BLACK
                 textAlignment = View.TEXT_ALIGNMENT_CENTER
