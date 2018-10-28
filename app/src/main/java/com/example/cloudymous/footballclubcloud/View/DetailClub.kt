@@ -19,11 +19,11 @@ class DetailClub : AppCompatActivity() {
             val intent = intent
             val clubDetail = intent.getParcelableExtra<Clubs>("ClubExtra")
 
-            imageView{
+            imageView {
                 setImageResource(clubDetail.imageClub)
-            }.lparams{
+            }.lparams {
                 width = dip(50)
-                height = dip (50)
+                height = dip(50)
                 gravity = Gravity.CENTER_HORIZONTAL
             }
 
