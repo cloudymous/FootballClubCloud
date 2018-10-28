@@ -5,4 +5,8 @@
     <item name="desk_club" type="id"/>
     <item name="list_club" type="id"/>
     <item name="listnya" type="id"/>
+    <item name="namaClub" type="id"/>
+    <item name="gambarClub" type="id"/>
+    <item name="gambarClubIV" type="id"/>
+    <item name="namaClubTV" type="id"/>
 </resources>
