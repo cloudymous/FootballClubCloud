@@ -3,20 +3,12 @@ package com.example.cloudymous.footballclubcloud.View
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
 import android.view.Gravity
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.example.cloudymous.footballclubcloud.Club.Clubs
-import com.example.cloudymous.footballclubcloud.R
 import org.jetbrains.anko.*
 
 class DetailClub : AppCompatActivity() {
-
-    private var namaClubExtra: String = ""
-    private var deskripsiClubExtra: String = ""
-    private var imageClubExtra: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +18,6 @@ class DetailClub : AppCompatActivity() {
 
             val intent = intent
             val clubDetail = intent.getParcelableExtra<Clubs>("ClubExtra")
-//            imageClubExtra = intent.getIntExtra("imgClubExtra", 0)
-//            namaClubExtra = intent.getStringExtra("namaClubExt")
-//            deskripsiClubExtra = intent.getStringExtra("deskClubExt")
 
             imageView{
                 setImageResource(clubDetail.imageClub)
