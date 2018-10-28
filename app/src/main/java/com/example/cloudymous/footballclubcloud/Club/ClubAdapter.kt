@@ -38,7 +38,7 @@ class ClubAdapter(private val context: Context, private val items: List<Clubs>, 
 
         fun bindItem(items: Clubs, listener: (Clubs) -> Unit) {
             name.text = items.namaClub
-            items.imageClub?.let { Picasso.get().load(it).into(gambar) }
+            items.imageClub.let { Picasso.get().load(it).into(gambar) }
             itemView.setOnClickListener {
                 listener(items)
             }
@@ -64,7 +64,7 @@ class ListClubUI : AnkoComponent<ViewGroup> {
                 marginStart = dip(8)
             }
 
-            textView() {
+            textView {
                 id = R.id.namaClubTV
                 textSize = 18f
                 textColor = Color.BLACK
