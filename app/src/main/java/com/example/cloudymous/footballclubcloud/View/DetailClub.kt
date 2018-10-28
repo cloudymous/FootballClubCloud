@@ -8,6 +8,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.cloudymous.footballclubcloud.Club.Clubs
 import com.example.cloudymous.footballclubcloud.R
 import org.jetbrains.anko.*
 
@@ -24,26 +25,27 @@ class DetailClub : AppCompatActivity() {
             padding = dip(16)
 
             val intent = intent
-            imageClubExtra = intent.getIntExtra("imgClubExtra", 0)
-            namaClubExtra = intent.getStringExtra("namaClubExt")
-            deskripsiClubExtra = intent.getStringExtra("deskClubExt")
+            val clubDetail = intent.getParcelableExtra<Clubs>("ClubExtra")
+//            imageClubExtra = intent.getIntExtra("imgClubExtra", 0)
+//            namaClubExtra = intent.getStringExtra("namaClubExt")
+//            deskripsiClubExtra = intent.getStringExtra("deskClubExt")
 
             imageView{
-                setImageResource(imageClubExtra)
+                setImageResource(clubDetail.imageClub)
             }.lparams{
                 width = dip(50)
                 height = dip (50)
                 gravity = Gravity.CENTER_HORIZONTAL
             }
 
-            textView(namaClubExtra) {
+            textView(clubDetail.namaClub) {
                 textSize = 20f
                 textColor = Color.BLACK
                 textAlignment = View.TEXT_ALIGNMENT_CENTER
             }
 
 
-            textView(deskripsiClubExtra) {
+            textView(clubDetail.deskripsiClub) {
                 textColor = Color.BLACK
             }
 
