@@ -14,8 +14,8 @@ import com.example.cloudymous.footballclubcloud.Presenter.MainAdapter
 import com.example.cloudymous.footballclubcloud.Presenter.MainPresenter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.color.colorAccent
-import com.example.cloudymous.footballclubcloud.invisible
-import com.example.cloudymous.footballclubcloud.visible
+import com.example.cloudymous.footballclubcloud.Utils.invisible
+import com.example.cloudymous.footballclubcloud.Utils.visible
 import com.google.gson.Gson
 
 import org.jetbrains.anko.*
