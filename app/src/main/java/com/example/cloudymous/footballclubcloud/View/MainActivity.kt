@@ -12,14 +12,18 @@ import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Model.Team
 import com.example.cloudymous.footballclubcloud.Presenter.MainAdapter
 import com.example.cloudymous.footballclubcloud.Presenter.MainPresenter
+import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.color.colorAccent
+import com.example.cloudymous.footballclubcloud.invisible
+import com.example.cloudymous.footballclubcloud.visible
 import com.google.gson.Gson
 
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
+import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainView {
 
     private var teams: MutableList<Team> = mutableListOf()
     private lateinit var presenter: MainPresenter
@@ -34,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        adapter = MainAdapter(Team)
+        adapter = MainAdapter(teams)
         listTeam.adapter = adapter
 
         val request = ApiRepository()
@@ -42,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         presenter = MainPresenter(this, request, gson)
 
-        val spinnerItems = resources.getStringArray(league)
+        val spinnerItems = resources.getStringArray(R.array.league)
         val spinnerAdapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, spinnerItems)
         spinner.adapter = spinnerAdapter
 
@@ -52,8 +56,11 @@ class MainActivity : AppCompatActivity() {
                 presenter.getTeamList(leagueName)
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        swipeRefresh.onRefresh {
+            presenter.getTeamList(leagueName)
         }
 
 
@@ -89,6 +96,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun showLoading(){
+        progressBar.visible()
+    }
+
+    override fun hideLoading() {
+        progressBar.invisible()
+    }
+
+    override fun showTeamList(data: List<Team>) {
+       swipeRefresh.isRefreshing = false
+        teams.clear()
+        teams.addAll(data)
+        adapter.notifyDataSetChanged()
     }
 
 
