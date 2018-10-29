@@ -38,31 +38,6 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        adapter = MainAdapter(teams)
-        listTeam.adapter = adapter
-
-        val request = ApiRepository()
-        val gson = Gson()
-
-        presenter = MainPresenter(this, request, gson)
-
-        val spinnerItems = resources.getStringArray(R.array.league)
-        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerItems)
-        spinner.adapter = spinnerAdapter
-
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                leagueName = spinner.selectedItem.toString()
-                presenter.getTeamList(leagueName)
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }
-
-        swipeRefresh.onRefresh {
-            presenter.getTeamList(leagueName)
-        }
-
 
         linearLayout {
             lparams(width = matchParent, height = wrapContent)
@@ -85,7 +60,7 @@ class MainActivity : AppCompatActivity(), MainView {
 
                     listTeam = recyclerView {
                         lparams(width = matchParent, height = wrapContent)
-                        layoutManager = LinearLayoutManager(this@MainActivity)
+                        layoutManager = LinearLayoutManager(ctx)
                     }
 
                     progressBar = progressBar {
@@ -94,6 +69,31 @@ class MainActivity : AppCompatActivity(), MainView {
                     }
                 }
             }
+        }
+
+        val spinnerItems = resources.getStringArray(R.array.league)
+        val spinnerAdapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, spinnerItems)
+        spinner.adapter = spinnerAdapter
+
+        adapter = MainAdapter(teams)
+        listTeam.adapter = adapter
+
+        val request = ApiRepository()
+        val gson = Gson()
+
+        presenter = MainPresenter(this, request, gson)
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                leagueName = spinner.selectedItem.toString()
+                presenter.getTeamList(leagueName)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        swipeRefresh.onRefresh {
+            presenter.getTeamList(leagueName)
         }
 
     }
