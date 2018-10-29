@@ -1,2 +1,3 @@
 # Aplikasi Football Club
-Aplikasi sederhana pengimplementasian library Anko DSL. Semua layout menggunakan Anko tanpa XML. Selain itu disini juga kita mengimplementasikan recyclerview menggunakan custom adapter untuk membuat list dan juga menggunakan Kotlin Android Extensions.
+### Menggunakan API Response
+Dalam aplikasi ini kita menggunakan API untuk menarik data dari internet dan menampilkannya kedalam aplikasi dengan menggunakan _RecyclerView_. Dalam project ini juga kita sudah menerapkan MVP untuk mengatur struktur project agar lebih terstruktur dan mudah dikembangkan kedepannya.
