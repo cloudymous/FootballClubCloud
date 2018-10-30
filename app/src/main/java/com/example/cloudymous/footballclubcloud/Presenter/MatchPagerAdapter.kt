@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import com.example.cloudymous.footballclubcloud.View.LastMatchFragment
 import com.example.cloudymous.footballclubcloud.View.NextMatchFragment
 
-class MatchPagerAdapter (fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class MatchPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     private val pages = listOf(
         LastMatchFragment(),
@@ -22,10 +22,9 @@ class MatchPagerAdapter (fm: FragmentManager) : FragmentPagerAdapter(fm) {
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return if (position == 0){
-            "Last Match"
-        } else {
-            "Next Match"
+        return when (position) {
+            0 -> "Last Match"
+            else -> "Next Match"
         }
     }
 }
