@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Football Club Cloud</string>
+    <string name="app_name">Football Schedule</string>
 
     <array name="league">
         <item>English Premier League</item>
