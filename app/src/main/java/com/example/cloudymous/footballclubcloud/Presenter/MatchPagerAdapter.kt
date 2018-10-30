@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import com.example.cloudymous.footballclubcloud.View.LastMatchFragment
 import com.example.cloudymous.footballclubcloud.View.NextMatchFragment
 
-class PagerAdapter (fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class MatchPagerAdapter (fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     private val pages = listOf(
         LastMatchFragment(),
