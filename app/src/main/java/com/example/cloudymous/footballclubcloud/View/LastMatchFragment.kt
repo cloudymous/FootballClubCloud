@@ -17,6 +17,8 @@ import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_last_match.*
+import kotlinx.android.synthetic.main.main_activity.*
+import org.jetbrains.anko.support.v4.find
 
 class LastMatchFragment : Fragment(), LastMatchView {
 
@@ -24,8 +26,10 @@ class LastMatchFragment : Fragment(), LastMatchView {
 
     private lateinit var adapter: LastMatchAdapter
     private lateinit var presenter: LastMatchPresenter
-    private lateinit var progressBar: ProgressBar
     private lateinit var swipeRefresh: SwipeRefreshLayout
+
+    var progressBar = find<ProgressBar>(R.id.progress_bar)
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +47,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
         val request = ApiRepository()
         val gson = Gson()
 
-        val leagueId = R.string.leagueId.toString()
+        val leagueId = "4328"
         presenter = LastMatchPresenter(this, request, gson)
         presenter.getLastMatch(leagueId)
 
