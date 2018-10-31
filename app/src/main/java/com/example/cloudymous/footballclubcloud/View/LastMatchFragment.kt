@@ -28,7 +28,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
     private lateinit var presenter: LastMatchPresenter
     private lateinit var swipeRefresh: SwipeRefreshLayout
 
-    var progressBar = find<ProgressBar>(R.id.progress_bar)
+    private lateinit var progressBar: ProgressBar = find(R.id.progress_bar)
 
 
     override fun onCreateView(
