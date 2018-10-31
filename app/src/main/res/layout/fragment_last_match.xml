@@ -5,11 +5,9 @@
              android:layout_height="match_parent"
              tools:context=".View.LastMatchFragment">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/last_match_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="40sp"
-            android:text="@string/last_match_fragment"/>
+            android:layout_height="wrap_content"/>
 
 </FrameLayout>
