@@ -38,12 +38,12 @@ class LastMatchUI : AnkoComponent<ViewGroup> {
         return with(ui) {
             linearLayout {
                 lparams(width = matchParent, height = wrapContent)
-                padding = dip(16)
+                padding = dip(8)
                 orientation = LinearLayout.HORIZONTAL
 
-                textView {
+                textView ("Main Menu") {
                     id = R.id.event_name
-                    textSize = 16f
+                    textSize = 14f
                 }.lparams {
                     margin = dip(15)
                 }
