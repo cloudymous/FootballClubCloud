@@ -22,7 +22,7 @@ class LastMatchPresenter (private val view: LastMatchView,
 
             uiThread {
                 view.hideLoading()
-                view.showLastMatchList(data.lastmatch)
+                view.showLastMatchList(data.lastmatchs)
             }
         }
     }
