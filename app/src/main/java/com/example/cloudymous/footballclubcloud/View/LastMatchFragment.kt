@@ -3,7 +3,6 @@ package com.example.cloudymous.footballclubcloud.View
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.widget.SwipeRefreshLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,8 +23,6 @@ class LastMatchFragment : Fragment(), LastMatchView {
 
     private lateinit var adapter: LastMatchAdapter
     private lateinit var presenter: LastMatchPresenter
-
-//    private lateinit var progressBar: ProgressBar
 
 
     override fun onCreateView(
@@ -66,7 +63,6 @@ class LastMatchFragment : Fragment(), LastMatchView {
         lastmatch.clear()
         lastmatch.addAll(data)
         adapter.notifyDataSetChanged()
-
     }
 
 
