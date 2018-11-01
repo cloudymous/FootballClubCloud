@@ -7,7 +7,6 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Model.LastMatch
 import com.example.cloudymous.footballclubcloud.Presenter.LastMatchAdapter
@@ -17,8 +16,7 @@ import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_last_match.*
-import kotlinx.android.synthetic.main.main_activity.*
-import org.jetbrains.anko.support.v4.find
+import org.jetbrains.anko.support.v4.onRefresh
 
 class LastMatchFragment : Fragment(), LastMatchView {
 
@@ -26,9 +24,8 @@ class LastMatchFragment : Fragment(), LastMatchView {
 
     private lateinit var adapter: LastMatchAdapter
     private lateinit var presenter: LastMatchPresenter
-    private lateinit var swipeRefresh: SwipeRefreshLayout
 
-    private lateinit var progressBar: ProgressBar = find(R.id.progress_bar)
+//    private lateinit var progressBar: ProgressBar
 
 
     override fun onCreateView(
@@ -47,22 +44,25 @@ class LastMatchFragment : Fragment(), LastMatchView {
         val request = ApiRepository()
         val gson = Gson()
 
-        val leagueId = "4328"
         presenter = LastMatchPresenter(this, request, gson)
-        presenter.getLastMatch(leagueId)
+        presenter.getLastMatch("4328")
+
+        swipe_refresh.onRefresh {
+            presenter.getLastMatch("4328")
+        }
 
     }
 
     override fun showLoading() {
-        progressBar.visible()
+        progress_bar.visible()
     }
 
     override fun hideLoading() {
-        progressBar.invisible()
+        progress_bar.invisible()
     }
 
     override fun showLastMatchList(data: List<LastMatch>) {
-        swipeRefresh.isRefreshing = false
+        swipe_refresh.isRefreshing = false
         lastmatch.clear()
         lastmatch.addAll(data)
         adapter.notifyDataSetChanged()
