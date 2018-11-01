@@ -17,12 +17,5 @@
             android:layout_gravity="top"/>
 
 
-    <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteY="231dp"
-            tools:layout_editor_absoluteX="168dp"/>
-
 
 </android.support.constraint.ConstraintLayout>
