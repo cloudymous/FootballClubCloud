@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.View
+package com.example.cloudymous.footballclubcloud.View.NextMatch
 
 
 import android.os.Bundle
