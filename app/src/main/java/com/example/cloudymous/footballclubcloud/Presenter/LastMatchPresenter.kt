@@ -4,6 +4,7 @@ import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Api.TheSportDBApi
 import com.example.cloudymous.footballclubcloud.Model.LastMatchResponse
 import com.example.cloudymous.footballclubcloud.View.LastMatchView
+import com.example.cloudymous.footballclubcloud.View.MainView
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -22,7 +23,7 @@ class LastMatchPresenter (private val view: LastMatchView,
 
             uiThread {
                 view.hideLoading()
-                view.showLastMatchList(data.lastmatchs)
+                view.showLastMatchList(data.events)
             }
         }
     }
