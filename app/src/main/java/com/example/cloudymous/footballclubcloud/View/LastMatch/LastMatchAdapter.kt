@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.Presenter
+package com.example.cloudymous.footballclubcloud.View.LastMatch
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -12,7 +12,11 @@ import org.jetbrains.anko.*
 class LastMatchAdapter (private val lastmatch : List<LastMatch>) : RecyclerView.Adapter<LastMatchViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): LastMatchViewHolder {
-        return LastMatchViewHolder(LastMatchUI().createView(AnkoContext.create(parent.context, parent)))
+        return LastMatchViewHolder(
+            LastMatchUI().createView(
+                AnkoContext.create(parent.context, parent)
+            )
+        )
     }
 
     override fun getItemCount(): Int = lastmatch.size
