@@ -1,6 +1,7 @@
 package com.example.cloudymous.footballclubcloud.View.LastMatch
 
 import android.support.v7.widget.RecyclerView
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -48,6 +49,7 @@ class LastMatchUI : AnkoComponent<ViewGroup> {
                 textView ("Main Menu") {
                     id = R.id.event_name
                     textSize = 14f
+                    gravity = Gravity.CENTER_HORIZONTAL
                 }.lparams {
                     margin = dip(15)
                 }
