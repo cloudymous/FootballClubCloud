@@ -4,6 +4,7 @@ package com.example.cloudymous.footballclubcloud.View.LastMatch
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,6 +40,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = LastMatchAdapter(lastmatch)
+        last_match_list.layoutManager = LinearLayoutManager(context)
         last_match_list.adapter = adapter
 
         val request = ApiRepository()
