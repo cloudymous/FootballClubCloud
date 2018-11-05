@@ -15,6 +15,7 @@ import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_last_match.*
+import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.onRefresh
 
 class LastMatchFragment : Fragment(), LastMatchView {
@@ -35,7 +36,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = LastMatchAdapter(context, lastmatch)
+        adapter = LastMatchAdapter(requireContext(), lastmatch)
         last_match_list.layoutManager = LinearLayoutManager(context)
         last_match_list.adapter = adapter
 
