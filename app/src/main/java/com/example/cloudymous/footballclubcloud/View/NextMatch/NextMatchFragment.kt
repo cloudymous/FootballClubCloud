@@ -16,7 +16,6 @@ import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_next_match.*
-import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.onRefresh
 
 class NextMatchFragment : Fragment(), NextMatchView {
