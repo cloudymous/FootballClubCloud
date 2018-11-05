@@ -35,7 +35,7 @@ class LastMatchViewHolder (override val containerView: View) : RecyclerView.View
         home.text = lastmatch.homeTeam
         home_score.text = lastmatch.homeScore
         away.text = lastmatch.awayTeam
-        away_score = lastmatch.awayScore
+        away_score.text = lastmatch.awayScore
         time.text = lastmatch.eventDate
     }
 
