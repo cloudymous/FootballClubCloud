@@ -1,12 +1,12 @@
-package com.example.cloudymous.footballclubcloud.Presenter
+package com.example.cloudymous.footballclubcloud.View
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.example.cloudymous.footballclubcloud.View.LastMatchFragment
-import com.example.cloudymous.footballclubcloud.View.NextMatchFragment
+import com.example.cloudymous.footballclubcloud.View.LastMatch.LastMatchFragment
+import com.example.cloudymous.footballclubcloud.View.NextMatch.NextMatchFragment
 
-class LastMatchPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     private val pages = listOf(
         LastMatchFragment(),

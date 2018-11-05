@@ -1,6 +1,8 @@
-package com.example.cloudymous.footballclubcloud.Presenter
+package com.example.cloudymous.footballclubcloud.View.LastMatch
 
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -12,7 +14,11 @@ import org.jetbrains.anko.*
 class LastMatchAdapter (private val lastmatch : List<LastMatchEvent>) : RecyclerView.Adapter<LastMatchViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): LastMatchViewHolder {
-        return LastMatchViewHolder(LastMatchUI().createView(AnkoContext.create(parent.context, parent)))
+        return LastMatchViewHolder(
+            LastMatchUI().createView(
+                AnkoContext.create(parent.context, parent)
+            )
+        )
     }
 
     override fun getItemCount(): Int = lastmatch.size
@@ -40,12 +46,17 @@ class LastMatchUI : AnkoComponent<ViewGroup> {
                 lparams(width = matchParent, height = wrapContent)
                 padding = dip(8)
                 orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER
 
                 textView ("Main Menu") {
                     id = R.id.event_name
-                    textSize = 14f
+                    textSize = 16f
+                    textColor = Color.BLACK
+                    textAlignment = View.TEXT_ALIGNMENT_CENTER
+                    gravity = Gravity.CENTER_HORIZONTAL
                 }.lparams {
                     margin = dip(15)
+                    gravity = Gravity.CENTER
                 }
 
             }
