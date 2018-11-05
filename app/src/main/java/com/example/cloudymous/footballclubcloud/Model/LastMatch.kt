@@ -3,7 +3,7 @@ package com.example.cloudymous.footballclubcloud.Model
 import com.google.gson.annotations.SerializedName
 
 
-data class LastMatch (
+data class LastMatchEvent (
     @SerializedName("idEvent")
     var eventId : String? = null,
 

@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
-import com.example.cloudymous.footballclubcloud.Model.LastMatch
+import com.example.cloudymous.footballclubcloud.Model.LastMatchEvent
 import com.example.cloudymous.footballclubcloud.Presenter.LastMatchAdapter
 import com.example.cloudymous.footballclubcloud.Presenter.LastMatchPresenter
 import com.example.cloudymous.footballclubcloud.R
@@ -19,7 +19,7 @@ import org.jetbrains.anko.support.v4.onRefresh
 
 class LastMatchFragment : Fragment(), LastMatchView {
 
-    private var lastmatch: MutableList<LastMatch> = mutableListOf()
+    private var lastmatchevent: MutableList<LastMatchEvent> = mutableListOf()
 
     private lateinit var adapter: LastMatchAdapter
     private lateinit var presenter: LastMatchPresenter
@@ -35,7 +35,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = LastMatchAdapter(lastmatch)
+        adapter = LastMatchAdapter(lastmatchevent)
         last_match_list.adapter = adapter
 
         val request = ApiRepository()
@@ -48,6 +48,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
             presenter.getLastMatch("4328")
         }
 
+
     }
 
     override fun showLoading() {
@@ -58,10 +59,10 @@ class LastMatchFragment : Fragment(), LastMatchView {
         progress_bar.invisible()
     }
 
-    override fun showLastMatchList(data: List<LastMatch>) {
+    override fun showLastMatch(data: List<LastMatchEvent>) {
         swipe_refresh.isRefreshing = false
-        lastmatch.clear()
-        lastmatch.addAll(data)
+        lastmatchevent.clear()
+        lastmatchevent.addAll(data)
         adapter.notifyDataSetChanged()
     }
 
