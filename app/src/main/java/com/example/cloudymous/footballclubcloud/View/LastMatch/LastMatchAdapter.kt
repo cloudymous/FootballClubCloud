@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.example.cloudymous.footballclubcloud.Model.LastMatchEvent
+import com.example.cloudymous.footballclubcloud.Model.LastMatch
 import com.example.cloudymous.footballclubcloud.R
 import org.jetbrains.anko.*
 
-class LastMatchAdapter (private val lastmatch : List<LastMatchEvent>) : RecyclerView.Adapter<LastMatchViewHolder>() {
+class LastMatchAdapter (private val lastmatch : List<LastMatch>) : RecyclerView.Adapter<LastMatchViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): LastMatchViewHolder {
         return LastMatchViewHolder(
@@ -33,7 +33,7 @@ class LastMatchViewHolder (view: View) : RecyclerView.ViewHolder(view){
 
     private val lastEventName: TextView = view.find(R.id.event_name)
 
-    fun bindItem(lastmatch: LastMatchEvent) {
+    fun bindItem(lastmatch: LastMatch) {
         lastEventName.text = lastmatch.eventName
     }
 
