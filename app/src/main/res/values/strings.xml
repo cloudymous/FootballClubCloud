@@ -14,5 +14,6 @@
     
     <string name="next_match_fragment">Next Match Fragment</string>
     <string name="last_match_fragment">Last Match Fragment</string>
+    <string name="vs">VS</string>
 
 </resources>
