@@ -14,7 +14,6 @@ import com.example.cloudymous.footballclubcloud.Presenter.NextMatchPresenter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
-import com.example.cloudymous.footballclubcloud.View.NextMatchView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_next_match.*
 import org.jetbrains.anko.support.v4.ctx

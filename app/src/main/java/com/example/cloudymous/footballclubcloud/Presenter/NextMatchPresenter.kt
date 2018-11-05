@@ -3,7 +3,7 @@ package com.example.cloudymous.footballclubcloud.Presenter
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Api.TheSportDBApi
 import com.example.cloudymous.footballclubcloud.Model.NextMatchResponse
-import com.example.cloudymous.footballclubcloud.View.NextMatchView
+import com.example.cloudymous.footballclubcloud.View.NextMatch.NextMatchView
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread

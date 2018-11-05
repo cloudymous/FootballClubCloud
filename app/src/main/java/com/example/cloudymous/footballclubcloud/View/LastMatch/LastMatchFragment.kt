@@ -3,20 +3,16 @@ package com.example.cloudymous.footballclubcloud.View.LastMatch
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Model.LastMatch
-import com.example.cloudymous.footballclubcloud.Model.Team
 import com.example.cloudymous.footballclubcloud.Presenter.LastMatchPresenter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
-import com.example.cloudymous.footballclubcloud.View.LastMatchView
-import com.example.cloudymous.footballclubcloud.View.MainView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_last_match.*
 import org.jetbrains.anko.support.v4.onRefresh
