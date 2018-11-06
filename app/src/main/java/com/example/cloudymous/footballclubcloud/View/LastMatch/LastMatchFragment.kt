@@ -1,6 +1,7 @@
 package com.example.cloudymous.footballclubcloud.View.LastMatch
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -35,7 +36,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = LastMatchAdapter(requireContext(), lastmatch)
+        last_match_list.adapter = LastMatchAdapter(requireContext(), lastmatch)
         last_match_list.layoutManager = LinearLayoutManager(context)
         last_match_list.adapter = adapter
 
