@@ -36,7 +36,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        last_match_list.adapter = LastMatchAdapter(requireContext(), lastmatch)
+        adapter = LastMatchAdapter(requireContext(), lastmatch)
         last_match_list.layoutManager = LinearLayoutManager(context)
         last_match_list.adapter = adapter
 
