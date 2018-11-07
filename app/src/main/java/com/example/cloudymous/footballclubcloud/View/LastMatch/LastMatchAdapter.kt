@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.Model.LastMatch
 import com.example.cloudymous.footballclubcloud.R
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.list_match_experimental.*
+import kotlinx.android.synthetic.main.list_match.*
 
 class LastMatchAdapter (private val context: Context, private val lastmatch : List<LastMatch>, private val clickListener: (LastMatch) -> Unit) :
     RecyclerView.Adapter<LastMatchViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): LastMatchViewHolder =
-        LastMatchViewHolder(LayoutInflater.from(context).inflate(R.layout.list_match_experimental, parent, false))
+        LastMatchViewHolder(LayoutInflater.from(context).inflate(R.layout.list_match, parent, false))
 
     override fun getItemCount(): Int = lastmatch.size
 

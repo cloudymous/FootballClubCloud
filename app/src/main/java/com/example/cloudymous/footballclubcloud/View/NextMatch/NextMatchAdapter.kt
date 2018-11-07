@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.Model.NextMatch
 import com.example.cloudymous.footballclubcloud.R
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.list_match_experimental.*
+import kotlinx.android.synthetic.main.list_match.*
 
 class NextMatchAdapter (private val context: Context, private val nextmatch : List<NextMatch>, private val clickListener: (NextMatch) -> Unit) :
     RecyclerView.Adapter<NextMatchViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NextMatchViewHolder =
-        NextMatchViewHolder(LayoutInflater.from(context).inflate(R.layout.list_match_experimental, parent, false))
+        NextMatchViewHolder(LayoutInflater.from(context).inflate(R.layout.list_match, parent, false))
 
     override fun getItemCount(): Int = nextmatch.size
 
