@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Football Club Cloud</string>
+    <string name="teams">team</string>
+    <string name="favorites">Favorites</string>
 
     <array name="league">
         <item>English Premier League</item>
