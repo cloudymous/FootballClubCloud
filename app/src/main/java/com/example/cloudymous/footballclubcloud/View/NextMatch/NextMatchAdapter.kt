@@ -10,7 +10,7 @@ import com.example.cloudymous.footballclubcloud.R
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_match_experimental.*
 
-class NextMatchAdapter (private val context: Context, private val nextmatch : List<NextMatch>) :
+class NextMatchAdapter (private val context: Context, private val nextmatch : List<NextMatch>, private val clickListener: (NextMatch) -> Unit) :
     RecyclerView.Adapter<NextMatchViewHolder>() {
 
 
@@ -20,16 +20,18 @@ class NextMatchAdapter (private val context: Context, private val nextmatch : Li
     override fun getItemCount(): Int = nextmatch.size
 
     override fun onBindViewHolder(holder: NextMatchViewHolder, position: Int) {
-        holder.bindItem(nextmatch[position])
+        holder.bindItem(nextmatch[position], clickListener)
     }
 
 }
 
 class NextMatchViewHolder (override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer{
 
-    fun bindItem (nextmatch: NextMatch){
+    fun bindItem (nextmatch: NextMatch, clickListener: (NextMatch) -> Unit){
         home.text = nextmatch.teamHome
         away.text = nextmatch.teamAway
         time.text = nextmatch.eventDate
+
+        containerView.setOnClickListener { clickListener(nextmatch) }
     }
 }
