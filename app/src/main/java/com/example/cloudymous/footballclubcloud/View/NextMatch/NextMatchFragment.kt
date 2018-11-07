@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Model.NextMatch
 import com.example.cloudymous.footballclubcloud.Presenter.NextMatchPresenter
@@ -36,7 +37,7 @@ class NextMatchFragment : Fragment(), NextMatchView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = NextMatchAdapter(requireContext(), nextmatch)
+        adapter = NextMatchAdapter(requireContext(), nextmatch, {nextMatch: NextMatch -> itemClicked(nextMatch) })
         next_match_list.layoutManager = LinearLayoutManager(context)
         next_match_list.adapter = adapter
 
@@ -66,6 +67,10 @@ class NextMatchFragment : Fragment(), NextMatchView {
         nextmatch.clear()
         nextmatch.addAll(data)
         adapter.notifyDataSetChanged()
+    }
+
+    private fun itemClicked (nextmatch: NextMatch){
+        Toast.makeText(requireContext(), "Clicked: ${nextmatch.eventDate}", Toast.LENGTH_LONG).show()
     }
 
 
