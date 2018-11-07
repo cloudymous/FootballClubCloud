@@ -69,7 +69,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
     }
 
     private fun itemClicked(lastmatch: LastMatch){
-        Toast.makeText(requireContext(), "Clicked: ${lastmatch.homeTeam}", Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext(), "Clicked: ${lastmatch.eventDate}", Toast.LENGTH_LONG).show()
     }
 
 
