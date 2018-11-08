@@ -3,12 +3,12 @@ package com.example.cloudymous.footballclubcloud.Presenter
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Api.TheSportDBApi
 import com.example.cloudymous.footballclubcloud.Model.TeamResponse
-import com.example.cloudymous.footballclubcloud.View.MainView
+import com.example.cloudymous.footballclubcloud.View.TeamView
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
-class MainPresenter (private val view: MainView,
+class TeamPresenter (private val view: TeamView,
                      private val apiRepository: ApiRepository,
                      private val gson: Gson){
 
