@@ -13,8 +13,11 @@ import com.example.cloudymous.footballclubcloud.Presenter.LastMatchPresenter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
+import com.example.cloudymous.footballclubcloud.View.DetailMatch.DetailMatch
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_last_match.*
+import org.jetbrains.anko.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 
 class LastMatchFragment : Fragment(), LastMatchView {
@@ -35,7 +38,9 @@ class LastMatchFragment : Fragment(), LastMatchView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = LastMatchAdapter(requireContext(), lastmatch, { lastMatch: LastMatch -> itemClicked(lastMatch) })
+        adapter = LastMatchAdapter(requireContext(), lastmatch) {
+            requireContext().startActivity<DetailMatch>("team" to "${it}")
+        }
         last_match_list.layoutManager = LinearLayoutManager(context)
         last_match_list.adapter = adapter
 
@@ -64,10 +69,6 @@ class LastMatchFragment : Fragment(), LastMatchView {
         lastmatch.clear()
         lastmatch.addAll(data)
         adapter.notifyDataSetChanged()
-    }
-
-    private fun itemClicked(lastmatch: LastMatch){
-        Toast.makeText(requireContext(), "Clicked: ${lastmatch.eventDate}", Toast.LENGTH_LONG).show()
     }
 
 
