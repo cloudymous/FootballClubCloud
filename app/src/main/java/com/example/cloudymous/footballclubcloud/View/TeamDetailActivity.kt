@@ -1,7 +1,8 @@
-package com.example.cloudymous.footballclubcloud
+package com.example.cloudymous.footballclubcloud.View
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.cloudymous.footballclubcloud.R
 
 class TeamDetailActivity : AppCompatActivity() {
 

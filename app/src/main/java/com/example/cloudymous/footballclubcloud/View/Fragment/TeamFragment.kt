@@ -15,7 +15,7 @@ import com.example.cloudymous.footballclubcloud.Model.Team
 import com.example.cloudymous.footballclubcloud.Presenter.TeamAdapter
 import com.example.cloudymous.footballclubcloud.Presenter.TeamPresenter
 import com.example.cloudymous.footballclubcloud.R
-import com.example.cloudymous.footballclubcloud.TeamDetailActivity
+import com.example.cloudymous.footballclubcloud.View.TeamDetailActivity
 import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
 import com.example.cloudymous.footballclubcloud.View.TeamView
