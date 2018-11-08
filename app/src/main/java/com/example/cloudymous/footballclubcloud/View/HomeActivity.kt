@@ -6,6 +6,8 @@ import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.team
 import com.example.cloudymous.footballclubcloud.R.layout.activity_home
 import com.example.cloudymous.footballclubcloud.R.id.favorites
+import com.example.cloudymous.footballclubcloud.View.Fragment.FavoriteTeamFragment
+import com.example.cloudymous.footballclubcloud.View.Fragment.TeamFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -31,14 +33,16 @@ class HomeActivity : AppCompatActivity() {
     private fun loadTeamFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.main_container, TeamFragment(), TeamFragment::class.java.simpleName).commit()
+                .replace(R.id.main_container,
+                    TeamFragment(), TeamFragment::class.java.simpleName).commit()
         }
     }
 
     private fun loadFavoriteFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.main_container, FavoriteTeamFragment(), FavoriteTeamFragment::class.java.simpleName).commit()
+                .replace(R.id.main_container,
+                    FavoriteTeamFragment(), FavoriteTeamFragment::class.java.simpleName).commit()
         }
     }
 }
