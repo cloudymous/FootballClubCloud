@@ -7,16 +7,16 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Model.NextMatch
 import com.example.cloudymous.footballclubcloud.Presenter.NextMatchPresenter
-
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
+import com.example.cloudymous.footballclubcloud.View.DetailMatch.DetailMatch
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_next_match.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 
 class NextMatchFragment : Fragment(), NextMatchView {
@@ -30,21 +30,23 @@ class NextMatchFragment : Fragment(), NextMatchView {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_next_match, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = NextMatchAdapter(requireContext(), nextmatch, {nextMatch: NextMatch -> itemClicked(nextMatch) })
+        adapter = NextMatchAdapter(requireContext(), nextmatch) {
+            requireContext().startActivity<DetailMatch>("event" to "${it}")
+        }
+
         next_match_list.layoutManager = LinearLayoutManager(context)
         next_match_list.adapter = adapter
 
         val request = ApiRepository()
         val gson = Gson()
 
-        presenter = NextMatchPresenter(this,request, gson)
+        presenter = NextMatchPresenter(this, request, gson)
         presenter.getNextMatch("4328")
 
 
@@ -68,10 +70,5 @@ class NextMatchFragment : Fragment(), NextMatchView {
         nextmatch.addAll(data)
         adapter.notifyDataSetChanged()
     }
-
-    private fun itemClicked (nextmatch: NextMatch){
-        Toast.makeText(requireContext(), "Clicked: ${nextmatch.eventDate}", Toast.LENGTH_LONG).show()
-    }
-
 
 }
