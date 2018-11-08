@@ -9,8 +9,13 @@ import com.example.cloudymous.footballclubcloud.Model.NextMatch
 import com.example.cloudymous.footballclubcloud.R
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_match.*
+import org.jetbrains.anko.sdk25.coroutines.onClick
 
-class NextMatchAdapter (private val context: Context, private val nextmatch : List<NextMatch>, private val clickListener: (NextMatch) -> Unit) :
+class NextMatchAdapter(
+    private val context: Context,
+    private val nextmatch: List<NextMatch>,
+    private val clickListener: (NextMatch) -> Unit
+) :
     RecyclerView.Adapter<NextMatchViewHolder>() {
 
 
@@ -25,13 +30,13 @@ class NextMatchAdapter (private val context: Context, private val nextmatch : Li
 
 }
 
-class NextMatchViewHolder (override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer{
+class NextMatchViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-    fun bindItem (nextmatch: NextMatch, clickListener: (NextMatch) -> Unit){
+    fun bindItem(nextmatch: NextMatch, clickListener: (NextMatch) -> Unit) {
         home.text = nextmatch.teamHome
         away.text = nextmatch.teamAway
         time.text = nextmatch.eventDate
 
-        containerView.setOnClickListener { clickListener(nextmatch) }
+        itemView.onClick { clickListener(nextmatch) }
     }
 }
