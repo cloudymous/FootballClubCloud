@@ -22,7 +22,6 @@ import com.example.cloudymous.footballclubcloud.View.TeamView
 import com.google.gson.Gson
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
-import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
 class TeamFragment : Fragment(), AnkoComponent<Context>, TeamView {
