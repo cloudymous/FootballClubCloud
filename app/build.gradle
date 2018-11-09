@@ -53,6 +53,9 @@ dependencies {
     implementation "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
     implementation "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$anko_version"
 
+    //SQLite Anko
+    implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
+
     // Library Picasso
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
