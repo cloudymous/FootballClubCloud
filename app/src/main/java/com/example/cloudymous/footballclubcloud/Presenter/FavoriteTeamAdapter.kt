@@ -1,0 +1,3 @@
+package com.example.cloudymous.footballclubcloud.Presenter
+
+class FavoriteTeamAdapter
