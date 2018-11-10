@@ -37,7 +37,7 @@ class NextMatchFragment : Fragment(), NextMatchView {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = NextMatchAdapter(requireContext(), nextmatch) {
-            requireContext().startActivity<DetailMatchActivity>("event" to "${it.eventId}")
+            requireContext().startActivity<DetailMatchActivity>("eventID" to "${it.eventId}")
         }
 
         next_match_list.layoutManager = LinearLayoutManager(context)

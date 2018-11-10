@@ -21,6 +21,9 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_match)
 
+        supportActionBar?.title = "Match Detail"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val intent = intent
         eventId = intent.getStringExtra("eventID")
 
@@ -30,9 +33,6 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         presenter = DetailMatchPresenter(this, request, gson)
         presenter.getMatchDetail("eventId")
         Log.v("eventId Value is:", eventId)
-
-        supportActionBar?.title = "Match Detail"
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun showLoading() {
@@ -49,6 +49,8 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         away_team.text = data.awayTeam
         home_score.text = data.homeScore
         away_score.text = data.awayScore
+
+        Log.v("Home is", data.homeTeam)
     }
 
 }

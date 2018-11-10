@@ -4,7 +4,7 @@ import com.example.cloudymous.footballclubcloud.Model.DetailMatch
 
 interface DetailMatchView {
 
-//    fun showLoading()
-//    fun hideLoading()
+    fun showLoading()
+    fun hideLoading()
     fun showDetailMatch(data: DetailMatch)
 }
