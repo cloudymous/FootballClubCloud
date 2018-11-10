@@ -1,4 +1,8 @@
 package com.example.cloudymous.footballclubcloud.View.DetailMatch
 
-class DetailMatchView {
+interface DetailMatchView {
+
+    fun showLoading()
+    fun hideLoading()
+    fun showDetailMatch(data: List<DetailMatch>)
 }
