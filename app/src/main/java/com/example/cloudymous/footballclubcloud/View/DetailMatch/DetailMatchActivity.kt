@@ -7,6 +7,7 @@ import com.example.cloudymous.footballclubcloud.Model.DetailMatch
 import com.example.cloudymous.footballclubcloud.Presenter.DetailMatchPresenter
 import com.example.cloudymous.footballclubcloud.R
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_detail_match.*
 
 class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
 
@@ -29,7 +30,12 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun showDetailMatch(data: List<DetailMatch>) {
-
+    override fun showDetailMatch(data: DetailMatch) {
+        date.text = data.eventDate
+        home_team.text = data.homeTeam
+        away_team.text = data.awayTeam
+        home_score.text = data.homeScore
+        away_score.text = data.awayScore
     }
+
 }
