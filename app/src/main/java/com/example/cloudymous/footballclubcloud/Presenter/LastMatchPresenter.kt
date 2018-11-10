@@ -13,7 +13,7 @@ class LastMatchPresenter (private val view: LastMatchView,
                           private val gson: Gson) {
 
     fun getLastMatch(leagueId: String?){
-//        view.showLoading()
+        view.showLoading()
         doAsync {
             val data = gson.fromJson(apiRepository
                 .doRequest(TheSportDBApi.getLastMatch(leagueId)),
@@ -21,7 +21,7 @@ class LastMatchPresenter (private val view: LastMatchView,
             )
 
             uiThread {
-//                view.hideLoading()
+                view.hideLoading()
                 view.showLastMatchList(data.events)
             }
         }
