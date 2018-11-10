@@ -11,6 +11,136 @@
     <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            tools:text="Sun, 11 Nov 2018"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+
+    </LinearLayout>
+
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TableRow>
+            <TextView
+                    tools:text="Home"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+            <TextView
+                    tools:text="Away"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                    tools:text="1"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="Goal"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="2"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                    tools:text="1"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="Red Card"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="2"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                    tools:text="1"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="Yellow Card"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="2"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                    tools:text="1"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="Goalkeeper"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="2"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                    tools:text="1"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="Lineup Defense"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="2"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>
