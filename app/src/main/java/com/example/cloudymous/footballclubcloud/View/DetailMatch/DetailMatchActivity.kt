@@ -1,0 +1,35 @@
+package com.example.cloudymous.footballclubcloud.View.DetailMatch
+
+import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
+import com.example.cloudymous.footballclubcloud.Api.ApiRepository
+import com.example.cloudymous.footballclubcloud.Model.DetailMatch
+import com.example.cloudymous.footballclubcloud.Presenter.DetailMatchPresenter
+import com.example.cloudymous.footballclubcloud.R
+import com.google.gson.Gson
+
+class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
+
+    private lateinit var presenter: DetailMatchPresenter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_detail_match)
+
+        val intent = intent
+        val eventId = intent.getStringExtra("event")
+
+        val request = ApiRepository()
+        val gson = Gson()
+
+        presenter = DetailMatchPresenter(this, request, gson)
+        presenter.getMatchDetail(eventId)
+
+        supportActionBar?.title = "Match Detail"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun showDetailMatch(data: List<DetailMatch>) {
+
+    }
+}

@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".View.DetailMatch.DetailMatch">
+        <activity android:name=".View.DetailMatch.DetailMatchActivity">
         </activity>
     </application>
 

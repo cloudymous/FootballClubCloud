@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".View.DetailMatch.DetailMatch">
+        tools:context=".View.DetailMatch.DetailMatchActivity">
 
     <TextView
             android:id="@+id/date"
@@ -22,10 +22,29 @@
             android:layout_height="100dp">
 
         <TextView
+                android:id="@+id/home_team"
+                tools:text="Arsenal"
+                android:layout_toLeftOf="@id/vs"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/vs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                tools:text="VS"/>
+                android:text="VS"/>
+
+        <TextView
+                android:id="@+id/home_team"
+                tools:text="Chelsea"
+                android:layout_toRightOf="@id/vs"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
     </RelativeLayout>
@@ -34,28 +53,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <TableRow>
-            <TextView
-                    tools:text="Home"
-                    android:layout_weight="1"
-                    android:textAlignment="center"
-                    android:padding="3dip" />
-            <TextView
-                    tools:text="Away"
-                    android:layout_weight="1"
-                    android:textAlignment="center"
-                    android:padding="3dip" />
-        </TableRow>
+        <!--<TableRow>-->
+            <!--<TextView-->
+                    <!--tools:text="Home"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:padding="3dip" />-->
+            <!--<TextView-->
+                    <!--tools:text="Away"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:padding="3dip" />-->
+        <!--</TableRow>-->
 
         <TableRow>
             <TextView
+                    android:id="@+id/home_score"
                     tools:text="1"
                     android:layout_weight="1"
                     android:textAlignment="center"
                     android:padding="3dip" />
 
             <TextView
-                    tools:text="Goal"
+                    android:id="@+id/away_score"
+                    android:text="@string/goal"
                     android:layout_weight="1"
                     android:textAlignment="center"
                     android:padding="3dip" />
@@ -75,7 +96,7 @@
                     android:padding="3dip" />
 
             <TextView
-                    tools:text="Red Card"
+                    android:text="@string/red_card"
                     android:layout_weight="1"
                     android:textAlignment="center"
                     android:padding="3dip" />
@@ -95,7 +116,7 @@
                     android:padding="3dip" />
 
             <TextView
-                    tools:text="Yellow Card"
+                    android:text="@string/yellow_card"
                     android:layout_weight="1"
                     android:textAlignment="center"
                     android:padding="3dip" />
@@ -115,7 +136,7 @@
                     android:padding="3dip" />
 
             <TextView
-                    tools:text="Goalkeeper"
+                    android:text="@string/goalkeeper"
                     android:layout_weight="1"
                     android:textAlignment="center"
                     android:padding="3dip" />
@@ -135,7 +156,7 @@
                     android:padding="3dip" />
 
             <TextView
-                    tools:text="Lineup Defense"
+                    android:text="@string/lineup_defense"
                     android:layout_weight="1"
                     android:textAlignment="center"
                     android:padding="3dip" />
@@ -155,7 +176,7 @@
                     android:padding="3dip" />
 
             <TextView
-                    tools:text="Lineup Midfield"
+                    android:text="@string/lineup_midfield"
                     android:layout_weight="1"
                     android:textAlignment="center"
                     android:padding="3dip" />
@@ -175,7 +196,7 @@
                     android:padding="3dip" />
 
             <TextView
-                    tools:text="Lineup Forward"
+                    android:text="@string/lineup_forward"
                     android:layout_weight="1"
                     android:textAlignment="center"
                     android:padding="3dip" />
@@ -195,7 +216,7 @@
                     android:padding="3dip" />
 
             <TextView
-                    tools:text="Lineup Subtitutes"
+                    android:text="@string/lineup_subtitutes"
                     android:layout_weight="1"
                     android:textAlignment="center"
                     android:padding="3dip" />
