@@ -9,5 +9,8 @@ class DetailMatch : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_match)
+
+        supportActionBar?.title = "Match Detail"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }
