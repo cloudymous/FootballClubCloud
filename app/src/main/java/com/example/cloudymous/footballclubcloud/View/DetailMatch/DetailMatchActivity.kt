@@ -12,19 +12,20 @@ import kotlinx.android.synthetic.main.activity_detail_match.*
 class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
 
     private lateinit var presenter: DetailMatchPresenter
+    private lateinit var eventId : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_match)
 
         val intent = intent
-        val eventId = intent.getStringExtra("event")
+        eventId = intent.getStringExtra("event")
 
         val request = ApiRepository()
         val gson = Gson()
 
         presenter = DetailMatchPresenter(this, request, gson)
-        presenter.getMatchDetail(eventId)
+        presenter.getMatchDetail("")
 
         supportActionBar?.title = "Match Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
