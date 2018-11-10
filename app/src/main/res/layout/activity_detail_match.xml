@@ -141,6 +141,66 @@
                     android:padding="3dip" />
         </TableRow>
 
+        <TableRow>
+            <TextView
+                    tools:text="1"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="Lineup Midfield"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="2"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                    tools:text="1"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="Lineup Forward"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="2"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                    tools:text="1"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="Lineup Subtitutes"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+
+            <TextView
+                    tools:text="2"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:padding="3dip" />
+        </TableRow>
+
     </TableLayout>
 
 </LinearLayout>
