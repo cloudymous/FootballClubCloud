@@ -13,7 +13,7 @@ import com.example.cloudymous.footballclubcloud.Presenter.NextMatchPresenter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
-import com.example.cloudymous.footballclubcloud.View.DetailMatch.DetailMatch
+import com.example.cloudymous.footballclubcloud.View.DetailMatch.DetailMatchActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_next_match.*
 import org.jetbrains.anko.startActivity
@@ -37,7 +37,7 @@ class NextMatchFragment : Fragment(), NextMatchView {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = NextMatchAdapter(requireContext(), nextmatch) {
-            requireContext().startActivity<DetailMatch>("event" to "${it.eventId}")
+            requireContext().startActivity<DetailMatchActivity>("event" to "${it.eventId}")
         }
 
         next_match_list.layoutManager = LinearLayoutManager(context)
