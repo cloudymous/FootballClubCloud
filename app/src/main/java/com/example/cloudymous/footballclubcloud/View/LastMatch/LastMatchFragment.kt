@@ -37,7 +37,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = LastMatchAdapter(requireContext(), lastmatch) {
-            requireContext().startActivity<DetailMatch>("event" to "${it}")
+            requireContext().startActivity<DetailMatch>("eventID" to "${it.eventId}")
         }
         last_match_list.layoutManager = LinearLayoutManager(context)
         last_match_list.adapter = adapter
