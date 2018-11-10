@@ -10,6 +10,9 @@ class DetailMatch : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_match)
 
+        val intent = intent
+        val eventId = intent.getStringExtra("event")
+
         supportActionBar?.title = "Match Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
