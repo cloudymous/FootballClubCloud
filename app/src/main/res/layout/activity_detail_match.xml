@@ -17,12 +17,18 @@
             android:textAlignment="center"
             tools:text="Sun, 11 Nov 2018"/>
 
-    <LinearLayout
+    <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="100dp">
 
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                tools:text="VS"/>
 
-    </LinearLayout>
+
+    </RelativeLayout>
 
     <TableLayout
             android:layout_width="match_parent"
