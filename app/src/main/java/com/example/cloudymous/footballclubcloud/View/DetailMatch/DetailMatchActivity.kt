@@ -19,7 +19,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         setContentView(R.layout.activity_detail_match)
 
         val intent = intent
-        eventId = intent.getStringExtra("event")
+        eventId = intent.getStringExtra("eventID")
 
         val request = ApiRepository()
         val gson = Gson()
