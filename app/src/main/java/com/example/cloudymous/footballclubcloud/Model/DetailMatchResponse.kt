@@ -1,4 +1,5 @@
 package com.example.cloudymous.footballclubcloud.Model
 
-class DetailMatchResponse {
+data class DetailMatchResponse {
+    val events : List<DetailMatch>
 }
