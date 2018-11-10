@@ -13,7 +13,7 @@ class DetailMatchPresenter (private val view: DetailMatchView,
                             private val gson: Gson) {
 
     fun getMatchDetail(matchId: String?){
-        view.showLoading()
+//        view.showLoading()
         doAsync {
             val data = gson.fromJson(apiRepository
                 .doRequest(TheSportDBApi.getMatchDetail(matchId)),
@@ -21,7 +21,7 @@ class DetailMatchPresenter (private val view: DetailMatchView,
             )
 
             uiThread {
-                view.hideLoading()
+//                view.hideLoading()
                 view.showDetailMatch(data.events)
             }
         }
