@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 
 data class LastMatch (
+    @SerializedName("idEvent")
+    var eventId : String? = null,
+
     @SerializedName("strDate")
     var eventDate : String? = null,
 
