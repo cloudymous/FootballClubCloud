@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.Model.DetailMatch
-import com.example.cloudymous.footballclubcloud.Model.LastMatch
 import com.example.cloudymous.footballclubcloud.R
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_match.*

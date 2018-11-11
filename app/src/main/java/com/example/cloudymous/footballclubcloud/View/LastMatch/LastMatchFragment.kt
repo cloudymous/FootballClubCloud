@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Model.DetailMatch
-import com.example.cloudymous.footballclubcloud.Model.LastMatch
 import com.example.cloudymous.footballclubcloud.Presenter.LastMatchPresenter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.Utils.invisible

@@ -3,7 +3,6 @@ package com.example.cloudymous.footballclubcloud.View.DetailMatch
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.cloudymous.footballclubcloud.Model.DetailMatch
-import com.example.cloudymous.footballclubcloud.Model.LastMatch
 import com.example.cloudymous.footballclubcloud.R
 import kotlinx.android.synthetic.main.activity_detail_match.*
 
