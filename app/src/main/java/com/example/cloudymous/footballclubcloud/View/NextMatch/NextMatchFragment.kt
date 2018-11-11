@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
-import com.example.cloudymous.footballclubcloud.Model.NextMatch
+import com.example.cloudymous.footballclubcloud.Model.DetailMatch
 import com.example.cloudymous.footballclubcloud.Presenter.NextMatchPresenter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.Utils.invisible
@@ -21,7 +21,7 @@ import org.jetbrains.anko.support.v4.onRefresh
 
 class NextMatchFragment : Fragment(), NextMatchView {
 
-    private val nextmatch: MutableList<NextMatch> = mutableListOf()
+    private val nextmatch: MutableList<DetailMatch> = mutableListOf()
 
     private lateinit var adapter: NextMatchAdapter
     private lateinit var presenter: NextMatchPresenter
@@ -37,7 +37,7 @@ class NextMatchFragment : Fragment(), NextMatchView {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = NextMatchAdapter(requireContext(), nextmatch) {
-            requireContext().startActivity<DetailMatchActivity>("eventID" to "${it.eventId}")
+            requireContext().startActivity<DetailMatchActivity>("event" to it)
         }
 
         next_match_list.layoutManager = LinearLayoutManager(context)
@@ -64,7 +64,7 @@ class NextMatchFragment : Fragment(), NextMatchView {
         progress_bar.invisible()
     }
 
-    override fun showNextMatchList(data: List<NextMatch>) {
+    override fun showNextMatchList(data: List<DetailMatch>) {
         swipe_refresh.isRefreshing = false
         nextmatch.clear()
         nextmatch.addAll(data)
