@@ -17,7 +17,7 @@ class DetailMatchActivity : AppCompatActivity(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        val event = intent.getSerializableExtra("event") as LastMatch
+        val event = intent.getSerializableExtra("event") as DetailMatch
 
         date.text = event.eventDate
         home_team.text = event.homeTeam
