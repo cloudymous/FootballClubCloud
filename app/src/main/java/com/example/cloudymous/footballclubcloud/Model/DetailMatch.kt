@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class DetailMatch (
+    @SerializedName("idEvent")
+    var eventId : String? = null,
 
     @SerializedName("dateEvent")
     var eventDate : String? = null,

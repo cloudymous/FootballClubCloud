@@ -2,7 +2,7 @@ package com.example.cloudymous.footballclubcloud.Presenter
 
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Api.TheSportDBApi
-import com.example.cloudymous.footballclubcloud.Model.LastMatchResponse
+import com.example.cloudymous.footballclubcloud.Model.DetailMatchResponse
 import com.example.cloudymous.footballclubcloud.View.LastMatch.LastMatchView
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
@@ -17,7 +17,7 @@ class LastMatchPresenter (private val view: LastMatchView,
         doAsync {
             val data = gson.fromJson(apiRepository
                 .doRequest(TheSportDBApi.getLastMatch(leagueId)),
-                LastMatchResponse::class.java
+                DetailMatchResponse::class.java
             )
 
             uiThread {

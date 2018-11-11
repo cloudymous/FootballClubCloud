@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.cloudymous.footballclubcloud.Model.DetailMatch
 import com.example.cloudymous.footballclubcloud.Model.LastMatch
 import com.example.cloudymous.footballclubcloud.R
 import kotlinx.android.extensions.LayoutContainer
@@ -13,8 +14,8 @@ import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class LastMatchAdapter(
     private val context: Context,
-    private val lastmatch: List<LastMatch>,
-    private val clickListener: (LastMatch) -> Unit
+    private val lastmatch: List<DetailMatch>,
+    private val clickListener: (DetailMatch) -> Unit
 ) :
     RecyclerView.Adapter<LastMatchViewHolder>() {
 
@@ -31,7 +32,7 @@ class LastMatchAdapter(
 
 class LastMatchViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-    fun bindItem(lastmatch: LastMatch, clickListener: (LastMatch) -> Unit) {
+    fun bindItem(lastmatch: DetailMatch, clickListener: (DetailMatch) -> Unit) {
         home.text = lastmatch.homeTeam
         home_score.text = lastmatch.homeScore
         away.text = lastmatch.awayTeam
