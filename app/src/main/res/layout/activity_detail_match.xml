@@ -75,13 +75,13 @@
                     android:padding="3dip" />
 
             <TextView
-                    android:id="@+id/away_score"
                     android:text="@string/goal"
                     android:layout_weight="1"
                     android:textAlignment="center"
                     android:padding="3dip" />
 
             <TextView
+                    android:id="@+id/away_score"
                     tools:text="2"
                     android:layout_weight="1"
                     android:textAlignment="center"
