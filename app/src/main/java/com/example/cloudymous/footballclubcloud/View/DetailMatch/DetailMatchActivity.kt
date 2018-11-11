@@ -2,20 +2,11 @@ package com.example.cloudymous.footballclubcloud.View.DetailMatch
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Model.DetailMatch
-import com.example.cloudymous.footballclubcloud.Presenter.DetailMatchPresenter
 import com.example.cloudymous.footballclubcloud.R
-import com.example.cloudymous.footballclubcloud.Utils.invisible
-import com.example.cloudymous.footballclubcloud.Utils.visible
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_detail_match.*
 
-class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
-
-    private lateinit var presenter: DetailMatchPresenter
-    private lateinit var eventId : String
+class DetailMatchActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,32 +16,14 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        eventId = intent.getStringExtra("eventID")
+        val event = intent.getSerializableExtra("event") as DetailMatch
 
-        val request = ApiRepository()
-        val gson = Gson()
+        date.text = event.eventDate
+        home_team.text = event.homeTeam
+        away_team.text = event.awayTeam
+        home_score.text = event.homeScore
+        away_score.text = event.awayScore
 
-        presenter = DetailMatchPresenter(this, request, gson)
-        presenter.getMatchDetail("eventId")
-        Log.v("eventId Value is:", eventId)
-    }
-
-    override fun showLoading() {
-        progress_bar.visible()
-    }
-
-    override fun hideLoading() {
-        progress_bar.invisible()
-    }
-
-    override fun showDetailMatch(data: DetailMatch) {
-        date.text = data.eventDate
-        home_team.text = data.homeTeam
-        away_team.text = data.awayTeam
-        home_score.text = data.homeScore
-        away_score.text = data.awayScore
-
-        Log.v("Home is", data.homeTeam)
     }
 
 }
