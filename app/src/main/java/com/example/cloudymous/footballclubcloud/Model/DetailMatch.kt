@@ -1,6 +1,7 @@
 package com.example.cloudymous.footballclubcloud.Model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class DetailMatch (
 
@@ -19,4 +20,4 @@ data class DetailMatch (
     @SerializedName("intAwayScore")
     var awayScore : String? = null
 
-)
+) : Serializable
