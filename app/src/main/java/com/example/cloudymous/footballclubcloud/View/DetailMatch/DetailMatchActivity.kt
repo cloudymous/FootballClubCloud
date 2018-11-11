@@ -16,13 +16,13 @@ class DetailMatchActivity : AppCompatActivity(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        val event = intent.getSerializableExtra("event") as DetailMatch
+        val event = intent.getSerializableExtra("event") as? DetailMatch
 
-        date.text = event.eventDate
-        home_team.text = event.homeTeam
-        away_team.text = event.awayTeam
-        home_score.text = event.homeScore
-        away_score.text = event.awayScore
+        date.text = event?.eventDate
+        home_team.text = event?.homeTeam
+        away_team.text = event?.awayTeam
+        home_score.text = event?.homeScore
+        away_score.text = event?.awayScore
 
     }
 
