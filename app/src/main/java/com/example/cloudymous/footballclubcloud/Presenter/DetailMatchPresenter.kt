@@ -25,6 +25,5 @@ class DetailMatchPresenter (private val view: DetailMatchView,
                 view.showDetailMatch(data.events)
             }
         }
-
     }
 }
