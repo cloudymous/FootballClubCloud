@@ -90,6 +90,7 @@
 
         <TableRow>
             <TextView
+                    android:id="@+id/home_redcards"
                     tools:text="1"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -102,6 +103,7 @@
                     android:padding="3dip" />
 
             <TextView
+                    android:id="@+id/away_redcards"
                     tools:text="2"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -110,6 +112,7 @@
 
         <TableRow>
             <TextView
+                    android:id="@+id/home_yellowcards"
                     tools:text="1"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -122,6 +125,7 @@
                     android:padding="3dip" />
 
             <TextView
+                    android:id="@+id/away_yellowcards"
                     tools:text="2"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -130,6 +134,7 @@
 
         <TableRow>
             <TextView
+                    android:id="@+id/home_goalkeepers"
                     tools:text="1"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -142,6 +147,7 @@
                     android:padding="3dip" />
 
             <TextView
+                    android:id="@+id/away_goalkeepers"
                     tools:text="2"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -150,6 +156,7 @@
 
         <TableRow>
             <TextView
+                    android:id="@+id/home_linedef"
                     tools:text="1"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -162,6 +169,7 @@
                     android:padding="3dip" />
 
             <TextView
+                    android:id="@+id/away_linedef"
                     tools:text="2"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -170,6 +178,7 @@
 
         <TableRow>
             <TextView
+                    android:id="@+id/home_linemid"
                     tools:text="1"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -182,6 +191,7 @@
                     android:padding="3dip" />
 
             <TextView
+                    android:id="@+id/away_linemid"
                     tools:text="2"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -190,6 +200,7 @@
 
         <TableRow>
             <TextView
+                    android:id="@+id/home_lineforward"
                     tools:text="1"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -202,6 +213,7 @@
                     android:padding="3dip" />
 
             <TextView
+                    android:id="@+id/away_lineforward"
                     tools:text="2"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -210,6 +222,7 @@
 
         <TableRow>
             <TextView
+                    android:id="@+id/home_linesubs"
                     tools:text="1"
                     android:layout_weight="1"
                     android:textAlignment="center"
@@ -222,6 +235,7 @@
                     android:padding="3dip" />
 
             <TextView
+                    android:id="@+id/away_linesubs"
                     tools:text="2"
                     android:layout_weight="1"
                     android:textAlignment="center"

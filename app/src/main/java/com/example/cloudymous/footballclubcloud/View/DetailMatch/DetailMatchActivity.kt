@@ -19,10 +19,33 @@ class DetailMatchActivity : AppCompatActivity(){
         val event = intent.getSerializableExtra("event") as DetailMatch
 
         date.text = event.eventDate
+
         home_team.text = event.homeTeam
         away_team.text = event.awayTeam
+
         home_score.text = event.homeScore
         away_score.text = event.awayScore
+
+        home_redcards.text = event.homeRedCards
+        away_redcards.text = event.awayRedCards
+
+        home_yellowcards.text = event.homeYellowCards
+        away_yellowcards.text = event.awayYellowCards
+
+        home_goalkeepers.text = event.homeGoalKeeper
+        away_goalkeepers.text = event.awayGoalKeeper
+
+        home_linedef.text = event.homeLineDefense
+        away_linedef.text = event.awayLineDefense
+
+        home_linemid.text = event.homeLineMidfield
+        away_linemid.text = event.awayLineMidfield
+
+        home_lineforward.text = event.homeLineForward
+        away_lineforward.text = event.awayLineForward
+
+        home_linesubs.text = event.homeSubtitutes
+        away_linesubs.text = event.awaySubtitutes
 
     }
 
