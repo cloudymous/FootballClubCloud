@@ -20,8 +20,8 @@ class DetailMatchActivity : AppCompatActivity(){
 
         date.text = event.eventDate
 
-        home_team.text = event.homeTeam
-        away_team.text = event.awayTeam
+        team_home.text = event.homeTeam
+        team_away.text = event.awayTeam
 
         home_score.text = event.homeScore
         away_score.text = event.awayScore
