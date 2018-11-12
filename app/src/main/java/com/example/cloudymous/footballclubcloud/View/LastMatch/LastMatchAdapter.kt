@@ -32,11 +32,14 @@ class LastMatchAdapter(
 class LastMatchViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
     fun bindItem(lastmatch: DetailMatch, clickListener: (DetailMatch) -> Unit) {
+
+        time.text = lastmatch.eventDate
+
         home.text = lastmatch.homeTeam
         home_score.text = lastmatch.homeScore
+
         away.text = lastmatch.awayTeam
         away_score.text = lastmatch.awayScore
-        time.text = lastmatch.eventDate
 
         itemView.onClick { clickListener(lastmatch) }
     }
