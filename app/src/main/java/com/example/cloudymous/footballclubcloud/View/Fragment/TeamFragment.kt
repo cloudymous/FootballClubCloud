@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import android.widget.*
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Model.Team
-import com.example.cloudymous.footballclubcloud.Presenter.TeamAdapter
+import com.example.cloudymous.footballclubcloud.Adapter.TeamAdapter
 import com.example.cloudymous.footballclubcloud.Presenter.TeamPresenter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.View.TeamDetailActivity

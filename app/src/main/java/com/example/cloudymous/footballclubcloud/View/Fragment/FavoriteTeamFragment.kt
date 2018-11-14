@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.Model.Favorite
-import com.example.cloudymous.footballclubcloud.Presenter.FavoriteTeamAdapter
+import com.example.cloudymous.footballclubcloud.Adapter.FavoriteTeamAdapter
 import com.example.cloudymous.footballclubcloud.View.TeamDetailActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
@@ -30,7 +30,7 @@ class FavoriteTeamFragment : Fragment(), AnkoComponent<Context> {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapter = FavoriteTeamAdapter(favorites){
+        adapter = FavoriteTeamAdapter(favorites) {
             requireContext().startActivity<TeamDetailActivity>("id" to "${it.teamId}")
         }
 

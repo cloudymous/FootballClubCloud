@@ -167,10 +167,10 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
                     Favorite.TEAM_NAME to teams.teamName,
                     Favorite.TEAM_BADGE to teams.teamBadge)
             }
-            snackbar(swipeRefresh, "Added to Favorite!").show()
+            swipeRefresh.snackbar("Added to Favorite!").show()
         }
         catch (e: SQLiteConstraintException) {
-            snackbar(swipeRefresh, e.localizedMessage).show()
+            swipeRefresh.snackbar(e.localizedMessage).show()
         }
     }
 
