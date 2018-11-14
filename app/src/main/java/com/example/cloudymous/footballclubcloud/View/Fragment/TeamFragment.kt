@@ -25,10 +25,11 @@ import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
 class TeamFragment : Fragment(), AnkoComponent<Context>, TeamView {
+
     private var teams: MutableList<Team> = mutableListOf()
+
     private lateinit var presenter: TeamPresenter
     private lateinit var adapter: TeamAdapter
-
     private lateinit var listEvent: RecyclerView
     private lateinit var progressBar: ProgressBar
     private lateinit var swipeRefresh: SwipeRefreshLayout
