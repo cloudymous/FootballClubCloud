@@ -6,5 +6,5 @@ interface DetailMatchView {
 
     fun showLoading()
     fun hideLoading()
-    fun showTeam(dataHome: Team, dataAway: Team)
+    fun showTeam(dataHome: Team?, dataAway: Team?)
 }
