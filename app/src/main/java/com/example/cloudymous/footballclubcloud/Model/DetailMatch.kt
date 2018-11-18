@@ -2,6 +2,7 @@ package com.example.cloudymous.footballclubcloud.Model
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+import java.util.*
 
 data class DetailMatch (
 
@@ -9,7 +10,7 @@ data class DetailMatch (
     var eventId : String? = null,
 
     @SerializedName("strDate")
-    var eventDate : String? = null,
+    var eventDate : Date? = null,
 
     @SerializedName("strTime")
     var eventTime : String? = null,

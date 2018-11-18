@@ -8,6 +8,7 @@ import com.example.cloudymous.footballclubcloud.Model.DetailMatch
 import com.example.cloudymous.footballclubcloud.Model.Team
 import com.example.cloudymous.footballclubcloud.Presenter.GetTeamPresenter
 import com.example.cloudymous.footballclubcloud.R
+import com.example.cloudymous.footballclubcloud.Utils.DateHelper
 import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
 import com.google.gson.Gson
@@ -35,7 +36,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
 
         presenter.getTeamDetail(event.homeTeamId, event.awayTeamId)
 
-        date.text = event.eventDate
+        date.text = event.eventDate?.let { DateHelper.formatMatchDate(it) }
 
         team_home.text = event.homeTeam
         team_away.text = event.awayTeam
