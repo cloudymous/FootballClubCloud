@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content">
 
             <TextView
-                    android:id="@+id/home_score"
+                    android:id="@+id/home_score_detail"
                     tools:text="1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -101,7 +101,7 @@
                     android:padding="3dip"/>
 
             <TextView
-                    android:id="@+id/away_score"
+                    android:id="@+id/away_score_detail"
                     tools:text="2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
