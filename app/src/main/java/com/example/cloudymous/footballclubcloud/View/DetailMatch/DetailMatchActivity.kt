@@ -2,6 +2,7 @@ package com.example.cloudymous.footballclubcloud.View.DetailMatch
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.cloudymous.footballclubcloud.Api.ApiRepository
 import com.example.cloudymous.footballclubcloud.Model.DetailMatch
 import com.example.cloudymous.footballclubcloud.Model.Team
@@ -32,7 +33,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
 
         presenter = GetTeamPresenter(this, request, gson)
 
-        presenter.getTeamDetail(event.homeTeam, event.awayTeam)
+        presenter.getTeamDetail(event.homeTeamId, event.awayTeamId)
 
         date.text = event.eventDate
 
@@ -74,12 +75,10 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
     }
 
     override fun showTeam(dataHome: Team, dataAway: Team) {
-//        home_badge.let { Picasso.get().load(dataHome).into(home_badge) }
-//        away_badge.let { Picasso.get().load(dataAway).into(away_badge) }
         Picasso.get().load(dataHome.teamBadge).into(home_badge)
         Picasso.get().load(dataAway.teamBadge).into(away_badge)
-//        home_badge.setImageResource(dataHome)
-//        away_badge.setImageResource(dataAway)
+        Log.v("teamBadgeHome", dataHome.teamBadge)
+        Log.v("awayBadgeHome", dataAway.teamBadge)
     }
 
 }

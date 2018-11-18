@@ -11,8 +11,14 @@ data class DetailMatch (
     @SerializedName("dateEvent")
     var eventDate : String? = null,
 
+    @SerializedName("idHomeTeam")
+    var homeTeamId : String? = null,
+
     @SerializedName("strHomeTeam")
     var homeTeam : String? = null,
+
+    @SerializedName("idAwayTeam")
+    var awayTeamId : String? = null,
 
     @SerializedName("strAwayTeam")
     var awayTeam : String? = null,
