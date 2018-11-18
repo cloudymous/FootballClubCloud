@@ -1,10 +1,10 @@
 package com.example.cloudymous.footballclubcloud.View.DetailMatch
 
-import com.example.cloudymous.footballclubcloud.Model.DetailMatch
+import com.example.cloudymous.footballclubcloud.Model.Team
 
 interface DetailMatchView {
 
     fun showLoading()
     fun hideLoading()
-    fun showDetailMatch(data: DetailMatch)
+    fun showTeam(data: Team)
 }
