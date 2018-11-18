@@ -39,8 +39,8 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         team_home.text = event.homeTeam
         team_away.text = event.awayTeam
 
-        home_score.text = event.homeScore
-        away_score.text = event.awayScore
+        home_score_detail.text = event.homeScore
+        away_score_detail.text = event.awayScore
 
         home_redcards.text = event.homeRedCards
         away_redcards.text = event.awayRedCards
@@ -74,8 +74,12 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
     }
 
     override fun showTeam(dataHome: Team, dataAway: Team) {
-        Picasso.get().load(dataHome).into(home_badge)
-        Picasso.get().load(away_badge).into(away_badge)
+//        home_badge.let { Picasso.get().load(dataHome).into(home_badge) }
+//        away_badge.let { Picasso.get().load(dataAway).into(away_badge) }
+        Picasso.get().load(dataHome.teamBadge).into(home_badge)
+        Picasso.get().load(dataAway.teamBadge).into(away_badge)
+//        home_badge.setImageResource(dataHome)
+//        away_badge.setImageResource(dataAway)
     }
 
 }
