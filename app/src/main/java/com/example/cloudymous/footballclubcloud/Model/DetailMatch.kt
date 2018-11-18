@@ -8,8 +8,11 @@ data class DetailMatch (
     @SerializedName("idEvent")
     var eventId : String? = null,
 
-    @SerializedName("dateEvent")
+    @SerializedName("strDate")
     var eventDate : String? = null,
+
+    @SerializedName("strTime")
+    var eventTime : String? = null,
 
     @SerializedName("idHomeTeam")
     var homeTeamId : String? = null,
