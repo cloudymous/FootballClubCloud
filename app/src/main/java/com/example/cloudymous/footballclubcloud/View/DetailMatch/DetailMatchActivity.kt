@@ -8,12 +8,12 @@ import com.example.cloudymous.footballclubcloud.Model.DetailMatch
 import com.example.cloudymous.footballclubcloud.Model.Team
 import com.example.cloudymous.footballclubcloud.Presenter.GetTeamPresenter
 import com.example.cloudymous.footballclubcloud.R
-import com.example.cloudymous.footballclubcloud.Utils.DateHelper
 import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_match.*
+import java.text.SimpleDateFormat
 
 class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
 
@@ -36,7 +36,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
 
         presenter.getTeamDetail(event.homeTeamId, event.awayTeamId)
 
-        date.text = event.eventDate?.let { DateHelper.formatMatchDate(it) }
+        date.text = formatDate(event.eventDate)
 
         team_home.text = event.homeTeam
         team_away.text = event.awayTeam
@@ -65,6 +65,13 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         home_linesubs.text = event.homeSubtitutes
         away_linesubs.text = event.awaySubtitutes
 
+    }
+
+    private fun formatDate(strDate: String?) : String {
+        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val date = simpleDateFormat.parse(strDate)
+        val dateWithDay = SimpleDateFormat("EEEE, dd MMM yyy")
+        return  dateWithDay.format(date)
     }
 
     override fun showLoading() {
