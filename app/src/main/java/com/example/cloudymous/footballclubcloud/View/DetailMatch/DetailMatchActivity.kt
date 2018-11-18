@@ -74,11 +74,11 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         progress_bar.invisible()
     }
 
-    override fun showTeam(dataHome: Team, dataAway: Team) {
-        Picasso.get().load(dataHome.teamBadge).into(home_badge)
-        Picasso.get().load(dataAway.teamBadge).into(away_badge)
-        Log.v("teamBadgeHome", dataHome.teamBadge)
-        Log.v("awayBadgeHome", dataAway.teamBadge)
+    override fun showTeam(dataHome: List<Team>, dataAway: List<Team>) {
+        Picasso.get().load(dataHome[0].teamBadge).into(home_badge)
+        Picasso.get().load(dataAway[0].teamBadge).into(away_badge)
+        Log.v("teamBadgeHome", dataHome[0].teamBadge)
+        Log.v("awayBadgeHome", dataAway[0].teamBadge)
     }
 
 }
