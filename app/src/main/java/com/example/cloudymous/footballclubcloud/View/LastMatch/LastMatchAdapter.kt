@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.Model.DetailMatch
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.Utils.formatDate
+import com.example.cloudymous.footballclubcloud.Utils.formatTime
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_match.*
+import kotlinx.android.synthetic.main.notification_template_part_time.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class LastMatchAdapter(
@@ -35,6 +37,8 @@ class LastMatchViewHolder(override val containerView: View) : RecyclerView.ViewH
     fun bindItem(lastmatch: DetailMatch, clickListener: (DetailMatch) -> Unit) {
 
         date_match.text = formatDate(lastmatch.eventDate)
+
+        time_match.text = formatTime(lastmatch.eventTime)
 
         home.text = lastmatch.homeTeam
         home_score.text = lastmatch.homeScore
