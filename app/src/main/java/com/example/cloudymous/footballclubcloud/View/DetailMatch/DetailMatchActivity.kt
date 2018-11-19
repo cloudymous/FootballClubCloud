@@ -8,6 +8,7 @@ import com.example.cloudymous.footballclubcloud.Model.DetailMatch
 import com.example.cloudymous.footballclubcloud.Model.Team
 import com.example.cloudymous.footballclubcloud.Presenter.GetTeamPresenter
 import com.example.cloudymous.footballclubcloud.R
+import com.example.cloudymous.footballclubcloud.Utils.formatTime
 import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
 import com.google.gson.Gson
@@ -37,6 +38,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         presenter.getTeamDetail(event.homeTeamId, event.awayTeamId)
 
         date.text = formatDate(event.eventDate)
+        time.text = formatTime(event.eventTime)
 
         team_home.text = event.homeTeam
         team_away.text = event.awayTeam
@@ -44,26 +46,26 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         home_score_detail.text = event.homeScore
         away_score_detail.text = event.awayScore
 
-        home_redcards.text = event.homeRedCards
-        away_redcards.text = event.awayRedCards
+        home_redcards.text = event.homeRedCards?.replace(";", "\n")
+        away_redcards.text = event.awayRedCards?.replace(";", "\n")
 
-        home_yellowcards.text = event.homeYellowCards
-        away_yellowcards.text = event.awayYellowCards
+        home_yellowcards.text = event.homeYellowCards?.replace(";", "\n")
+        away_yellowcards.text = event.awayYellowCards?.replace(";", "\n")
 
-        home_goalkeepers.text = event.homeGoalKeeper
-        away_goalkeepers.text = event.awayGoalKeeper
+        home_goalkeepers.text = event.homeGoalKeeper?.replace(";", "\n")
+        away_goalkeepers.text = event.awayGoalKeeper?.replace(";", "\n")
 
-        home_linedef.text = event.homeLineDefense
-        away_linedef.text = event.awayLineDefense
+        home_linedef.text = event.homeLineDefense?.replace(";", "\n")
+        away_linedef.text = event.awayLineDefense?.replace(";", "\n")
 
-        home_linemid.text = event.homeLineMidfield
-        away_linemid.text = event.awayLineMidfield
+        home_linemid.text = event.homeLineMidfield?.replace(";", "\n")
+        away_linemid.text = event.awayLineMidfield?.replace(";", "\n")
 
-        home_lineforward.text = event.homeLineForward
-        away_lineforward.text = event.awayLineForward
+        home_lineforward.text = event.homeLineForward?.replace(";", "\n")
+        away_lineforward.text = event.awayLineForward?.replace(";", "\n")
 
-        home_linesubs.text = event.homeSubtitutes
-        away_linesubs.text = event.awaySubtitutes
+        home_linesubs.text = event.homeSubtitutes?.replace(";", "\n")
+        away_linesubs.text = event.awaySubtitutes?.replace(";", "\n")
 
     }
 
