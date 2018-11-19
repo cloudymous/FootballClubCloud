@@ -8,6 +8,7 @@ import com.example.cloudymous.footballclubcloud.Model.DetailMatch
 import com.example.cloudymous.footballclubcloud.Model.Team
 import com.example.cloudymous.footballclubcloud.Presenter.GetTeamPresenter
 import com.example.cloudymous.footballclubcloud.R
+import com.example.cloudymous.footballclubcloud.Utils.formatDate
 import com.example.cloudymous.footballclubcloud.Utils.formatTime
 import com.example.cloudymous.footballclubcloud.Utils.invisible
 import com.example.cloudymous.footballclubcloud.Utils.visible
@@ -67,13 +68,6 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         home_linesubs.text = event.homeSubtitutes?.replace(";", "\n")
         away_linesubs.text = event.awaySubtitutes?.replace(";", "\n")
 
-    }
-
-    private fun formatDate(strDate: String?) : String {
-        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
-        val date = simpleDateFormat.parse(strDate)
-        val dateWithDay = SimpleDateFormat("EEEE, dd MMM yyy")
-        return  dateWithDay.format(date)
     }
 
     override fun showLoading() {
