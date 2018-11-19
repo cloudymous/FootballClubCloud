@@ -20,7 +20,7 @@ fun formatDate(strDate: String?): String {
 }
 
 fun formatTime(strTime: String?): String {
-    val simpleDateFormat = SimpleDateFormat("HH:mm:ss")
+    val simpleDateFormat = SimpleDateFormat("HH:mm")
     simpleDateFormat.timeZone = TimeZone.getTimeZone("GMT")
     val time = simpleDateFormat.parse(strTime)
     return simpleDateFormat.format(time)
