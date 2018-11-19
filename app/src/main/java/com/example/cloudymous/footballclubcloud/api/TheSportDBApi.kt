@@ -5,19 +5,7 @@ import com.example.cloudymous.footballclubcloud.BuildConfig
 
 object TheSportDBApi {
 
-    fun getTeams(league: String?) : String {
-        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
-            .appendPath("api")
-            .appendPath("v1")
-            .appendPath("json")
-            .appendPath(BuildConfig.TSDB_API_KEY)
-            .appendPath("search_all_teams.php")
-            .appendQueryParameter("l", league)
-            .build()
-            .toString()
-    }
-
-    fun getTeamDetail(teamId: String?) : String {
+    fun getTeamDetail(teamId: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
@@ -29,7 +17,7 @@ object TheSportDBApi {
             .toString()
     }
 
-    fun getLastMatch(leagueId: String?) : String {
+    fun getLastMatch(leagueId: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
@@ -43,7 +31,7 @@ object TheSportDBApi {
 
     }
 
-    fun getNextMatch(leagueId: String?) : String {
+    fun getNextMatch(leagueId: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
@@ -55,17 +43,5 @@ object TheSportDBApi {
             .toString()
 
 
-    }
-
-    fun getMatchDetail(eventId: String?) : String {
-        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
-            .appendPath("api")
-            .appendPath("v1")
-            .appendPath("json")
-            .appendPath(BuildConfig.TSDB_API_KEY)
-            .appendPath("lookupevent.php")
-            .appendQueryParameter("id", eventId)
-            .build()
-            .toString()
     }
 }
