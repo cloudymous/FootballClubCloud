@@ -1,19 +1,8 @@
 <resources>
     <string name="app_name">Football Schedule</string>
 
-    <array name="league">
-        <item>English Premier League</item>
-        <item>English League Championship</item>
-        <item>German Bundesliga</item>
-        <item>Italian Serie A</item>
-        <item>French Ligue 1</item>
-        <item>Spanish La Liga</item>
-    </array>
-
     <string name="leagueId">4328</string>
 
-    <string name="next_match_fragment">Next Match Fragment</string>
-    <string name="last_match_fragment">Last Match Fragment</string>
     <string name="vs">VS</string>
     <string name="goal">Goal</string>
     <string name="red_card">Red Card</string>
