@@ -23,5 +23,7 @@
     <string name="lineup_midfield">Lineup Midfield</string>
     <string name="lineup_forward">Lineup Forward</string>
     <string name="lineup_subtitutes">Lineup Subtitutes</string>
+    <string name="home_badge">Home Badge</string>
+    <string name="away_badge">Away Badge</string>
 
 </resources>
