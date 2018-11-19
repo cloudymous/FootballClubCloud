@@ -45,7 +45,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
         val request = ApiRepository()
         val gson = Gson()
 
-        val leagueId = R.string.leagueId.toString()
+        val leagueId = resources.getString(R.string.leagueId)
 
         presenter = LastMatchPresenter(this, request, gson)
         presenter.getLastMatch(leagueId)
