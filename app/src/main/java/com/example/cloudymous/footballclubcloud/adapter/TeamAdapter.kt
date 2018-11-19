@@ -1,9 +1,9 @@
-package com.example.cloudymous.footballclubcloud.Adapter
+package com.example.cloudymous.footballclubcloud.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import com.example.cloudymous.footballclubcloud.Model.Team
-import org.jetbrains.anko.*
+import com.example.cloudymous.footballclubcloud.model.Team
+import org.jetbrains.anko.AnkoContext
 
 class TeamAdapter(private val teams: List<Team>, private val listener: (Team) -> Unit) :
     RecyclerView.Adapter<TeamViewHolder>() {

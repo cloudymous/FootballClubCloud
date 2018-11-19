@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.Api
+package com.example.cloudymous.footballclubcloud.api
 
 import java.net.URL
 

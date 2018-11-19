@@ -1,24 +1,25 @@
-package com.example.cloudymous.footballclubcloud.Adapter
+package com.example.cloudymous.footballclubcloud.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.cloudymous.footballclubcloud.Model.Team
 import com.example.cloudymous.footballclubcloud.R
+import com.example.cloudymous.footballclubcloud.model.Favorite
 import com.squareup.picasso.Picasso
 import org.jetbrains.anko.find
 import org.jetbrains.anko.sdk25.coroutines.onClick
 
-class TeamViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class FavoriteViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val teamBadge: ImageView = view.find(R.id.team_badge)
     private val teamName: TextView = view.find(R.id.team_name)
 
-    fun bindItem(teams: Team, listener: (Team) -> Unit) {
-        Picasso.get().load(teams.teamBadge).into(teamBadge)
-        teamName.text = teams.teamName
-        itemView.onClick { listener(teams) }
+    fun bindItem(favorite: Favorite, listener: (Favorite) -> Unit) {
+
+        Picasso.get().load(favorite.teamBadge).into(teamBadge)
+        teamName.text = favorite.teamName
+        itemView.onClick { listener(favorite) }
 
     }
 

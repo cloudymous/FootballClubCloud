@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.Model
+package com.example.cloudymous.footballclubcloud.model
 
 import com.google.gson.annotations.SerializedName
 

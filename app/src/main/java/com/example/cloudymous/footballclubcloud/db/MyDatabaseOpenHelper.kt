@@ -1,8 +1,8 @@
-package com.example.cloudymous.footballclubcloud.Db
+package com.example.cloudymous.footballclubcloud.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.example.cloudymous.footballclubcloud.Model.Favorite
+import com.example.cloudymous.footballclubcloud.model.Favorite
 import org.jetbrains.anko.db.*
 
 class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteTeam.db", null, 1) {

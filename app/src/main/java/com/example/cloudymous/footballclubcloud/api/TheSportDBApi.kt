@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.Api
+package com.example.cloudymous.footballclubcloud.api
 
 import android.net.Uri
 import com.example.cloudymous.footballclubcloud.BuildConfig

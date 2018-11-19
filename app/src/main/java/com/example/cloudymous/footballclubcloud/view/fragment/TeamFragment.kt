@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.View.Fragment
+package com.example.cloudymous.footballclubcloud.view.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -10,15 +10,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.example.cloudymous.footballclubcloud.Api.ApiRepository
-import com.example.cloudymous.footballclubcloud.Model.Team
-import com.example.cloudymous.footballclubcloud.Adapter.TeamAdapter
-import com.example.cloudymous.footballclubcloud.Presenter.TeamPresenter
 import com.example.cloudymous.footballclubcloud.R
-import com.example.cloudymous.footballclubcloud.View.TeamDetailActivity
-import com.example.cloudymous.footballclubcloud.Utils.invisible
-import com.example.cloudymous.footballclubcloud.Utils.visible
-import com.example.cloudymous.footballclubcloud.View.TeamView
+import com.example.cloudymous.footballclubcloud.adapter.TeamAdapter
+import com.example.cloudymous.footballclubcloud.api.ApiRepository
+import com.example.cloudymous.footballclubcloud.model.Team
+import com.example.cloudymous.footballclubcloud.presenter.TeamPresenter
+import com.example.cloudymous.footballclubcloud.utils.invisible
+import com.example.cloudymous.footballclubcloud.utils.visible
+import com.example.cloudymous.footballclubcloud.view.TeamDetailActivity
+import com.example.cloudymous.footballclubcloud.view.TeamView
 import com.google.gson.Gson
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView

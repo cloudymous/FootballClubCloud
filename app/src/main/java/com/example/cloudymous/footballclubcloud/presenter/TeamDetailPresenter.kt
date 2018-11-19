@@ -1,10 +1,9 @@
-package com.example.cloudymous.footballclubcloud.Presenter
+package com.example.cloudymous.footballclubcloud.presenter
 
-import android.view.View
-import com.example.cloudymous.footballclubcloud.Api.ApiRepository
-import com.example.cloudymous.footballclubcloud.Api.TheSportDBApi
-import com.example.cloudymous.footballclubcloud.Model.TeamResponse
-import com.example.cloudymous.footballclubcloud.View.TeamDetailView
+import com.example.cloudymous.footballclubcloud.api.ApiRepository
+import com.example.cloudymous.footballclubcloud.api.TheSportDBApi
+import com.example.cloudymous.footballclubcloud.model.TeamResponse
+import com.example.cloudymous.footballclubcloud.view.TeamDetailView
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread

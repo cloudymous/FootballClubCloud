@@ -1,13 +1,13 @@
-package com.example.cloudymous.footballclubcloud.View
+package com.example.cloudymous.footballclubcloud.view
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.example.cloudymous.footballclubcloud.R
+import com.example.cloudymous.footballclubcloud.R.id.favorites
 import com.example.cloudymous.footballclubcloud.R.id.team
 import com.example.cloudymous.footballclubcloud.R.layout.activity_home
-import com.example.cloudymous.footballclubcloud.R.id.favorites
-import com.example.cloudymous.footballclubcloud.View.Fragment.FavoriteTeamFragment
-import com.example.cloudymous.footballclubcloud.View.Fragment.TeamFragment
+import com.example.cloudymous.footballclubcloud.view.fragment.FavoriteTeamFragment
+import com.example.cloudymous.footballclubcloud.view.fragment.TeamFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {

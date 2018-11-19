@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.Utils
+package com.example.cloudymous.footballclubcloud.utils
 
 import android.view.View
 

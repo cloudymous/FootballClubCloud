@@ -1,6 +1,6 @@
-package com.example.cloudymous.footballclubcloud.View
+package com.example.cloudymous.footballclubcloud.view
 
-import com.example.cloudymous.footballclubcloud.Model.Team
+import com.example.cloudymous.footballclubcloud.model.Team
 
 interface TeamDetailView {
     fun showLoading()
