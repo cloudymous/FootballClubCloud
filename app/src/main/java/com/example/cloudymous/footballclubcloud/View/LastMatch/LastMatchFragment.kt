@@ -45,11 +45,13 @@ class LastMatchFragment : Fragment(), LastMatchView {
         val request = ApiRepository()
         val gson = Gson()
 
+        val leagueId = R.string.leagueId.toString()
+
         presenter = LastMatchPresenter(this, request, gson)
-        presenter.getLastMatch("4328")
+        presenter.getLastMatch(leagueId)
 
         swipe_refresh.onRefresh {
-            presenter.getLastMatch("4328")
+            presenter.getLastMatch(leagueId)
         }
 
     }
