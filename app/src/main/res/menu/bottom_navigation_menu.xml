@@ -3,10 +3,17 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-            android:id="@+id/team"
+            android:id="@+id/last_match"
             android:enabled="true"
-            android:title="@string/teams"
-            android:icon="@drawable/ic_teams"
+            android:title="@string/last_match"
+            android:icon="@drawable/ic_last_match"
+            app:showAsAction="ifRoom"/>
+
+    <item
+            android:id="@+id/next_match"
+            android:enabled="true"
+            android:title="Next Match"
+            android:icon="@drawable/ic_next_event"
             app:showAsAction="ifRoom"/>
 
     <item
