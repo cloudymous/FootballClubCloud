@@ -14,7 +14,7 @@ class TeamDetailPresenter(
     private val gson: Gson
 ) {
 
-    fun getTeamDetail(teamId: String?) {
+    fun getTeamDetail(teamId: String) {
         view.showLoading()
         doAsync {
             val data =
