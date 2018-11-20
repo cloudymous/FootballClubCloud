@@ -35,6 +35,7 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
 
     private lateinit var progressBar: ProgressBar
     private lateinit var swipeRefresh: SwipeRefreshLayout
+
     private lateinit var teamBadge: ImageView
     private lateinit var teamName: TextView
     private lateinit var teamFormedYear: TextView
@@ -76,18 +77,15 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
                     android.R.color.holo_orange_light,
                     android.R.color.holo_red_light
                 )
-
                 scrollView {
                     isVerticalScrollBarEnabled = false
                     relativeLayout {
                         lparams(width = matchParent, height = wrapContent)
-
                         linearLayout {
                             lparams(width = matchParent, height = wrapContent)
                             padding = dip(10)
                             orientation = LinearLayout.VERTICAL
                             gravity = Gravity.CENTER_HORIZONTAL
-
                             teamBadge = imageView {}.lparams(height = dip(75))
                             teamName = textView {
                                 this.gravity = Gravity.CENTER
@@ -107,7 +105,8 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
                                 topMargin = dip(20)
                             }
                         }
-                        progressBar = progressBar {}.lparams {
+                        progressBar = progressBar {
+                        }.lparams {
                             centerHorizontally()
                         }
                     }
