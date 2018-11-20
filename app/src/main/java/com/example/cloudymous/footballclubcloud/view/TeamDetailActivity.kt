@@ -45,7 +45,7 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
     private lateinit var teams: Team
     private lateinit var id: String
 
-    private var menuItem : Menu? = null
+    private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +79,6 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
 
                 scrollView {
                     isVerticalScrollBarEnabled = false
-
                     relativeLayout {
                         lparams(width = matchParent, height = wrapContent)
 
@@ -129,8 +128,9 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
         teams = Team(
             data[0].teamId,
             data[0].teamName,
-            data[0].teamBadge)
-        swipeRefresh.isRefreshing= false
+            data[0].teamBadge
+        )
+        swipeRefresh.isRefreshing = false
         teamName.text = data[0].teamName
         teamDescription.text = data[0].teamDescription
         teamFormedYear.text = data[0].teamFormatYear
@@ -159,17 +159,18 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
         }
     }
 
-    private fun addToFavorite(){
+    private fun addToFavorite() {
         try {
             database.use {
-                insert(Favorite.TABLE_FAVORITE,
+                insert(
+                    Favorite.TABLE_FAVORITE,
                     Favorite.TEAM_ID to teams.teamId,
                     Favorite.TEAM_NAME to teams.teamName,
-                    Favorite.TEAM_BADGE to teams.teamBadge)
+                    Favorite.TEAM_BADGE to teams.teamBadge
+                )
             }
             swipeRefresh.snackbar("Added to Favorite!").show()
-        }
-        catch (e: SQLiteConstraintException) {
+        } catch (e: SQLiteConstraintException) {
             swipeRefresh.snackbar(e.localizedMessage).show()
         }
     }
