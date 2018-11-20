@@ -2,7 +2,6 @@ package com.example.cloudymous.footballclubcloud.view.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.support.design.R.attr.colorAccent
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
@@ -10,6 +9,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.adapter.FavoriteTeamAdapter
 import com.example.cloudymous.footballclubcloud.db.database
 import com.example.cloudymous.footballclubcloud.model.Favorite
@@ -73,7 +73,7 @@ class FavoriteTeamFragment : Fragment(), AnkoComponent<Context> {
 
             swipeRefresh = swipeRefreshLayout {
                 setColorSchemeResources(
-                    colorAccent,
+                    R.color.colorAccent,
                     android.R.color.holo_green_light,
                     android.R.color.holo_orange_light,
                     android.R.color.holo_red_light
