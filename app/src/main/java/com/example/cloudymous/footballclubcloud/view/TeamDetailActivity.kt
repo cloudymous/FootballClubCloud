@@ -25,7 +25,7 @@ import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
 class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
 
-    private lateinit var progressBar: ProgressBar
+    private lateinit var progressBarTeam: ProgressBar
     private lateinit var swipeRefresh: SwipeRefreshLayout
 
     private lateinit var teamBadge: ImageView
@@ -105,7 +105,7 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
                             }
                         }
 
-                        progressBar = progressBar {
+                        progressBarTeam = progressBar {
                         }.lparams {
                             centerHorizontally()
                         }
@@ -118,11 +118,11 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
     }
 
     override fun showLoading() {
-        progressBar.visible()
+        progressBarTeam.visible()
     }
 
     override fun hideLoading() {
-        progressBar.invisible()
+        progressBarTeam.invisible()
     }
 
     override fun showTeamDetail(data: List<Team>) {
