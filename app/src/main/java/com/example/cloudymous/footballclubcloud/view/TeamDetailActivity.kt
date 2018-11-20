@@ -15,6 +15,8 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.color.colorPrimaryText
+import com.example.cloudymous.footballclubcloud.R.drawable.ic_add_to_favorites
+import com.example.cloudymous.footballclubcloud.R.drawable.ic_added_to_favorites
 import com.example.cloudymous.footballclubcloud.R.id.add_to_favorite
 import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
@@ -27,7 +29,10 @@ import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import org.jetbrains.anko.*
+import org.jetbrains.anko.db.classParser
+import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.db.select
 import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.swipeRefreshLayout
@@ -116,6 +121,8 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
             }
         }
 
+        favoriteState()
+
         val request = ApiRepository()
         val gson = Gson()
 
@@ -127,6 +134,16 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
         }
 
 
+    }
+
+    private fun favoriteState() {
+        database.use {
+            val result = select(Favorite.TABLE_FAVORITE)
+                .whereArgs("(TEAM_ID = {id})", "id" to id)
+
+            val favorite = result.parseList(classParser<Favorite>())
+            if (!favorite.isEmpty()) isFavorite = true
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -142,7 +159,11 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
                 true
             }
             add_to_favorite -> {
-                addToFavorite()
+                if (isFavorite) removeFromFavorite() else addToFavorite()
+
+                isFavorite = !isFavorite
+                setFavorite()
+
                 true
             }
 
@@ -188,5 +209,23 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
         } catch (e: SQLiteConstraintException) {
             swipeRefresh.snackbar(e.localizedMessage).show()
         }
+    }
+
+    private fun removeFromFavorite() {
+        try {
+            database.use {
+                delete(Favorite.TABLE_FAVORITE, "(TEAM_ID = {id})", "id" to id)
+            }
+            swipeRefresh.snackbar("Removed from favorite").show()
+        } catch (e: SQLiteConstraintException) {
+            swipeRefresh.snackbar(e.localizedMessage).show()
+        }
+    }
+
+    private fun setFavorite() {
+        if (isFavorite)
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, ic_added_to_favorites)
+        else
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, ic_add_to_favorites)
     }
 }
