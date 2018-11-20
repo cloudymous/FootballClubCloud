@@ -9,11 +9,7 @@ class FavoriteTeamAdapter(private val favorite: List<Favorite>, private val list
     RecyclerView.Adapter<FavoriteViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
-        return FavoriteViewHolder(
-            TeamUI().createView(
-                AnkoContext.create(parent.context, parent)
-            )
-        )
+        return FavoriteViewHolder(TeamUI().createView(AnkoContext.create(parent.context, parent)))
     }
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
