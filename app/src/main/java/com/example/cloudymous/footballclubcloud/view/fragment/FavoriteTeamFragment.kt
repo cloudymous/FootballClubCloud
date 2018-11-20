@@ -39,6 +39,7 @@ class FavoriteTeamFragment : Fragment(), AnkoComponent<Context> {
         }
 
         listEvent.adapter = adapter
+
         swipeRefresh.onRefresh {
             showFavorite()
         }
