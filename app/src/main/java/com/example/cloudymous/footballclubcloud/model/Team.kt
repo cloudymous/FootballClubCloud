@@ -18,6 +18,6 @@ data class Team(
     @SerializedName("strStadium")
     var teamStadium: String? = null,
 
-    @SerializedName("strDescription")
+    @SerializedName("strDescriptionEN")
     var teamDescription: String? = null
 )
