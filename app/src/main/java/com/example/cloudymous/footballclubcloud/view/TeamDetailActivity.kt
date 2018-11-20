@@ -44,16 +44,6 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
         val intent = intent
         id = intent.getStringExtra("id")
 
-        val request = ApiRepository()
-        val gson = Gson()
-
-        presenter = TeamDetailPresenter(this, request, gson)
-        presenter.getTeamDetail(id)
-
-        swipeRefresh.onRefresh {
-            presenter.getTeamDetail(id)
-        }
-
         supportActionBar?.title = "Team Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -112,6 +102,16 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
                     }
                 }
             }
+        }
+
+        val request = ApiRepository()
+        val gson = Gson()
+
+        presenter = TeamDetailPresenter(this, request, gson)
+        presenter.getTeamDetail(id)
+
+        swipeRefresh.onRefresh {
+            presenter.getTeamDetail(id)
         }
 
 
