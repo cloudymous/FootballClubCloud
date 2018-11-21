@@ -4,6 +4,8 @@
     <string name="favorites">Favorites</string>
     <string name="last_match">Last Match</string>
 
+    <string name="leagueId">4328</string>
+
     <array name="league">
         <item>English Premier League</item>
         <item>English League Championship</item>
