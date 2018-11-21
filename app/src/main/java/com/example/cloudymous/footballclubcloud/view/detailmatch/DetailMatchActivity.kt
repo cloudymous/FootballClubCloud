@@ -2,8 +2,12 @@ package com.example.cloudymous.footballclubcloud.view.detailmatch
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import com.example.cloudymous.footballclubcloud.R
+import com.example.cloudymous.footballclubcloud.R.id.add_to_favorite
 import com.example.cloudymous.footballclubcloud.R.id.progress_bar
+import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.model.GetTeamPresenter
@@ -19,6 +23,9 @@ import kotlinx.android.synthetic.main.activity_detail_match.*
 class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
 
     private lateinit var presenter : GetTeamPresenter
+
+    private var menuItem : Menu? = null
+    private var isFavorite: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +65,28 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         home_linesubs.text = event.homeSubtitutes?.replace(";", "\n")
         away_linesubs.text = event.awaySubtitutes?.replace(";", "\n")
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(detail_menu, menu)
+        menuItem = menu
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            add_to_favorite -> {
+
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun showLoading() {
         progress_bar.visible()
     }
