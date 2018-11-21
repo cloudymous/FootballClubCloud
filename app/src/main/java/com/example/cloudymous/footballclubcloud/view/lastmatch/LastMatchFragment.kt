@@ -6,17 +6,17 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.presenter.LastMatchPresenter
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
+import com.example.cloudymous.footballclubcloud.view.detailmatch.DetailMatchActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_last_match.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
-import org.jetbrains.anko.support.v4.toast
 
 class LastMatchFragment : Fragment(), LastMatchView {
 
@@ -33,7 +33,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
         super.onActivityCreated(savedInstanceState)
 
         adapter = LastMatchAdapter(requireContext(), lastmatch) {
-            toast("League id, ${it.eventId}")
+            requireContext().startActivity<DetailMatchActivity>("event" to it)
         }
 
         last_match_list.layoutManager = LinearLayoutManager(context)
