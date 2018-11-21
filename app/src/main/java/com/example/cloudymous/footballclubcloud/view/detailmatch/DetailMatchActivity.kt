@@ -7,9 +7,12 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.add_to_favorite
+import com.example.cloudymous.footballclubcloud.R.id.swipe_refresh
 import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
+import com.example.cloudymous.footballclubcloud.db.databaseFavorite
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
+import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.GetTeamPresenter
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.utils.formatDate
@@ -19,11 +22,15 @@ import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_match.*
+import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.design.snackbar
+import org.jetbrains.anko.toast
+import java.sql.SQLClientInfoException
 
 class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
 
     private lateinit var presenter : GetTeamPresenter
-    private lateinit var events: DetailMatch
+    private lateinit var event: DetailMatch
 
 
     private var menuItem : Menu? = null
@@ -41,7 +48,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        val event= intent.getSerializableExtra("event") as DetailMatch
+        event = intent.getSerializableExtra("event") as DetailMatch
 
         val request = ApiRepository()
         val gson = Gson()
@@ -88,7 +95,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
                 true
             }
             add_to_favorite -> {
-//                addToFavorite()
+                addToFavorite()
                 true
             }
 
@@ -96,21 +103,22 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         }
     }
 
-//    private fun addToFavorite(){
-//        try {
-//            databaseFavorite.use {
-//                insert(FavoriteMatch.TABLE_FAVORITE_MATCH,
-//                    FavoriteMatch.EVENT_ID to events.eventId,
-//                    FavoriteMatch.EVENT_DATE to events.eventDate,
-//                    FavoriteMatch.EVENT_TIME to events.eventTime,
-//                    FavoriteMatch.EVENT_HOME_TEAM to events.homeTeam,
-//                    FavoriteMatch.EVENT_AWAY_TEAM to events.awayTeam)
-//            }
-//            snackbar(swipe_refresh, "Added to favorite").show()
-//        } catch (e: SQLClientInfoException){
-//            snackbar(swipe_refresh, e.localizedMessage).show()
-//        }
-//    }
+    private fun addToFavorite(){
+        try {
+            databaseFavorite.use {
+                insert(
+                    FavoriteMatch.TABLE_FAVORITE_MATCH,
+                    FavoriteMatch.TABLE_FAVORITE_MATCH to event.eventId,
+                    FavoriteMatch.EVENT_DATE to event.eventDate,
+                    FavoriteMatch.EVENT_TIME to event.eventTime,
+                    FavoriteMatch.EVENT_HOME_TEAM to event.homeTeam,
+                    FavoriteMatch.EVENT_AWAY_TEAM to event.awayTeam)
+            }
+            toast("Add to favorite")
+        } catch (e: SQLClientInfoException){
+            toast(e.localizedMessage)
+        }
+    }
 
     override fun showLoading() {
         progress_bar.visible()
@@ -118,6 +126,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
     override fun hideLoading() {
         progress_bar.invisible()
     }
+
     override fun showTeam(dataHome: List<Team>, dataAway: List<Team>) {
         Picasso.get().load(dataHome[0].teamBadge).into(home_badge)
         Picasso.get().load(dataAway[0].teamBadge).into(away_badge)
