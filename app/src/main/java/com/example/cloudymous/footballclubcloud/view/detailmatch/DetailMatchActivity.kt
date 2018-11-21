@@ -1,5 +1,6 @@
 package com.example.cloudymous.footballclubcloud.view.detailmatch
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -9,7 +10,9 @@ import com.example.cloudymous.footballclubcloud.R.id.add_to_favorite
 import com.example.cloudymous.footballclubcloud.R.id.progress_bar
 import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
+import com.example.cloudymous.footballclubcloud.db.databaseFavorite
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
+import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.GetTeamPresenter
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.utils.formatDate
@@ -19,13 +22,22 @@ import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_match.*
+import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.design.snackbar
+import java.sql.SQLClientInfoException
 
 class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
 
     private lateinit var presenter : GetTeamPresenter
+    private lateinit var event: DetailMatch
+
 
     private var menuItem : Menu? = null
     private var isFavorite: Boolean = false
+
+
+//    private lateinit var intent: Intent
+//    private var event = intent.getSerializableExtra("event") as DetailMatch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +47,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        val event = intent.getSerializableExtra("event") as DetailMatch
+        event= intent.getSerializableExtra("event") as DetailMatch
 
         val request = ApiRepository()
         val gson = Gson()
@@ -79,11 +91,27 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
                 true
             }
             add_to_favorite -> {
-
+                addToFavorite()
                 true
             }
 
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun addToFavorite(){
+        try {
+            databaseFavorite.use {
+                insert(FavoriteMatch.TABLE_FAVORITE_MATCH,
+                    FavoriteMatch.EVENT_ID to event.eventId,
+                    FavoriteMatch.EVENT_DATE to event.eventDate,
+                    FavoriteMatch.EVENT_TIME to event.eventTime,
+                    FavoriteMatch.EVENT_HOME_TEAM to event.homeTeam,
+                    FavoriteMatch.EVENT_AWAY_TEAM to event.awayTeam)
+            }
+            snackbar(swipe_refresh, "Added to favorite").show()
+        } catch (e: SQLClientInfoException){
+            snackbar(swipe_refresh, e.localizedMessage).show()
         }
     }
 
