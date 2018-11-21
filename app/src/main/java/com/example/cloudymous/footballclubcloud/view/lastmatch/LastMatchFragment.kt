@@ -25,10 +25,6 @@ class LastMatchFragment : Fragment(), LastMatchView {
     private lateinit var adapter: LastMatchAdapter
     private lateinit var presenter: LastMatchPresenter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_last_match, container, false)
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -49,6 +45,10 @@ class LastMatchFragment : Fragment(), LastMatchView {
             presenter.getLastMatch(leagueId)
         }
 
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_last_match, container, false)
     }
 
     override fun showLoading() {
