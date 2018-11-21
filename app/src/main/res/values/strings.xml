@@ -13,4 +13,16 @@
         <item>Spanish La Liga</item>
     </array>
 
+    <string name="vs">VS</string>
+    <string name="goal">Goal</string>
+    <string name="red_card">Red Card</string>
+    <string name="yellow_card">Yellow Card</string>
+    <string name="goalkeeper">Goalkeeper</string>
+    <string name="lineup_defense">Lineup Defense</string>
+    <string name="lineup_midfield">Lineup Midfield</string>
+    <string name="lineup_forward">Lineup Forward</string>
+    <string name="lineup_subtitutes">Lineup Subtitutes</string>
+    <string name="home_badge">Home Badge</string>
+    <string name="away_badge">Away Badge</string>
+
 </resources>
