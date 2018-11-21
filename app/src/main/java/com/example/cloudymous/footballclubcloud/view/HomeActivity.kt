@@ -7,7 +7,7 @@ import com.example.cloudymous.footballclubcloud.R.id.*
 import com.example.cloudymous.footballclubcloud.R.layout.activity_home
 import com.example.cloudymous.footballclubcloud.view.fragment.FavoriteTeamFragment
 import com.example.cloudymous.footballclubcloud.view.lastmatch.LastMatchFragment
-import com.example.cloudymous.footballclubcloud.view.fragment.NextMatchFragment
+import com.example.cloudymous.footballclubcloud.view.nextmatch.NextMatchFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
