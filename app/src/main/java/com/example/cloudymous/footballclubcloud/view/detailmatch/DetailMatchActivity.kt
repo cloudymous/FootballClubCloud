@@ -1,18 +1,14 @@
 package com.example.cloudymous.footballclubcloud.view.detailmatch
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.add_to_favorite
-import com.example.cloudymous.footballclubcloud.R.id.progress_bar
 import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
-import com.example.cloudymous.footballclubcloud.db.databaseFavorite
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
-import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.GetTeamPresenter
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.utils.formatDate
@@ -22,14 +18,11 @@ import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_match.*
-import org.jetbrains.anko.db.insert
-import org.jetbrains.anko.design.snackbar
-import java.sql.SQLClientInfoException
 
 class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
 
     private lateinit var presenter : GetTeamPresenter
-    private lateinit var event: DetailMatch
+    private lateinit var events: DetailMatch
 
 
     private var menuItem : Menu? = null
@@ -47,14 +40,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        event= intent.getSerializableExtra("event") as DetailMatch
-
-        val request = ApiRepository()
-        val gson = Gson()
-
-        presenter = GetTeamPresenter(this, request, gson)
-        presenter.getTeamDetail(event.homeTeamId, event.awayTeamId)
-
+        val event= intent.getSerializableExtra("event") as DetailMatch
 
         date.text = formatDate(event.eventDate)
         time.text = formatTime(event.eventTime)
@@ -76,6 +62,13 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         away_lineforward.text = event.awayLineForward?.replace(";", "\n")
         home_linesubs.text = event.homeSubtitutes?.replace(";", "\n")
         away_linesubs.text = event.awaySubtitutes?.replace(";", "\n")
+
+        val request = ApiRepository()
+        val gson = Gson()
+
+        presenter = GetTeamPresenter(this, request, gson)
+        presenter.getTeamDetail(event.homeTeamId, event.awayTeamId)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -91,7 +84,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
                 true
             }
             add_to_favorite -> {
-                addToFavorite()
+//                addToFavorite()
                 true
             }
 
@@ -99,21 +92,21 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         }
     }
 
-    private fun addToFavorite(){
-        try {
-            databaseFavorite.use {
-                insert(FavoriteMatch.TABLE_FAVORITE_MATCH,
-                    FavoriteMatch.EVENT_ID to event.eventId,
-                    FavoriteMatch.EVENT_DATE to event.eventDate,
-                    FavoriteMatch.EVENT_TIME to event.eventTime,
-                    FavoriteMatch.EVENT_HOME_TEAM to event.homeTeam,
-                    FavoriteMatch.EVENT_AWAY_TEAM to event.awayTeam)
-            }
-            snackbar(swipe_refresh, "Added to favorite").show()
-        } catch (e: SQLClientInfoException){
-            snackbar(swipe_refresh, e.localizedMessage).show()
-        }
-    }
+//    private fun addToFavorite(){
+//        try {
+//            databaseFavorite.use {
+//                insert(FavoriteMatch.TABLE_FAVORITE_MATCH,
+//                    FavoriteMatch.EVENT_ID to events.eventId,
+//                    FavoriteMatch.EVENT_DATE to events.eventDate,
+//                    FavoriteMatch.EVENT_TIME to events.eventTime,
+//                    FavoriteMatch.EVENT_HOME_TEAM to events.homeTeam,
+//                    FavoriteMatch.EVENT_AWAY_TEAM to events.awayTeam)
+//            }
+//            snackbar(swipe_refresh, "Added to favorite").show()
+//        } catch (e: SQLClientInfoException){
+//            snackbar(swipe_refresh, e.localizedMessage).show()
+//        }
+//    }
 
     override fun showLoading() {
         progress_bar.visible()
