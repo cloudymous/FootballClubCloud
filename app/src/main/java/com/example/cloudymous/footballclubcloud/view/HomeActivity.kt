@@ -3,10 +3,11 @@ package com.example.cloudymous.footballclubcloud.view
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.cloudymous.footballclubcloud.R
-import com.example.cloudymous.footballclubcloud.R.id.favorites
-import com.example.cloudymous.footballclubcloud.R.id.team
+import com.example.cloudymous.footballclubcloud.R.id.*
 import com.example.cloudymous.footballclubcloud.R.layout.activity_home
 import com.example.cloudymous.footballclubcloud.view.fragment.FavoriteTeamFragment
+import com.example.cloudymous.footballclubcloud.view.fragment.LastMatchFragment
+import com.example.cloudymous.footballclubcloud.view.fragment.NextMatchFragment
 import com.example.cloudymous.footballclubcloud.view.fragment.TeamFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -18,23 +19,36 @@ class HomeActivity : AppCompatActivity() {
 
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                team -> {
-                    loadTeamFragment(savedInstanceState)
+                last_match -> {
+                    loadLastMatchFragment(savedInstanceState)
                 }
+
+                next_match -> {
+                    loadNextMatchFragment(savedInstanceState)
+                }
+
                 favorites -> {
                     loadFavoriteFragment(savedInstanceState)
                 }
             }
             true
         }
-        bottom_navigation.selectedItemId = team
+        bottom_navigation.selectedItemId = last_match
     }
 
-    private fun loadTeamFragment(savedInstanceState: Bundle?) {
+    private fun loadLastMatchFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.main_container,
-                    TeamFragment(), TeamFragment::class.java.simpleName).commit()
+                    LastMatchFragment(), LastMatchFragment::class.java.simpleName).commit()
+        }
+    }
+
+    private fun loadNextMatchFragment(savedInstanceState: Bundle?) {
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.main_container,
+                    NextMatchFragment(), NextMatchFragment::class.java.simpleName).commit()
         }
     }
 
