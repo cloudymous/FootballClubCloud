@@ -38,24 +38,30 @@ class HomeActivity : AppCompatActivity() {
     private fun loadLastMatchFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.main_container,
-                    LastMatchFragment(), LastMatchFragment::class.java.simpleName).commit()
+                .replace(
+                    R.id.main_container,
+                    LastMatchFragment(), LastMatchFragment::class.java.simpleName
+                ).commit()
         }
     }
 
     private fun loadNextMatchFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.main_container,
-                    NextMatchFragment(), NextMatchFragment::class.java.simpleName).commit()
+                .replace(
+                    R.id.main_container,
+                    NextMatchFragment(), NextMatchFragment::class.java.simpleName
+                ).commit()
         }
     }
 
     private fun loadFavoriteFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.main_container,
-                    FavoriteTeamFragment(), FavoriteTeamFragment::class.java.simpleName).commit()
+                .replace(
+                    R.id.main_container,
+                    FavoriteTeamFragment(), FavoriteTeamFragment::class.java.simpleName
+                ).commit()
         }
     }
 }
