@@ -2,6 +2,7 @@ package com.example.cloudymous.footballclubcloud.view.detailmatch
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.example.cloudymous.footballclubcloud.R
@@ -42,6 +43,12 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         val intent = intent
         val event= intent.getSerializableExtra("event") as DetailMatch
 
+        val request = ApiRepository()
+        val gson = Gson()
+
+        presenter = GetTeamPresenter(this, request, gson)
+        presenter.getTeamDetail(event.homeTeamId, event.awayTeamId)
+
         date.text = formatDate(event.eventDate)
         time.text = formatTime(event.eventTime)
         team_home.text = event.homeTeam
@@ -63,11 +70,8 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         home_linesubs.text = event.homeSubtitutes?.replace(";", "\n")
         away_linesubs.text = event.awaySubtitutes?.replace(";", "\n")
 
-        val request = ApiRepository()
-        val gson = Gson()
-
-        presenter = GetTeamPresenter(this, request, gson)
-        presenter.getTeamDetail(event.homeTeamId, event.awayTeamId)
+        Log.v("eventid", event.eventId)
+        Log.v("eventhometeam", event.homeTeam)
 
     }
 
