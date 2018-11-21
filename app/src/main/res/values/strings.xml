@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Football Club Cloud</string>
-    <string name="teams">Team</string>
     <string name="favorites">Favorites</string>
     <string name="last_match">Last Match</string>
 
