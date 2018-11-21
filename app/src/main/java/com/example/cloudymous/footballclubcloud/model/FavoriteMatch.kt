@@ -1,18 +1,25 @@
 package com.example.cloudymous.footballclubcloud.model
 
-data class FavoriteMatch (val id: Long?,
-                          val eventId: String?,
-                          val eventDate: String?,
-                          val eventTime: String?,
-                          val homeTeamId: String?,
-                          val awayTeamId: String?,
-                          ) {
+data class FavoriteMatch (val events : List<DetailMatch>
+) {
 
     companion object {
         const val TABLE_FAVORITE: String = "TABLE_FAVORITE"
         const val ID: String = "ID_"
-        const val TEAM_ID: String = "TEAM_ID"
-        const val TEAM_NAME: String = "TEAM_NAME"
-        const val TEAM_BADGE: String = "TEAM_BADGE"
+        const val EVENT_ID: String = "EVENT_ID"
+        const val EVENT_DATE: String = "EVENT_DATE"
+        const val EVENT_TIME: String = "EVENT_TIME"
+        const val EVENT_HOME_TEAM_ID: String = "EVENT_HOME_TEAM_ID"
+        const val EVENT_HOME_TEAM: String = "EVENT_HOME_TEAM"
+        const val EVENT_AWAY_TEAM_ID: String = "EVENT_AWAY_TEAM_ID"
+        const val EVENT_AWAY_TEAM: String = "EVENT_AWAY_TEAM"
+        const val EVENT_HOME_SCORE: String = "EVENT_HOME_SCORE"
+        const val EVENT_AWAY_SCORE: String = "EVENT_AWAY_SCORE"
+        const val EVENT_HOME_REDCARDS: String = "EVENT_HOME_REDCARDS"
+        const val EVENT_AWAY_REDCARDS: String = "EVENT_AWAY_REDCARDS"
+        const val EVENT_HOME_YELLOWCARDS: String = "EVENT_HOME_YELLOWCARDS"
+        const val EVENT_AWAY_YELLOWCARDS: String = "EVENT_AWAY_YELLOWCARDS"
+        const val EVENT_HOME_GOALKEEPER: String = "EVENT_HOME_GOALKEEPER"
+        const val EVENT_AWAY_GOALKEEPER: String = "EVENT_AWAY_GOALKEEPER"
     }
 }
