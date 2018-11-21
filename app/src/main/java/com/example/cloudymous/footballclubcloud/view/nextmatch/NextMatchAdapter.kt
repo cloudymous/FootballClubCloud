@@ -2,7 +2,9 @@ package com.example.cloudymous.footballclubcloud.view.nextmatch
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 
 class NextMatchAdapter(
