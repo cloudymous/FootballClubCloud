@@ -38,5 +38,5 @@ class FavoriteDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "F
     }
 }
 
-val Context.databaseFavorite: MyDatabaseOpenHelper
-    get() = MyDatabaseOpenHelper.getInstance(applicationContext)
+val Context.databaseFavorite: FavoriteDatabaseOpenHelper
+    get() = FavoriteDatabaseOpenHelper(applicationContext)
