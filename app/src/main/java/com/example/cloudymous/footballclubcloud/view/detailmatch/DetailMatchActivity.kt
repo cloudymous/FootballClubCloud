@@ -102,7 +102,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
             databaseFavorite.use {
                 insert(
                     FavoriteMatch.TABLE_FAVORITE_MATCH,
-                    FavoriteMatch.TABLE_FAVORITE_MATCH to event.eventId,
+                    FavoriteMatch.EVENT_ID to event.eventId,
                     FavoriteMatch.EVENT_DATE to event.eventDate,
                     FavoriteMatch.EVENT_TIME to event.eventTime,
                     FavoriteMatch.EVENT_HOME_TEAM to event.homeTeam,
