@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.db.databaseFavorite
-import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
+import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.view.detailmatch.DetailMatchActivity
 import kotlinx.android.synthetic.main.fragment_favorite_match.*
 import org.jetbrains.anko.db.classParser
@@ -18,7 +18,7 @@ import org.jetbrains.anko.support.v4.onRefresh
 
 class FavoriteFragment : Fragment() {
 
-    private var favoritesMatch: MutableList<FavoriteMatch> = mutableListOf()
+    private var favoritesMatch: MutableList<DetailMatch> = mutableListOf()
 
     private lateinit var adapter: FavoriteMatchAdapter
 
@@ -50,8 +50,8 @@ class FavoriteFragment : Fragment() {
         favoritesMatch.clear()
         context?.databaseFavorite?.use {
             swipe_refresh.isRefreshing = false
-            val result = select(FavoriteMatch.TABLE_FAVORITE_MATCH)
-            val favorites = result.parseList(classParser<FavoriteMatch>())
+            val result = select(DetailMatch.TABLE_FAVORITE_MATCH)
+            val favorites = result.parseList(classParser<DetailMatch>())
             favoritesMatch.addAll(favorites)
             adapter.notifyDataSetChanged()
         }
