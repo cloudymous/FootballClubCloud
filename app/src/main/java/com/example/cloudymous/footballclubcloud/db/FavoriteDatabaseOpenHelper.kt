@@ -2,7 +2,6 @@ package com.example.cloudymous.footballclubcloud.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.example.cloudymous.footballclubcloud.model.Favorite
 import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import org.jetbrains.anko.db.*
 
@@ -28,9 +27,7 @@ class FavoriteDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "F
             FavoriteMatch.EVENT_DATE to TEXT,
             FavoriteMatch.EVENT_TIME to TEXT,
             FavoriteMatch.EVENT_HOME_TEAM to TEXT,
-            FavoriteMatch.EVENT_HOME_BADGE to TEXT,
-            FavoriteMatch.EVENT_AWAY_TEAM to TEXT,
-            FavoriteMatch.EVENT_AWAY_BADGE to TEXT
+            FavoriteMatch.EVENT_AWAY_TEAM to TEXT
         )
     }
 
