@@ -125,6 +125,33 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
     }
 
     override fun showTeam(dataHome: List<Team>, dataAway: List<Team>) {
+
+        event = DetailMatch(
+            event.eventId,
+            event.eventDate,
+            event.eventTime,
+            event.homeTeamId,
+            event.homeTeam,
+            event.awayTeamId,
+            event.awayTeam,
+            event.homeScore,
+            event.awayScore,
+            event.homeRedCards,
+            event.awayRedCards,
+            event.homeYellowCards,
+            event.awayYellowCards,
+            event.homeGoalKeeper,
+            event.awayGoalKeeper,
+            event.homeLineDefense,
+            event.awayLineDefense,
+            event.homeLineMidfield,
+            event.awayLineMidfield,
+            event.homeLineForward,
+            event.awayLineForward,
+            event.homeSubtitutes,
+            event.awaySubtitutes
+        )
+
         Picasso.get().load(dataHome[0].teamBadge).into(home_badge)
         Picasso.get().load(dataAway[0].teamBadge).into(away_badge)
     }
