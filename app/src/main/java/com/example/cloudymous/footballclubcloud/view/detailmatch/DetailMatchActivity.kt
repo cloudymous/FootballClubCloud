@@ -10,7 +10,6 @@ import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.db.databaseFavorite
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
-import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.GetTeamPresenter
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.utils.formatDate
@@ -101,14 +100,14 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         try {
             databaseFavorite.use {
                 insert(
-                    FavoriteMatch.TABLE_FAVORITE_MATCH,
-                    FavoriteMatch.EVENT_ID to event.eventId,
-                    FavoriteMatch.EVENT_DATE to event.eventDate,
-                    FavoriteMatch.EVENT_TIME to event.eventTime,
-                    FavoriteMatch.EVENT_HOME_TEAM to event.homeTeam,
-                    FavoriteMatch.EVENT_HOME_SCORE to event.homeScore,
-                    FavoriteMatch.EVENT_AWAY_TEAM to event.awayTeam,
-                    FavoriteMatch.EVENT_AWAY_SCORE to event.awayScore
+                    DetailMatch.TABLE_FAVORITE_MATCH,
+                    DetailMatch.EVENT_ID to event.eventId,
+                    DetailMatch.EVENT_DATE to event.eventDate,
+                    DetailMatch.EVENT_TIME to event.eventTime,
+                    DetailMatch.EVENT_HOME_TEAM to event.homeTeam,
+                    DetailMatch.EVENT_HOME_SCORE to event.homeScore,
+                    DetailMatch.EVENT_AWAY_TEAM to event.awayTeam,
+                    DetailMatch.EVENT_AWAY_SCORE to event.awayScore
                 )
             }
             toast("Add to favorite")
