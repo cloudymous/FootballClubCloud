@@ -2,12 +2,10 @@ package com.example.cloudymous.footballclubcloud.view.detailmatch
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.add_to_favorite
-import com.example.cloudymous.footballclubcloud.R.id.swipe_refresh
 import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.db.databaseFavorite
@@ -23,17 +21,16 @@ import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_match.*
 import org.jetbrains.anko.db.insert
-import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.toast
 import java.sql.SQLClientInfoException
 
-class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
+class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
 
-    private lateinit var presenter : GetTeamPresenter
+    private lateinit var presenter: GetTeamPresenter
     private lateinit var event: DetailMatch
 
 
-    private var menuItem : Menu? = null
+    private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
 
 
@@ -77,9 +74,6 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         home_linesubs.text = event.homeSubtitutes?.replace(";", "\n")
         away_linesubs.text = event.awaySubtitutes?.replace(";", "\n")
 
-        Log.v("eventid", event.eventId)
-        Log.v("eventhometeam", event.homeTeam)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -103,7 +97,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
         }
     }
 
-    private fun addToFavorite(){
+    private fun addToFavorite() {
         try {
             databaseFavorite.use {
                 insert(
@@ -112,10 +106,13 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
                     FavoriteMatch.EVENT_DATE to event.eventDate,
                     FavoriteMatch.EVENT_TIME to event.eventTime,
                     FavoriteMatch.EVENT_HOME_TEAM to event.homeTeam,
-                    FavoriteMatch.EVENT_AWAY_TEAM to event.awayTeam)
+                    FavoriteMatch.EVENT_HOME_SCORE to event.homeScore,
+                    FavoriteMatch.EVENT_AWAY_TEAM to event.awayTeam,
+                    FavoriteMatch.EVENT_AWAY_SCORE to event.awayScore
+                )
             }
             toast("Add to favorite")
-        } catch (e: SQLClientInfoException){
+        } catch (e: SQLClientInfoException) {
             toast(e.localizedMessage)
         }
     }
@@ -123,6 +120,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView{
     override fun showLoading() {
         progress_bar.visible()
     }
+
     override fun hideLoading() {
         progress_bar.invisible()
     }
