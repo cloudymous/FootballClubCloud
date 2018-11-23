@@ -5,12 +5,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
-import com.example.cloudymous.footballclubcloud.model.DetailMatch
+import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 
 class FavoriteMatchAdapter(
     private val context: Context,
-    private val favorites: List<DetailMatch>,
-    private val listener: (DetailMatch) -> Unit
+    private val favorites: List<FavoriteMatch>,
+    private val listener: (FavoriteMatch) -> Unit
 ) : RecyclerView.Adapter<FavoriteMatchViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): FavoriteMatchViewHolder =
