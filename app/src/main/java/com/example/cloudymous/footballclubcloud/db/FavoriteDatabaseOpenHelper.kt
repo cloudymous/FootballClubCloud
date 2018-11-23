@@ -28,8 +28,8 @@ class FavoriteDatabaseOpenHelper(ctx: Context) :
             FavoriteMatch.EVENT_DATE to TEXT,
             FavoriteMatch.EVENT_TIME to TEXT,
             FavoriteMatch.EVENT_HOME_TEAM to TEXT,
-            FavoriteMatch.EVENT_AWAY_TEAM to TEXT,
             FavoriteMatch.EVENT_HOME_SCORE to TEXT,
+            FavoriteMatch.EVENT_AWAY_TEAM to TEXT,
             FavoriteMatch.EVENT_AWAY_SCORE to TEXT
         )
     }

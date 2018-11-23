@@ -12,9 +12,9 @@ data class FavoriteMatch(
 
     val homeTeam: String? = null,
 
-    val awayTeam: String? = null,
-
     val homeScore: String? = null,
+
+    val awayTeam: String? = null,
 
     val awayScore: String? = null
 ) {
@@ -25,8 +25,8 @@ data class FavoriteMatch(
         const val EVENT_DATE: String = "EVENT_DATE"
         const val EVENT_TIME: String = "EVENT_TIME"
         const val EVENT_HOME_TEAM: String = "EVENT_HOME_TEAM"
-        const val EVENT_AWAY_TEAM: String = "EVENT_AWAY_TEAM"
         const val EVENT_HOME_SCORE: String = "EVENT_HOME_SCORE"
+        const val EVENT_AWAY_TEAM: String = "EVENT_AWAY_TEAM"
         const val EVENT_AWAY_SCORE: String = "EVENT_AWAY_SCORE"
     }
 }
