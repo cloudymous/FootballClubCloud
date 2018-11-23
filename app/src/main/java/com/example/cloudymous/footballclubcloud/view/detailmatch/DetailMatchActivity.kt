@@ -130,8 +130,8 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
             data[0].eventDate,
             data[0].eventTime,
             data[0].homeTeam,
-            data[0].homeScore,
             data[0].awayTeam,
+            data[0].homeScore,
             data[0].awayScore
         )
 
