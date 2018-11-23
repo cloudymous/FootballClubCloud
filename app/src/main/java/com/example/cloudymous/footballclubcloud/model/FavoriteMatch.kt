@@ -1,23 +1,26 @@
 package com.example.cloudymous.footballclubcloud.model
 
 data class FavoriteMatch(
-    var eventId: String? = null,
 
-    var eventDate: String? = null,
+    val id: Long?,
 
-    var eventTime: String? = null,
+    val eventId: String? = null,
 
-    var homeTeamId: String? = null,
+    val eventDate: String? = null,
 
-    var homeTeam: String? = null,
+    val eventTime: String? = null,
 
-    var awayTeamId: String? = null,
+    val homeTeamId: String? = null,
 
-    var awayTeam: String? = null,
+    val homeTeam: String? = null,
 
-    var homeScore: String? = null,
+    val awayTeamId: String? = null,
 
-    var awayScore: String? = null
+    val awayTeam: String? = null,
+
+    val homeScore: String? = null,
+
+    val awayScore: String? = null
 ) {
     companion object {
         const val TABLE_FAVORITE_MATCH: String = "TABLE_FAVORITE_MATCH"
