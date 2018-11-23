@@ -12,7 +12,6 @@ import com.example.cloudymous.footballclubcloud.db.databaseFavorite
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.Team
-import com.example.cloudymous.footballclubcloud.presenter.DetailMatchPresenter
 import com.example.cloudymous.footballclubcloud.utils.formatDate
 import com.example.cloudymous.footballclubcloud.utils.formatTime
 import com.example.cloudymous.footballclubcloud.utils.invisible
