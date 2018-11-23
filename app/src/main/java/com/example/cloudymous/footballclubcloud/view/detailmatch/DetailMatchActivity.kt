@@ -30,13 +30,11 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
     private lateinit var event: DetailMatch
 
 
+
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
     private lateinit var eventId: String
 
-
-//    private lateinit var intent: Intent
-//    private var event = intent.getSerializableExtra("event") as DetailMatch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,7 +83,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
                     FavoriteMatch.EVENT_ID to event.eventId,
                     FavoriteMatch.EVENT_DATE to event.eventDate,
                     FavoriteMatch.EVENT_TIME to event.eventTime,
-                    FavoriteMatch.EVENT_HOME_TEAM_ID to event.awayTeamId,
+                    FavoriteMatch.EVENT_HOME_TEAM_ID to event.homeTeamId,
                     FavoriteMatch.EVENT_HOME_TEAM to event.homeTeam,
                     FavoriteMatch.EVENT_HOME_SCORE to event.homeScore,
                     FavoriteMatch.EVENT_AWAY_TEAM_ID to event.awayTeamId,
@@ -108,6 +106,18 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
     }
 
     override fun showTeam(data: List<DetailMatch>) {
+
+        event = DetailMatch(
+            data[0].eventId,
+            data[0].eventDate,
+            data[0].eventTime,
+            data[0].homeTeamId,
+            data[0].homeTeam,
+            data[0].homeScore,
+            data[0].awayTeamId,
+            data[0].awayTeam,
+            data[0].awayScore
+        )
 
         presenter.getTeamBadge(data[0].homeTeamId, data[0].awayTeamId)
 
