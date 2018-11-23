@@ -26,7 +26,7 @@ class FavoriteFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         adapter = FavoriteMatchAdapter(requireContext(), favoritesMatch) {
-            requireContext().startActivity<DetailMatchActivity>("event" to it)
+            requireContext().startActivity<DetailMatchActivity>("eventId" to "${it.eventId}")
         }
 
         favorite_match_list.layoutManager = LinearLayoutManager(context)
