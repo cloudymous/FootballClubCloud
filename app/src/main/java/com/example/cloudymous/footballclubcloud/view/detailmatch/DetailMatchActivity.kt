@@ -92,10 +92,10 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
                     FavoriteMatch.EVENT_ID to event.eventId,
                     FavoriteMatch.EVENT_DATE to event.eventDate,
                     FavoriteMatch.EVENT_TIME to event.eventTime,
-                    FavoriteMatch.EVENT_HOME_TEAM to event.homeTeam,
-                    FavoriteMatch.EVENT_HOME_SCORE to event.homeScore,
-                    FavoriteMatch.EVENT_AWAY_TEAM to event.awayTeam,
-                    FavoriteMatch.EVENT_AWAY_SCORE to event.awayScore
+                    FavoriteMatch.EVENT_HOMETEAM to event.homeTeam,
+                    FavoriteMatch.EVENT_HOMESCORE to event.homeScore,
+                    FavoriteMatch.EVENT_AWAYTEAM to event.awayTeam,
+                    FavoriteMatch.EVENT_AWAYSCORE to event.awayScore
                 )
             }
             toast("Add to favorite")
