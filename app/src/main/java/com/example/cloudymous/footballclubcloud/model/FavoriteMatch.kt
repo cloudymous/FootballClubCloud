@@ -4,19 +4,19 @@ data class FavoriteMatch(
 
     val id: Long?,
 
-    val eventId: String? = null,
+    val eventId: String?,
 
-    val eventDate: String? = null,
+    val eventDate: String?,
 
-    val eventTime: String? = null,
+    val eventTime: String?,
 
-    val homeTeam: String? = null,
+    val homeTeam: String?,
 
-    val homeScore: String? = null,
+    val homeScore: String?,
 
-    val awayTeam: String? = null,
+    val awayTeam: String?,
 
-    val awayScore: String? = null
+    val awayScore: String?
 ) {
     companion object {
         const val TABLE_FAVORITE_MATCH: String = "TABLE_FAVORITE_MATCH"
