@@ -2,7 +2,7 @@ package com.example.cloudymous.footballclubcloud.view.favorite
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.example.cloudymous.footballclubcloud.model.DetailMatch
+import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.utils.formatDate
 import com.example.cloudymous.footballclubcloud.utils.formatTime
 import kotlinx.android.extensions.LayoutContainer
@@ -12,7 +12,7 @@ import org.jetbrains.anko.sdk25.coroutines.onClick
 class FavoriteMatchViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
     LayoutContainer {
 
-    fun bindItem(favoriteMatch: DetailMatch, clickListener: (DetailMatch) -> Unit) {
+    fun bindItem(favoriteMatch: FavoriteMatch, clickListener: (FavoriteMatch) -> Unit) {
 
         date_match.text = formatDate(favoriteMatch.eventDate)
 
