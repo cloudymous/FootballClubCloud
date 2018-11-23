@@ -33,20 +33,6 @@ class FavoriteDatabaseOpenHelper(ctx: Context) :
             FavoriteMatch.EVENT_AWAY_TEAM to TEXT,
             FavoriteMatch.EVENT_HOME_SCORE to TEXT,
             FavoriteMatch.EVENT_AWAY_SCORE to TEXT
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_HOME_REDCARDS to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_AWAY_REDCARDS to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_HOME_YELLOWCARDS to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_AWAY_YELLOWCARDS to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_HOME_GOALKEEPER to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_AWAY_GOALKEEPER to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_HOME_LINEDEFENSE to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_AWAY_LINEDEFENSE to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_HOME_LINEMID to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_AWAY_LINEMID to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_HOME_LINEFORWARD to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_AWAY_LINEFORWARD to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_HOME_SUBTITUTES to TEXT,
-//            com.example.cloudymous.footballclubcloud.model.FavoriteMatch.EVENT_AWAY_SUBTITUTES to TEXT
         )
     }
 
