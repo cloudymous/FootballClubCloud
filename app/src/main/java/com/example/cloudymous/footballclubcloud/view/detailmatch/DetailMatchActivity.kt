@@ -10,6 +10,7 @@ import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.db.databaseFavorite
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
+import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.GetTeamPresenter
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.utils.formatDate
@@ -58,20 +59,20 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         team_away.text = event.awayTeam
         home_score_detail.text = event.homeScore
         away_score_detail.text = event.awayScore
-        home_redcards.text = event.homeRedCards?.replace(";", "\n")
-        away_redcards.text = event.awayRedCards?.replace(";", "\n")
-        home_yellowcards.text = event.homeYellowCards?.replace(";", "\n")
-        away_yellowcards.text = event.awayYellowCards?.replace(";", "\n")
-        home_goalkeepers.text = event.homeGoalKeeper?.replace(";", "\n")
-        away_goalkeepers.text = event.awayGoalKeeper?.replace(";", "\n")
-        home_linedef.text = event.homeLineDefense?.replace(";", "\n")
-        away_linedef.text = event.awayLineDefense?.replace(";", "\n")
-        home_linemid.text = event.homeLineMidfield?.replace(";", "\n")
-        away_linemid.text = event.awayLineMidfield?.replace(";", "\n")
-        home_lineforward.text = event.homeLineForward?.replace(";", "\n")
-        away_lineforward.text = event.awayLineForward?.replace(";", "\n")
-        home_linesubs.text = event.homeSubtitutes?.replace(";", "\n")
-        away_linesubs.text = event.awaySubtitutes?.replace(";", "\n")
+//        home_redcards.text = event.homeRedCards?.replace(";", "\n")
+//        away_redcards.text = event.awayRedCards?.replace(";", "\n")
+//        home_yellowcards.text = event.homeYellowCards?.replace(";", "\n")
+//        away_yellowcards.text = event.awayYellowCards?.replace(";", "\n")
+//        home_goalkeepers.text = event.homeGoalKeeper?.replace(";", "\n")
+//        away_goalkeepers.text = event.awayGoalKeeper?.replace(";", "\n")
+//        home_linedef.text = event.homeLineDefense?.replace(";", "\n")
+//        away_linedef.text = event.awayLineDefense?.replace(";", "\n")
+//        home_linemid.text = event.homeLineMidfield?.replace(";", "\n")
+//        away_linemid.text = event.awayLineMidfield?.replace(";", "\n")
+//        home_lineforward.text = event.homeLineForward?.replace(";", "\n")
+//        away_lineforward.text = event.awayLineForward?.replace(";", "\n")
+//        home_linesubs.text = event.homeSubtitutes?.replace(";", "\n")
+//        away_linesubs.text = event.awaySubtitutes?.replace(";", "\n")
 
     }
 
@@ -100,14 +101,16 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         try {
             databaseFavorite.use {
                 insert(
-                    DetailMatch.TABLE_FAVORITE_MATCH,
-                    DetailMatch.EVENT_ID to event.eventId,
-                    DetailMatch.EVENT_DATE to event.eventDate,
-                    DetailMatch.EVENT_TIME to event.eventTime,
-                    DetailMatch.EVENT_HOME_TEAM to event.homeTeam,
-                    DetailMatch.EVENT_HOME_SCORE to event.homeScore,
-                    DetailMatch.EVENT_AWAY_TEAM to event.awayTeam,
-                    DetailMatch.EVENT_AWAY_SCORE to event.awayScore
+                    FavoriteMatch.TABLE_FAVORITE_MATCH,
+                    FavoriteMatch.EVENT_ID to event.eventId,
+                    FavoriteMatch.EVENT_DATE to event.eventDate,
+                    FavoriteMatch.EVENT_TIME to event.eventTime,
+                    FavoriteMatch.EVENT_HOME_TEAM_ID to event.awayTeamId,
+                    FavoriteMatch.EVENT_HOME_TEAM to event.homeTeam,
+                    FavoriteMatch.EVENT_HOME_SCORE to event.homeScore,
+                    FavoriteMatch.EVENT_AWAY_TEAM_ID to event.awayTeamId,
+                    FavoriteMatch.EVENT_AWAY_TEAM to event.awayTeam,
+                    FavoriteMatch.EVENT_AWAY_SCORE to event.awayScore
                 )
             }
             toast("Add to favorite")
@@ -135,21 +138,21 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
             event.awayTeamId,
             event.awayTeam,
             event.homeScore,
-            event.awayScore,
-            event.homeRedCards,
-            event.awayRedCards,
-            event.homeYellowCards,
-            event.awayYellowCards,
-            event.homeGoalKeeper,
-            event.awayGoalKeeper,
-            event.homeLineDefense,
-            event.awayLineDefense,
-            event.homeLineMidfield,
-            event.awayLineMidfield,
-            event.homeLineForward,
-            event.awayLineForward,
-            event.homeSubtitutes,
-            event.awaySubtitutes
+            event.awayScore
+//            event.homeRedCards,
+//            event.awayRedCards,
+//            event.homeYellowCards,
+//            event.awayYellowCards,
+//            event.homeGoalKeeper,
+//            event.awayGoalKeeper,
+//            event.homeLineDefense,
+//            event.awayLineDefense,
+//            event.homeLineMidfield,
+//            event.awayLineMidfield,
+//            event.homeLineForward,
+//            event.awayLineForward,
+//            event.homeSubtitutes,
+//            event.awaySubtitutes
         )
 
         Picasso.get().load(dataHome[0].teamBadge).into(home_badge)
