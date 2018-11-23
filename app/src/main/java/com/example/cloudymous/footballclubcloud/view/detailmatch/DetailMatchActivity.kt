@@ -1,6 +1,7 @@
 package com.example.cloudymous.footballclubcloud.view.detailmatch
 
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -20,7 +21,10 @@ import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_match.*
+import org.jetbrains.anko.db.classParser
+import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.db.select
 import org.jetbrains.anko.toast
 import java.sql.SQLClientInfoException
 
@@ -28,8 +32,6 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
 
     private lateinit var presenter: DetailMatchPresenter
     private lateinit var event: DetailMatch
-
-
 
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
@@ -49,6 +51,8 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         val request = ApiRepository()
         val gson = Gson()
 
+        favState()
+
         presenter = DetailMatchPresenter(this, request, gson)
         presenter.getDetailMatch(eventId)
 
@@ -67,7 +71,12 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
                 true
             }
             add_to_favorite -> {
-                addToFavorite()
+
+                if (isFavorite) removeFromFav() else addToFavorite()
+
+                isFavorite = !isFavorite
+                setFav()
+
                 true
             }
 
@@ -92,6 +101,17 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
                 )
             }
             toast("Add to favorite")
+        } catch (e: SQLClientInfoException) {
+            toast(e.localizedMessage)
+        }
+    }
+
+    private fun removeFromFav() {
+        try {
+            databaseFavorite.use {
+                delete(FavoriteMatch.TABLE_FAVORITE_MATCH, "EVENT_ID = {id}", "id" to eventId)
+            }
+            toast("Remove from favorite")
         } catch (e: SQLClientInfoException) {
             toast(e.localizedMessage)
         }
@@ -147,5 +167,22 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
     override fun showBadge(dataHome: List<Team>, dataAway: List<Team>) {
         Picasso.get().load(dataHome[0].teamBadge).into(home_badge)
         Picasso.get().load(dataAway[0].teamBadge).into(away_badge)
+    }
+
+    private fun favState() {
+        databaseFavorite.use {
+            val result = select(FavoriteMatch.TABLE_FAVORITE_MATCH)
+                .whereArgs("(EVENT_ID = {id})", "id" to eventId)
+
+            val favorite = result.parseList(classParser<FavoriteMatch>())
+            if (!favorite.isEmpty()) isFavorite = true
+        }
+    }
+
+    private fun setFav() {
+        if (isFavorite)
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_added_to_favorites)
+        else
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_add_to_favorites)
     }
 }
