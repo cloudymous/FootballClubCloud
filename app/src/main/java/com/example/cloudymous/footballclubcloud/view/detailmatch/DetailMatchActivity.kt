@@ -11,8 +11,8 @@ import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.db.databaseFavorite
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
-import com.example.cloudymous.footballclubcloud.model.GetTeamPresenter
 import com.example.cloudymous.footballclubcloud.model.Team
+import com.example.cloudymous.footballclubcloud.presenter.DetailMatchPresenter
 import com.example.cloudymous.footballclubcloud.utils.formatDate
 import com.example.cloudymous.footballclubcloud.utils.formatTime
 import com.example.cloudymous.footballclubcloud.utils.invisible
@@ -26,12 +26,13 @@ import java.sql.SQLClientInfoException
 
 class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
 
-    private lateinit var presenter: GetTeamPresenter
+    private lateinit var presenter: DetailMatchPresenter
     private lateinit var event: DetailMatch
 
 
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
+    private lateinit var eventId: String
 
 
 //    private lateinit var intent: Intent
@@ -45,34 +46,13 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        event = intent.getSerializableExtra("event") as DetailMatch
+        eventId = intent.getStringExtra("eventId")
 
         val request = ApiRepository()
         val gson = Gson()
 
-        presenter = GetTeamPresenter(this, request, gson)
-        presenter.getTeamDetail(event.homeTeamId, event.awayTeamId)
-
-        date.text = formatDate(event.eventDate)
-        time.text = formatTime(event.eventTime)
-        team_home.text = event.homeTeam
-        team_away.text = event.awayTeam
-        home_score_detail.text = event.homeScore
-        away_score_detail.text = event.awayScore
-//        home_redcards.text = event.homeRedCards?.replace(";", "\n")
-//        away_redcards.text = event.awayRedCards?.replace(";", "\n")
-//        home_yellowcards.text = event.homeYellowCards?.replace(";", "\n")
-//        away_yellowcards.text = event.awayYellowCards?.replace(";", "\n")
-//        home_goalkeepers.text = event.homeGoalKeeper?.replace(";", "\n")
-//        away_goalkeepers.text = event.awayGoalKeeper?.replace(";", "\n")
-//        home_linedef.text = event.homeLineDefense?.replace(";", "\n")
-//        away_linedef.text = event.awayLineDefense?.replace(";", "\n")
-//        home_linemid.text = event.homeLineMidfield?.replace(";", "\n")
-//        away_linemid.text = event.awayLineMidfield?.replace(";", "\n")
-//        home_lineforward.text = event.homeLineForward?.replace(";", "\n")
-//        away_lineforward.text = event.awayLineForward?.replace(";", "\n")
-//        home_linesubs.text = event.homeSubtitutes?.replace(";", "\n")
-//        away_linesubs.text = event.awaySubtitutes?.replace(";", "\n")
+        presenter = DetailMatchPresenter(this, request, gson)
+        presenter.getDetailMatch(eventId)
 
     }
 
@@ -127,34 +107,34 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         progress_bar.invisible()
     }
 
-    override fun showTeam(dataHome: List<Team>, dataAway: List<Team>) {
+    override fun showTeam(data: List<DetailMatch>) {
 
-        event = DetailMatch(
-            event.eventId,
-            event.eventDate,
-            event.eventTime,
-            event.homeTeamId,
-            event.homeTeam,
-            event.awayTeamId,
-            event.awayTeam,
-            event.homeScore,
-            event.awayScore
-//            event.homeRedCards,
-//            event.awayRedCards,
-//            event.homeYellowCards,
-//            event.awayYellowCards,
-//            event.homeGoalKeeper,
-//            event.awayGoalKeeper,
-//            event.homeLineDefense,
-//            event.awayLineDefense,
-//            event.homeLineMidfield,
-//            event.awayLineMidfield,
-//            event.homeLineForward,
-//            event.awayLineForward,
-//            event.homeSubtitutes,
-//            event.awaySubtitutes
-        )
+        presenter.getTeamBadge(data[0].homeTeamId, data[0].awayTeamId)
 
+        date.text = formatDate(data[0].eventDate)
+        time.text = formatTime(data[0].eventTime)
+        team_home.text = data[0].homeTeam
+        team_away.text = data[0].awayTeam
+        home_score_detail.text = data[0].homeScore
+        away_score_detail.text = data[0].awayScore
+        home_redcards.text = data[0].homeRedCards?.replace(";", "\n")
+        away_redcards.text = data[0].awayRedCards?.replace(";", "\n")
+        home_yellowcards.text = data[0].homeYellowCards?.replace(";", "\n")
+        away_yellowcards.text = data[0].awayYellowCards?.replace(";", "\n")
+        home_goalkeepers.text = data[0].homeGoalKeeper?.replace(";", "\n")
+        away_goalkeepers.text = data[0].awayGoalKeeper?.replace(";", "\n")
+        home_linedef.text = data[0].homeLineDefense?.replace(";", "\n")
+        away_linedef.text = data[0].awayLineDefense?.replace(";", "\n")
+        home_linemid.text = data[0].homeLineMidfield?.replace(";", "\n")
+        away_linemid.text = data[0].awayLineMidfield?.replace(";", "\n")
+        home_lineforward.text = data[0].homeLineForward?.replace(";", "\n")
+        away_lineforward.text = data[0].awayLineForward?.replace(";", "\n")
+        home_linesubs.text = data[0].homeSubtitutes?.replace(";", "\n")
+        away_linesubs.text = data[0].awaySubtitutes?.replace(";", "\n")
+
+    }
+
+    override fun showBadge(dataHome: List<Team>, dataAway: List<Team>) {
         Picasso.get().load(dataHome[0].teamBadge).into(home_badge)
         Picasso.get().load(dataAway[0].teamBadge).into(away_badge)
     }
