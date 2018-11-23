@@ -5,15 +5,6 @@
 
     <string name="leagueId">4328</string>
 
-    <array name="league">
-        <item>English Premier League</item>
-        <item>English League Championship</item>
-        <item>German Bundesliga</item>
-        <item>Italian Serie A</item>
-        <item>French Ligue 1</item>
-        <item>Spanish La Liga</item>
-    </array>
-
     <string name="vs">VS</string>
     <string name="goal">Goal</string>
     <string name="red_card">Red Card</string>
