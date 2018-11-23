@@ -8,14 +8,14 @@ import org.jetbrains.anko.db.*
 class FavoriteDatabaseOpenHelper(ctx: Context) :
     ManagedSQLiteOpenHelper(ctx, "com.example.cloudymous.footballclubcloud.model.FavoriteMatch.db", null, 1) {
     companion object {
-        private var instance: MyDatabaseOpenHelper? = null
+        private var instance: FavoriteDatabaseOpenHelper? = null
 
         @Synchronized
-        fun getInstance(ctx: Context): MyDatabaseOpenHelper {
+        fun getInstance(ctx: Context): FavoriteDatabaseOpenHelper {
             if (instance == null) {
-                instance = MyDatabaseOpenHelper(ctx.applicationContext)
+                instance = FavoriteDatabaseOpenHelper(ctx.applicationContext)
             }
-            return instance as MyDatabaseOpenHelper
+            return instance as FavoriteDatabaseOpenHelper
         }
     }
 
