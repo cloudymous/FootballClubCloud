@@ -92,11 +92,9 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
                     FavoriteMatch.EVENT_ID to event.eventId,
                     FavoriteMatch.EVENT_DATE to event.eventDate,
                     FavoriteMatch.EVENT_TIME to event.eventTime,
-                    FavoriteMatch.EVENT_HOME_TEAM_ID to event.homeTeamId,
                     FavoriteMatch.EVENT_HOME_TEAM to event.homeTeam,
-                    FavoriteMatch.EVENT_HOME_SCORE to event.homeScore,
-                    FavoriteMatch.EVENT_AWAY_TEAM_ID to event.awayTeamId,
                     FavoriteMatch.EVENT_AWAY_TEAM to event.awayTeam,
+                    FavoriteMatch.EVENT_HOME_SCORE to event.homeScore,
                     FavoriteMatch.EVENT_AWAY_SCORE to event.awayScore
                 )
             }
@@ -131,10 +129,8 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
             data[0].eventId,
             data[0].eventDate,
             data[0].eventTime,
-            data[0].homeTeamId,
             data[0].homeTeam,
             data[0].homeScore,
-            data[0].awayTeamId,
             data[0].awayTeam,
             data[0].awayScore
         )
