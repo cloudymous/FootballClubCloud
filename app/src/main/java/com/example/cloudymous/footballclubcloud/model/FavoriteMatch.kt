@@ -1,21 +1,13 @@
 package com.example.cloudymous.footballclubcloud.model
 
 data class FavoriteMatch(
-
     val id: Long?,
-
     val eventId: String?,
-
     val eventDate: String?,
-
     val eventTime: String?,
-
     val homeTeam: String?,
-
     val homeScore: String?,
-
     val awayTeam: String?,
-
     val awayScore: String?
 ) {
     companion object {
