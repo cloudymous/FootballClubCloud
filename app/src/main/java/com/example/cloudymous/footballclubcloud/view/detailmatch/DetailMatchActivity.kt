@@ -129,9 +129,11 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
             data[0].eventId,
             data[0].eventDate,
             data[0].eventTime,
+            data[0].homeTeamId,
             data[0].homeTeam,
-            data[0].homeScore,
+            data[0].awayTeamId,
             data[0].awayTeam,
+            data[0].homeScore,
             data[0].awayScore
         )
 
