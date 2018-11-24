@@ -48,10 +48,12 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         val intent = intent
         id = intent.getStringExtra("eventId")
 
+        favState()
+
         val request = ApiRepository()
         val gson = Gson()
 
-        favState()
+
 
         presenter = DetailMatchPresenter(this, request, gson)
         presenter.getDetailMatch(id)
@@ -60,6 +62,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(detail_menu, menu)
+        setFav()
         menuItem = menu
         return true
     }
