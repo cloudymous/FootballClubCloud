@@ -60,11 +60,73 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
 
     }
 
+    private fun favState() {
+        databaseFavorite.use {
+            val result = select(FavoriteMatch.TABLE_FAVORITE_MATCH)
+                .whereArgs("(EVENT_ID = {id})", "id" to id)
+
+            val favorite = result.parseList(classParser<FavoriteMatch>())
+            if (!favorite.isEmpty()) isFavorite = true
+        }
+    }
+
+    override fun showLoading() {
+        progress_bar.visible()
+    }
+
+    override fun hideLoading() {
+        progress_bar.invisible()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(detail_menu, menu)
         setFav()
         menuItem = menu
         return true
+    }
+
+    override fun showTeam(data: List<DetailMatch>) {
+
+        event = DetailMatch(
+            data[0].eventId,
+            data[0].eventDate,
+            data[0].eventTime,
+            data[0].homeTeamId,
+            data[0].homeTeam,
+            data[0].awayTeamId,
+            data[0].awayTeam,
+            data[0].homeScore,
+            data[0].awayScore
+        )
+
+        presenter.getTeamBadge(data[0].homeTeamId, data[0].awayTeamId)
+
+        date.text = formatDate(data[0].eventDate)
+        time.text = formatTime(data[0].eventTime)
+        team_home.text = data[0].homeTeam
+        team_away.text = data[0].awayTeam
+        home_score_detail.text = data[0].homeScore
+        away_score_detail.text = data[0].awayScore
+        home_redcards.text = data[0].homeRedCards?.replace(";", "\n")
+        away_redcards.text = data[0].awayRedCards?.replace(";", "\n")
+        home_yellowcards.text = data[0].homeYellowCards?.replace(";", "\n")
+        away_yellowcards.text = data[0].awayYellowCards?.replace(";", "\n")
+        home_goalkeepers.text = data[0].homeGoalKeeper?.replace(";", "\n")
+        away_goalkeepers.text = data[0].awayGoalKeeper?.replace(";", "\n")
+        home_linedef.text = data[0].homeLineDefense?.replace(";", "\n")
+        away_linedef.text = data[0].awayLineDefense?.replace(";", "\n")
+        home_linemid.text = data[0].homeLineMidfield?.replace(";", "\n")
+        away_linemid.text = data[0].awayLineMidfield?.replace(";", "\n")
+        home_lineforward.text = data[0].homeLineForward?.replace(";", "\n")
+        away_lineforward.text = data[0].awayLineForward?.replace(";", "\n")
+        home_linesubs.text = data[0].homeSubtitutes?.replace(";", "\n")
+        away_linesubs.text = data[0].awaySubtitutes?.replace(";", "\n")
+
+    }
+
+    override fun showBadge(dataHome: List<Team>, dataAway: List<Team>) {
+        Picasso.get().load(dataHome[0].teamBadge).into(home_badge)
+        Picasso.get().load(dataAway[0].teamBadge).into(away_badge)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -115,68 +177,6 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
             toast("Remove from favorite")
         } catch (e: SQLClientInfoException) {
             toast(e.localizedMessage)
-        }
-    }
-
-    override fun showLoading() {
-        progress_bar.visible()
-    }
-
-    override fun hideLoading() {
-        progress_bar.invisible()
-    }
-
-    override fun showTeam(data: List<DetailMatch>) {
-
-        event = DetailMatch(
-            data[0].eventId,
-            data[0].eventDate,
-            data[0].eventTime,
-            data[0].homeTeamId,
-            data[0].homeTeam,
-            data[0].awayTeamId,
-            data[0].awayTeam,
-            data[0].homeScore,
-            data[0].awayScore
-        )
-
-        presenter.getTeamBadge(data[0].homeTeamId, data[0].awayTeamId)
-
-        date.text = formatDate(data[0].eventDate)
-        time.text = formatTime(data[0].eventTime)
-        team_home.text = data[0].homeTeam
-        team_away.text = data[0].awayTeam
-        home_score_detail.text = data[0].homeScore
-        away_score_detail.text = data[0].awayScore
-        home_redcards.text = data[0].homeRedCards?.replace(";", "\n")
-        away_redcards.text = data[0].awayRedCards?.replace(";", "\n")
-        home_yellowcards.text = data[0].homeYellowCards?.replace(";", "\n")
-        away_yellowcards.text = data[0].awayYellowCards?.replace(";", "\n")
-        home_goalkeepers.text = data[0].homeGoalKeeper?.replace(";", "\n")
-        away_goalkeepers.text = data[0].awayGoalKeeper?.replace(";", "\n")
-        home_linedef.text = data[0].homeLineDefense?.replace(";", "\n")
-        away_linedef.text = data[0].awayLineDefense?.replace(";", "\n")
-        home_linemid.text = data[0].homeLineMidfield?.replace(";", "\n")
-        away_linemid.text = data[0].awayLineMidfield?.replace(";", "\n")
-        home_lineforward.text = data[0].homeLineForward?.replace(";", "\n")
-        away_lineforward.text = data[0].awayLineForward?.replace(";", "\n")
-        home_linesubs.text = data[0].homeSubtitutes?.replace(";", "\n")
-        away_linesubs.text = data[0].awaySubtitutes?.replace(";", "\n")
-
-    }
-
-    override fun showBadge(dataHome: List<Team>, dataAway: List<Team>) {
-        Picasso.get().load(dataHome[0].teamBadge).into(home_badge)
-        Picasso.get().load(dataAway[0].teamBadge).into(away_badge)
-    }
-
-    private fun favState() {
-        databaseFavorite.use {
-            val result = select(FavoriteMatch.TABLE_FAVORITE_MATCH)
-                .whereArgs("(EVENT_ID = {id})", "id" to id)
-
-            val favorite = result.parseList(classParser<FavoriteMatch>())
-            if (!favorite.isEmpty()) isFavorite = true
         }
     }
 
