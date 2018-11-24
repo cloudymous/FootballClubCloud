@@ -35,7 +35,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
 
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
-    private lateinit var eventId: String
+    private lateinit var id: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        eventId = intent.getStringExtra("eventId")
+        id = intent.getStringExtra("eventId")
 
         val request = ApiRepository()
         val gson = Gson()
@@ -54,7 +54,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
         favState()
 
         presenter = DetailMatchPresenter(this, request, gson)
-        presenter.getDetailMatch(eventId)
+        presenter.getDetailMatch(id)
 
     }
 
@@ -107,7 +107,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
     private fun removeFromFav() {
         try {
             databaseFavorite.use {
-                delete(FavoriteMatch.TABLE_FAVORITE_MATCH, "EVENT_ID = {id}", "id" to eventId)
+                delete(FavoriteMatch.TABLE_FAVORITE_MATCH, "EVENT_ID = {id}", "id" to id)
             }
             toast("Remove from favorite")
         } catch (e: SQLClientInfoException) {
@@ -170,7 +170,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
     private fun favState() {
         databaseFavorite.use {
             val result = select(FavoriteMatch.TABLE_FAVORITE_MATCH)
-                .whereArgs("(EVENT_ID = {id})", "id" to eventId)
+                .whereArgs("(EVENT_ID = {id})", "id" to id)
 
             val favorite = result.parseList(classParser<FavoriteMatch>())
             if (!favorite.isEmpty()) isFavorite = true
