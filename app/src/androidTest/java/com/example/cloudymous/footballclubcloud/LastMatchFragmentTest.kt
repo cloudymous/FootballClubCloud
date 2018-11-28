@@ -49,11 +49,34 @@ class LastMatchFragmentTest {
         onView(withId(favorite_match_list))
             .check(matches(isDisplayed()))
 
-        onView(withId(favorite_match_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
+        onView(withId(favorite_match_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(0))
 
         onView(withId(favorite_match_list)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
         )
+
+        pressBack()
+
+        onView(withId(bottom_navigation))
+            .check(matches(isDisplayed()))
+
+        onView(withId(next_match)).perform(click())
+
+        onView(withId(next_match_list))
+            .check(matches(isDisplayed()))
+
+        onView(withId(next_match_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(0))
+
+        onView(withId(next_match_list)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
+        )
+
+        onView(withId(add_to_favorite))
+            .check(matches(isDisplayed()))
+
+        onView(withId(add_to_favorite)).perform(click())
+        pressBack()
+
 
     }
 }
