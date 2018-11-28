@@ -18,7 +18,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 
-class LastMatchFragmentTest {
+class AppImplementationTest {
     @Rule
     @JvmField
     val activityRule = ActivityTestRule(HomeActivity::class.java)
