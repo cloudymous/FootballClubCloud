@@ -52,7 +52,7 @@ class LastMatchFragmentTest {
         onView(withId(favorite_match_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
 
         onView(withId(favorite_match_list)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
         )
 
     }
