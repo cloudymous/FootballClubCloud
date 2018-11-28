@@ -8,19 +8,19 @@ import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
 
-class NextMatchPresenter (private val view: NextMatchView,
-                          private val apiRepository: ApiRepository,
-                          private val gson: Gson
+class NextMatchPresenter(
+    private val view: NextMatchView,
+    private val apiRepository: ApiRepository,
+    private val gson: Gson
 ) {
 
-    fun getNextMatch(leagueId: String?){
+    fun getNextMatch(leagueId: String?) {
         view.showLoading()
-        GlobalScope.launch (Dispatchers.Main) {
-            val data = gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getNextMatch(leagueId)).await(),
+        GlobalScope.launch(Dispatchers.Main) {
+            val data = gson.fromJson(
+                apiRepository
+                    .doRequest(TheSportDBApi.getNextMatch(leagueId)).await(),
                 DetailMatchResponse::class.java
             )
 

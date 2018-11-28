@@ -9,8 +9,6 @@ import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
 
 class DetailMatchPresenter(
     private val view: DetailMatchView,
@@ -20,7 +18,7 @@ class DetailMatchPresenter(
 
     fun getDetailMatch(eventId: String?) {
         view.showLoading()
-        GlobalScope.launch(Dispatchers.Main){
+        GlobalScope.launch(Dispatchers.Main) {
             val data = gson.fromJson(
                 apiRepository
                     .doRequest(TheSportDBApi.getDetailMatch(eventId)).await(),
@@ -34,7 +32,7 @@ class DetailMatchPresenter(
 
     fun getTeamBadge(homeTeamId: String?, awayTeamId: String?) {
         view.showLoading()
-        GlobalScope.launch (Dispatchers.Main) {
+        GlobalScope.launch(Dispatchers.Main) {
             val homeBadge = gson.fromJson(
                 apiRepository
                     .doRequest(TheSportDBApi.getTeamDetail(homeTeamId)).await(),

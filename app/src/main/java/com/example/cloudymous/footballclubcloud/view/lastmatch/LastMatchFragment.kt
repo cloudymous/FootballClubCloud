@@ -54,9 +54,11 @@ class LastMatchFragment : Fragment(), LastMatchView {
     override fun showLoading() {
         progress_bar.visible()
     }
+
     override fun hideLoading() {
         progress_bar.invisible()
     }
+
     override fun showLastMatchList(data: List<DetailMatch>) {
         swipe_refresh.isRefreshing = false
         lastmatch.clear()

@@ -20,7 +20,7 @@ import org.jetbrains.anko.support.v4.onRefresh
 
 class NextMatchFragment : Fragment(), NextMatchView {
 
-    private var nextmatch : MutableList<DetailMatch> = mutableListOf()
+    private var nextmatch: MutableList<DetailMatch> = mutableListOf()
 
     private lateinit var adapter: NextMatchAdapter
     private lateinit var presenter: NextMatchPresenter
@@ -28,7 +28,7 @@ class NextMatchFragment : Fragment(), NextMatchView {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapter = NextMatchAdapter(requireContext(), nextmatch){
+        adapter = NextMatchAdapter(requireContext(), nextmatch) {
             requireContext().startActivity<DetailMatchActivity>("eventId" to "${it.eventId}")
         }
 

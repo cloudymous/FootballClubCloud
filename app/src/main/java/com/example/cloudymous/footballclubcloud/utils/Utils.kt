@@ -4,11 +4,11 @@ import android.view.View
 import java.text.SimpleDateFormat
 import java.util.*
 
-fun View.visible(){
+fun View.visible() {
     visibility = View.VISIBLE
 }
 
-fun View.invisible(){
+fun View.invisible() {
     visibility = View.INVISIBLE
 }
 

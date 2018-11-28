@@ -5,7 +5,7 @@ import com.example.cloudymous.footballclubcloud.BuildConfig
 
 object TheSportDBApi {
 
-    fun getTeams(league: String?) : String {
+    fun getTeams(league: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
@@ -17,7 +17,7 @@ object TheSportDBApi {
             .toString()
     }
 
-    fun getTeamDetail(teamID: String?) : String {
+    fun getTeamDetail(teamID: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")

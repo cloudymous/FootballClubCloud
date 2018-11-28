@@ -3,75 +3,75 @@ package com.example.cloudymous.footballclubcloud.model
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class DetailMatch (
+data class DetailMatch(
 
     @SerializedName("idEvent")
-    var eventId : String? = null,
+    var eventId: String? = null,
 
     @SerializedName("dateEvent")
-    var eventDate : String? = null,
+    var eventDate: String? = null,
 
     @SerializedName("strTime")
-    var eventTime : String? = null,
+    var eventTime: String? = null,
 
     @SerializedName("idHomeTeam")
-    var homeTeamId : String? = null,
+    var homeTeamId: String? = null,
 
     @SerializedName("strHomeTeam")
-    var homeTeam : String? = null,
+    var homeTeam: String? = null,
 
     @SerializedName("idAwayTeam")
-    var awayTeamId : String? = null,
+    var awayTeamId: String? = null,
 
     @SerializedName("strAwayTeam")
-    var awayTeam : String? = null,
+    var awayTeam: String? = null,
 
     @SerializedName("intHomeScore")
-    var homeScore : String? = null,
+    var homeScore: String? = null,
 
     @SerializedName("intAwayScore")
-    var awayScore : String? = null,
+    var awayScore: String? = null,
 
     @SerializedName("strHomeRedCards")
-    var homeRedCards : String? = null,
+    var homeRedCards: String? = null,
 
     @SerializedName("strAwayRedCards")
-    var awayRedCards : String? = null,
+    var awayRedCards: String? = null,
 
     @SerializedName("strHomeYellowCards")
-    var homeYellowCards : String? = null,
+    var homeYellowCards: String? = null,
 
     @SerializedName("strAwayYellowCards")
-    var awayYellowCards : String? = null,
+    var awayYellowCards: String? = null,
 
     @SerializedName("strHomeLineupGoalkeeper")
-    var homeGoalKeeper : String? = null,
+    var homeGoalKeeper: String? = null,
 
     @SerializedName("strAwayLineupGoalkeeper")
-    var awayGoalKeeper : String? = null,
+    var awayGoalKeeper: String? = null,
 
     @SerializedName("strHomeLineupDefense")
-    var homeLineDefense : String? = null,
+    var homeLineDefense: String? = null,
 
     @SerializedName("strAwayLineupDefense")
-    var awayLineDefense : String? = null,
+    var awayLineDefense: String? = null,
 
     @SerializedName("strHomeLineupMidfield")
-    var homeLineMidfield : String? = null,
+    var homeLineMidfield: String? = null,
 
     @SerializedName("strAwayLineupMidfield")
-    var awayLineMidfield : String? = null,
+    var awayLineMidfield: String? = null,
 
     @SerializedName("strHomeLineupForward")
-    var homeLineForward : String? = null,
+    var homeLineForward: String? = null,
 
     @SerializedName("strAwayLineupForward")
-    var awayLineForward : String? = null,
+    var awayLineForward: String? = null,
 
     @SerializedName("strHomeLineupSubstitutes")
-    var homeSubtitutes : String? = null,
+    var homeSubtitutes: String? = null,
 
     @SerializedName("strAwayLineupSubstitutes")
-    var awaySubtitutes : String? = null
+    var awaySubtitutes: String? = null
 
 ) : Serializable
