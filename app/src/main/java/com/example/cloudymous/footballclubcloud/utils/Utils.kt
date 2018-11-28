@@ -13,7 +13,7 @@ fun View.invisible(){
 }
 
 fun formatDate(strDate: String?): String {
-    val simpleDateFormat = SimpleDateFormat("yyyy-mm-dd")
+    val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
     val date = simpleDateFormat.parse(strDate)
     val dateWithDay = SimpleDateFormat("EEEE, dd MMM yyyy")
     return dateWithDay.format(date)
