@@ -5,7 +5,8 @@ import android.support.test.espresso.Espresso.pressBack
 import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.contrib.RecyclerViewActions
-import android.support.test.espresso.matcher.ViewMatchers.*
+import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
+import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.support.v7.widget.RecyclerView
@@ -38,15 +39,21 @@ class LastMatchFragmentTest {
             .check(matches(isDisplayed()))
 
         onView(withId(add_to_favorite)).perform(click())
-
-        onView(withText("Add to favorite"))
-            .check(matches(isDisplayed()))
         pressBack()
 
         onView(withId(bottom_navigation))
             .check(matches(isDisplayed()))
 
         onView(withId(favorites)).perform(click())
+
+        onView(withId(favorite_match_list))
+            .check(matches(isDisplayed()))
+
+        onView(withId(favorite_match_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
+
+        onView(withId(favorite_match_list)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
+        )
 
     }
 }
