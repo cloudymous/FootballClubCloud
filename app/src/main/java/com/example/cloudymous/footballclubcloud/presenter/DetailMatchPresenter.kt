@@ -6,6 +6,9 @@ import com.example.cloudymous.footballclubcloud.model.DetailMatchResponse
 import com.example.cloudymous.footballclubcloud.model.TeamResponse
 import com.example.cloudymous.footballclubcloud.view.detailmatch.DetailMatchView
 import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -17,39 +20,35 @@ class DetailMatchPresenter(
 
     fun getDetailMatch(eventId: String?) {
         view.showLoading()
-        doAsync {
+        GlobalScope.launch(Dispatchers.Main){
             val data = gson.fromJson(
                 apiRepository
-                    .doRequest(TheSportDBApi.getDetailMatch(eventId)),
+                    .doRequest(TheSportDBApi.getDetailMatch(eventId)).await(),
                 DetailMatchResponse::class.java
             )
 
-            uiThread {
-                view.hideLoading()
-                view.showTeam(data.events)
-            }
+            view.showTeam(data.events)
+            view.hideLoading()
         }
     }
 
     fun getTeamBadge(homeTeamId: String?, awayTeamId: String?) {
         view.showLoading()
-        doAsync {
+        GlobalScope.launch (Dispatchers.Main) {
             val homeBadge = gson.fromJson(
                 apiRepository
-                    .doRequest(TheSportDBApi.getTeamDetail(homeTeamId)),
+                    .doRequest(TheSportDBApi.getTeamDetail(homeTeamId)).await(),
                 TeamResponse::class.java
             )
 
             val awayBadge = gson.fromJson(
                 apiRepository
-                    .doRequest(TheSportDBApi.getTeamDetail(awayTeamId)),
+                    .doRequest(TheSportDBApi.getTeamDetail(awayTeamId)).await(),
                 TeamResponse::class.java
             )
 
-            uiThread {
-                view.hideLoading()
-                view.showBadge(homeBadge.teams, awayBadge.teams)
-            }
+            view.showBadge(homeBadge.teams, awayBadge.teams)
+            view.hideLoading()
         }
     }
 }

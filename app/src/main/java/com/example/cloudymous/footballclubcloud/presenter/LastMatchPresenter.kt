@@ -5,6 +5,9 @@ import com.example.cloudymous.footballclubcloud.api.TheSportDBApi
 import com.example.cloudymous.footballclubcloud.model.DetailMatchResponse
 import com.example.cloudymous.footballclubcloud.view.lastmatch.LastMatchView
 import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -14,16 +17,15 @@ class LastMatchPresenter (private val view: LastMatchView,
 
     fun getLastMatch(leagueId: String?){
         view.showLoading()
-        doAsync {
+
+        GlobalScope.launch (Dispatchers.Main) {
             val data = gson.fromJson(apiRepository
-                .doRequest(TheSportDBApi.getLastMatch(leagueId)),
+                .doRequest(TheSportDBApi.getLastMatch(leagueId)).await(),
                 DetailMatchResponse::class.java
             )
 
-            uiThread {
-                view.hideLoading()
-                view.showLastMatchList(data.events)
-            }
+            view.showLastMatchList(data.events)
+            view.hideLoading()
         }
     }
 }
