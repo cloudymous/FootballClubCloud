@@ -23,6 +23,32 @@ class AppImplementationTest {
     @JvmField
     val activityRule = ActivityTestRule(HomeActivity::class.java)
 
+
+    @Test
+    fun testDetailMatchBehaviour() {
+
+        Thread.sleep(5000)
+        onView(withId(last_match_list))
+            .check(matches(isDisplayed()))
+
+        onView(withId(last_match_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(0))
+
+        onView(withId(last_match_list)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
+        )
+
+        Thread.sleep(1000)
+
+        onView(withId(home_badge))
+            .check(matches(isDisplayed()))
+
+        onView(withId(away_badge))
+            .check(matches(isDisplayed()))
+
+        Thread.sleep(1000)
+        pressBack()
+    }
+
     @Test
     fun testLastMatchBehaviour() {
 
