@@ -24,7 +24,7 @@ class AppImplementationTest {
     val activityRule = ActivityTestRule(HomeActivity::class.java)
 
     @Test
-    fun testAppBehaviour() {
+    fun testLastMatchBehaviour() {
 
         Thread.sleep(5000)
         onView(withId(last_match_list))
@@ -42,7 +42,10 @@ class AppImplementationTest {
 
         Thread.sleep(1000)
         pressBack()
+    }
 
+    @Test
+    fun testFavoriteBehaviour() {
         onView(withId(bottom_navigation))
             .check(matches(isDisplayed()))
 
@@ -60,6 +63,10 @@ class AppImplementationTest {
         Thread.sleep(1000)
         pressBack()
 
+    }
+
+    @Test
+    fun testNextMatchBehaviour() {
         onView(withId(bottom_navigation))
             .check(matches(isDisplayed()))
 
