@@ -37,7 +37,7 @@ class AppImplementationTest {
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
         )
 
-        Thread.sleep(1000)
+        Thread.sleep(5000)
 
         onView(withId(home_badge))
             .check(matches(isDisplayed()))
@@ -62,6 +62,7 @@ class AppImplementationTest {
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(5, click())
         )
 
+        Thread.sleep(5000)
         onView(withId(add_to_favorite))
             .check(matches(isDisplayed()))
         onView(withId(add_to_favorite)).perform(click())
@@ -77,6 +78,7 @@ class AppImplementationTest {
 
         onView(withId(favorites)).perform(click())
 
+        Thread.sleep(5000)
         onView(withId(favorite_match_list))
             .check(matches(isDisplayed()))
 
