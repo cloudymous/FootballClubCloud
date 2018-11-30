@@ -26,6 +26,7 @@ class AppImplementationTest {
     @Test
     fun testAppBehaviour() {
 
+        Thread.sleep(5000)
         onView(withId(last_match_list))
             .check(matches(isDisplayed()))
 
@@ -37,8 +38,8 @@ class AppImplementationTest {
 
         onView(withId(add_to_favorite))
             .check(matches(isDisplayed()))
-
         onView(withId(add_to_favorite)).perform(click())
+
         pressBack()
 
         onView(withId(bottom_navigation))
@@ -62,6 +63,7 @@ class AppImplementationTest {
 
         onView(withId(next_match)).perform(click())
 
+        Thread.sleep(5000)
         onView(withId(next_match_list))
             .check(matches(isDisplayed()))
 
@@ -73,8 +75,8 @@ class AppImplementationTest {
 
         onView(withId(add_to_favorite))
             .check(matches(isDisplayed()))
-
         onView(withId(add_to_favorite)).perform(click())
+
         pressBack()
 
 
