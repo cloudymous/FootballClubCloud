@@ -40,6 +40,7 @@ class AppImplementationTest {
             .check(matches(isDisplayed()))
         onView(withId(add_to_favorite)).perform(click())
 
+        Thread.sleep(1000)
         pressBack()
 
         onView(withId(bottom_navigation))
@@ -56,6 +57,7 @@ class AppImplementationTest {
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
         )
 
+        Thread.sleep(1000)
         pressBack()
 
         onView(withId(bottom_navigation))
@@ -76,7 +78,7 @@ class AppImplementationTest {
         onView(withId(add_to_favorite))
             .check(matches(isDisplayed()))
         onView(withId(add_to_favorite)).perform(click())
-
+        Thread.sleep(1000)
         pressBack()
 
 
