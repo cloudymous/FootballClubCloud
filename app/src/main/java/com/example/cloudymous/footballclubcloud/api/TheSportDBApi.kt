@@ -40,7 +40,7 @@ object TheSportDBApi {
 //            .appendQueryParameter("id", leagueId)
 //            .build()
 //            .toString()
-        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "eventspastleague/.php?id=" + leagueId
+        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/eventspastleague/.php?id=" + leagueId
 
     }
 
@@ -54,7 +54,7 @@ object TheSportDBApi {
 //            .appendQueryParameter("id", leagueId)
 //            .build()
 //            .toString()
-        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "eventnextleague/.php?id=" + leagueId
+        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/eventnextleague/.php?id=" + leagueId
     }
 
     fun getDetailMatch(eventId: String?): String {
@@ -67,7 +67,7 @@ object TheSportDBApi {
 //            .appendQueryParameter("id", eventId)
 //            .build()
 //            .toString()
-        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "lookupevent/.php?id=" + eventId
+        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookupevent/.php?id=" + eventId
     }
 
 }
