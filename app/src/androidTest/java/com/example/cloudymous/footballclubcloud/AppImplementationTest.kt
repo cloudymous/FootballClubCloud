@@ -62,12 +62,9 @@ class AppImplementationTest {
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(5, click())
         )
 
-        Thread.sleep(5000)
         onView(withId(add_to_favorite))
             .check(matches(isDisplayed()))
         onView(withId(add_to_favorite)).perform(click())
-
-        Thread.sleep(1000)
         pressBack()
     }
 
@@ -88,7 +85,6 @@ class AppImplementationTest {
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
         )
 
-        Thread.sleep(1000)
         pressBack()
 
     }
@@ -113,7 +109,6 @@ class AppImplementationTest {
         onView(withId(add_to_favorite))
             .check(matches(isDisplayed()))
         onView(withId(add_to_favorite)).perform(click())
-        Thread.sleep(1000)
         pressBack()
 
 
