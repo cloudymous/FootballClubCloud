@@ -45,7 +45,6 @@ class AppImplementationTest {
         onView(withId(away_badge))
             .check(matches(isDisplayed()))
 
-        Thread.sleep(1000)
         pressBack()
     }
 
