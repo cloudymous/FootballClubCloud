@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud
+package com.example.cloudymous.footballclubcloud.main
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.Espresso.pressBack
