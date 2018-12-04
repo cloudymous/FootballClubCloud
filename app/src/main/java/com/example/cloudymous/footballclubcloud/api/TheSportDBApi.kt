@@ -52,7 +52,7 @@ object TheSportDBApi {
 //            .appendQueryParameter("id", leagueId)
 //            .build()
 //            .toString()
-        return "https://www.thesportsdb.com/api/v1/json/1/eventnextleague.php?id=$leagueId"
+        return "https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=$leagueId"
     }
 
     fun getDetailMatch(eventId: String?): String {
