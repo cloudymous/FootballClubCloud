@@ -27,7 +27,7 @@ class AppImplementationTest {
     @Test
     fun testDetailMatchBehaviour() {
 
-        Thread.sleep(5000)
+//        Thread.sleep(5000)
         onView(withId(last_match_list))
             .check(matches(isDisplayed()))
 
@@ -37,7 +37,7 @@ class AppImplementationTest {
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
         )
 
-        Thread.sleep(5000)
+//        Thread.sleep(5000)
 
         onView(withId(home_badge))
             .check(matches(isDisplayed()))
@@ -51,7 +51,7 @@ class AppImplementationTest {
     @Test
     fun testLastMatchBehaviour() {
 
-        Thread.sleep(5000)
+//        Thread.sleep(5000)
         onView(withId(last_match_list))
             .check(matches(isDisplayed()))
 
@@ -74,7 +74,7 @@ class AppImplementationTest {
 
         onView(withId(favorites)).perform(click())
 
-        Thread.sleep(5000)
+//        Thread.sleep(5000)
         onView(withId(favorite_match_list))
             .check(matches(isDisplayed()))
 
@@ -95,7 +95,7 @@ class AppImplementationTest {
 
         onView(withId(next_match)).perform(click())
 
-        Thread.sleep(5000)
+//        Thread.sleep(5000)
         onView(withId(next_match_list))
             .check(matches(isDisplayed()))
 
