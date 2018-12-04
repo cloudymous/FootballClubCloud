@@ -1,7 +1,5 @@
 package com.example.cloudymous.footballclubcloud.api
 
-import com.example.cloudymous.footballclubcloud.BuildConfig
-
 object TheSportDBApi {
 
     fun getTeams(league: String?): String {
@@ -14,7 +12,7 @@ object TheSportDBApi {
 //            .appendQueryParameter("l", league)
 //            .build()
 //            .toString()
-        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/search_all_teams.php?l=" + league
+        return "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=$league"
     }
 
     fun getTeamDetail(teamID: String?): String {
@@ -27,7 +25,7 @@ object TheSportDBApi {
 //            .appendQueryParameter("id", teamID)
 //            .build()
 //            .toString()
-        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookupteam.php?id=" + teamID
+        return "https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=$teamID"
     }
 
     fun getLastMatch(leagueId: String?): String {
@@ -40,7 +38,7 @@ object TheSportDBApi {
 //            .appendQueryParameter("id", leagueId)
 //            .build()
 //            .toString()
-        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/eventspastleague.php?id=" + leagueId
+        return "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=$leagueId"
 
     }
 
@@ -54,7 +52,7 @@ object TheSportDBApi {
 //            .appendQueryParameter("id", leagueId)
 //            .build()
 //            .toString()
-        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/eventnextleague.php?id=" + leagueId
+        return "https://www.thesportsdb.com/api/v1/json/1/eventnextleague.php?id=$leagueId"
     }
 
     fun getDetailMatch(eventId: String?): String {
@@ -67,7 +65,7 @@ object TheSportDBApi {
 //            .appendQueryParameter("id", eventId)
 //            .build()
 //            .toString()
-        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookupevent.php?id=" + eventId
+        return "https://www.thesportsdb.com/api/v1/json/1/lookupevent.php?id=$eventId"
     }
 
 }
