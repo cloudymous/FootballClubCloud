@@ -1,6 +1,7 @@
 package com.example.cloudymous.footballclubcloud.view
 
 import android.os.Bundle
+import android.support.test.espresso.idling.CountingIdlingResource
 import android.support.v7.app.AppCompatActivity
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.*
@@ -11,6 +12,8 @@ import com.example.cloudymous.footballclubcloud.view.nextmatch.NextMatchFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
+
+    var espressoTestIdlingResource = CountingIdlingResource("HomeActivity")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,5 +66,17 @@ class HomeActivity : AppCompatActivity() {
                     FavoriteFragment(), FavoriteFragment::class.java.simpleName
                 ).commit()
         }
+    }
+
+    fun increment() {
+        espressoTestIdlingResource.increment()
+    }
+
+    fun decrement() {
+        espressoTestIdlingResource.decrement()
+    }
+
+    fun getEspressoIdlingResourceHomeActivity(): CountingIdlingResource {
+        return espressoTestIdlingResource
     }
 }
