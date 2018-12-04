@@ -2,9 +2,11 @@ package com.example.cloudymous.footballclubcloud.main
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.Espresso.pressBack
+import android.support.test.espresso.IdlingRegistry
 import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.contrib.RecyclerViewActions
+import android.support.test.espresso.idling.CountingIdlingResource
 import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
@@ -12,6 +14,7 @@ import android.support.test.runner.AndroidJUnit4
 import android.support.v7.widget.RecyclerView
 import com.example.cloudymous.footballclubcloud.R.id.*
 import com.example.cloudymous.footballclubcloud.view.HomeActivity
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -22,6 +25,13 @@ class AppImplementationTest {
     @Rule
     @JvmField
     val activityRule = ActivityTestRule(HomeActivity::class.java)
+
+    @Before
+    fun testAppContext() {
+        val mainActivityIdlingResource: CountingIdlingResource =
+            activityRule.activity.getEspressoIdlingResourceHomeActivity()
+        IdlingRegistry.getInstance().register(mainActivityIdlingResource)
+    }
 
 
     @Test
