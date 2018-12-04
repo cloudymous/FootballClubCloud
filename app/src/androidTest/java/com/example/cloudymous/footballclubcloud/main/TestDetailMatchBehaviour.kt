@@ -40,10 +40,10 @@ class TestDetailMatchBehaviour {
         onView(withId(last_match_list))
             .check(matches(isDisplayed()))
 
-        onView(withId(last_match_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(0))
+        onView(withId(last_match_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
 
         onView(withId(last_match_list)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
         )
 
 //        Thread.sleep(5000)

@@ -54,6 +54,7 @@ class TestNextMatchBehaviour {
         Espresso.onView(ViewMatchers.withId(R.id.add_to_favorite))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(ViewMatchers.withId(R.id.add_to_favorite)).perform(ViewActions.click())
+
         Espresso.pressBack()
 
 
