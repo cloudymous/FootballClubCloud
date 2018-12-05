@@ -1,18 +1,17 @@
 package com.example.cloudymous.footballclubcloud.main
 
-import android.support.test.espresso.Espresso
-import android.support.test.espresso.IdlingRegistry
+import android.support.test.espresso.Espresso.onView
+import android.support.test.espresso.Espresso.pressBack
 import android.support.test.espresso.action.ViewActions
 import android.support.test.espresso.assertion.ViewAssertions
 import android.support.test.espresso.contrib.RecyclerViewActions
-import android.support.test.espresso.idling.CountingIdlingResource
-import android.support.test.espresso.matcher.ViewMatchers
+import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
+import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.support.v7.widget.RecyclerView
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.view.HomeActivity
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -25,38 +24,39 @@ class TestNextMatchBehaviour {
     @JvmField
     val activityRule = ActivityTestRule(HomeActivity::class.java)
 
-    @Before
-    fun testAppContext() {
-        val mainActivityIdlingResource: CountingIdlingResource =
-            activityRule.activity.getEspressoIdlingResourceHomeActivity()
-        IdlingRegistry.getInstance().register(mainActivityIdlingResource)
-    }
-
     @Test
     fun testNextMatchBehaviour() {
-        Espresso.onView(ViewMatchers.withId(R.id.bottom_navigation))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.bottom_navigation))
+            .check(ViewAssertions.matches(isDisplayed()))
 
-        Espresso.onView(ViewMatchers.withId(R.id.next_match)).perform(ViewActions.click())
+        onView(withId(R.id.next_match)).perform(ViewActions.click())
 
-        Espresso.onView(ViewMatchers.withId(R.id.next_match_list))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        delay()
+        onView(withId(R.id.next_match_list))
+            .check(ViewAssertions.matches(isDisplayed()))
 
-//        Thread.sleep(5000)
-
-        Espresso.onView(ViewMatchers.withId(R.id.next_match_list))
+        onView(withId(R.id.next_match_list))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(0))
 
-        Espresso.onView(ViewMatchers.withId(R.id.next_match_list)).perform(
+        onView(withId(R.id.next_match_list)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click())
         )
 
-        Espresso.onView(ViewMatchers.withId(R.id.add_to_favorite))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(ViewMatchers.withId(R.id.add_to_favorite)).perform(ViewActions.click())
+        delay()
+        onView(withId(R.id.add_to_favorite))
+            .check(ViewAssertions.matches(isDisplayed()))
+        onView(withId(R.id.add_to_favorite)).perform(ViewActions.click())
 
-        Espresso.pressBack()
+        pressBack()
 
 
+    }
+
+    private fun delay() {
+        try {
+            Thread.sleep(2000)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
     }
 }
