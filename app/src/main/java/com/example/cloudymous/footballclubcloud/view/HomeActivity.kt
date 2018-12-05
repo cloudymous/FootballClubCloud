@@ -2,11 +2,11 @@ package com.example.cloudymous.footballclubcloud.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.example.cloudymous.footballclubcloud.MatchScheduleFragment
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.*
 import com.example.cloudymous.footballclubcloud.R.layout.activity_home
 import com.example.cloudymous.footballclubcloud.view.favorite.FavoriteFragment
-import com.example.cloudymous.footballclubcloud.view.matches.lastmatch.LastMatchFragment
 import com.example.cloudymous.footballclubcloud.view.matches.nextmatch.NextMatchFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -19,7 +19,7 @@ class HomeActivity : AppCompatActivity() {
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 match_list_fragment -> {
-                    loadLastMatchFragment(savedInstanceState)
+                    loadMatchFragment(savedInstanceState)
                 }
 
                 team_list_fragment -> {
@@ -32,15 +32,16 @@ class HomeActivity : AppCompatActivity() {
             }
             true
         }
-        bottom_navigation.selectedItemId = last_match
+        bottom_navigation.selectedItemId = match_list_fragment
     }
 
-    private fun loadLastMatchFragment(savedInstanceState: Bundle?) {
+
+    private fun loadMatchFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.main_container,
-                    LastMatchFragment(), LastMatchFragment::class.java.simpleName
+                    MatchScheduleFragment(), MatchScheduleFragment::class.java.simpleName
                 ).commit()
         }
     }
