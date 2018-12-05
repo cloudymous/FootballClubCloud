@@ -9,7 +9,7 @@ import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.add_to_favorite
 import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
-import com.example.cloudymous.footballclubcloud.db.databaseFavorite
+import com.example.cloudymous.footballclubcloud.db.databaseFavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.Team
@@ -61,7 +61,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
     }
 
     private fun favState() {
-        databaseFavorite.use {
+        databaseFavoriteMatch.use {
             val result = select(FavoriteMatch.TABLE_FAVORITE_MATCH)
                 .whereArgs("(EVENT_ID = {id})", "id" to id)
 
@@ -151,7 +151,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
 
     private fun addToFavorite() {
         try {
-            databaseFavorite.use {
+            databaseFavoriteMatch.use {
                 insert(
                     FavoriteMatch.TABLE_FAVORITE_MATCH,
                     FavoriteMatch.EVENT_ID to event.eventId,
@@ -171,7 +171,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchView {
 
     private fun removeFromFav() {
         try {
-            databaseFavorite.use {
+            databaseFavoriteMatch.use {
                 delete(FavoriteMatch.TABLE_FAVORITE_MATCH, "EVENT_ID = {id}", "id" to id)
             }
             toast("Remove from favorite")
