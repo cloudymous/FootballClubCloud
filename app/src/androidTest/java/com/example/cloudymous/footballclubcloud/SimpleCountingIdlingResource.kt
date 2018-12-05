@@ -10,7 +10,6 @@ class SimpleCountingIdlingResource(resourceName: String) : IdlingResource {
 
     private val counter = AtomicInteger(0)
 
-    // written from main thread, read from any thread.
     @Volatile
     private var resourceCallback: ResourceCallback? = null
 
