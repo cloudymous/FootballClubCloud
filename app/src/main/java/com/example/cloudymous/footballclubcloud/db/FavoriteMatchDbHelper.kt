@@ -5,17 +5,17 @@ import android.database.sqlite.SQLiteDatabase
 import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import org.jetbrains.anko.db.*
 
-class FavoriteDatabaseOpenHelper(ctx: Context) :
+class FavoriteMatchDbHelper(ctx: Context) :
     ManagedSQLiteOpenHelper(ctx, "com.example.cloudymous.footballclubcloud.model.FavoriteMatch.db", null, 1) {
     companion object {
-        private var instance: FavoriteDatabaseOpenHelper? = null
+        private var instance: FavoriteMatchDbHelper? = null
 
         @Synchronized
-        fun getInstance(ctx: Context): FavoriteDatabaseOpenHelper {
+        fun getInstance(ctx: Context): FavoriteMatchDbHelper {
             if (instance == null) {
-                instance = FavoriteDatabaseOpenHelper(ctx.applicationContext)
+                instance = FavoriteMatchDbHelper(ctx.applicationContext)
             }
-            return instance as FavoriteDatabaseOpenHelper
+            return instance as FavoriteMatchDbHelper
         }
     }
 
@@ -39,5 +39,5 @@ class FavoriteDatabaseOpenHelper(ctx: Context) :
     }
 }
 
-val Context.databaseFavorite: FavoriteDatabaseOpenHelper
-    get() = FavoriteDatabaseOpenHelper(applicationContext)
+val Context.databaseFavoriteMatch: FavoriteMatchDbHelper
+    get() = FavoriteMatchDbHelper(applicationContext)
