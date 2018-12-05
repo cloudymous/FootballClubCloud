@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.matches
+package com.example.cloudymous.footballclubcloud.view.matches.lastmatch
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -15,7 +15,13 @@ class LastMatchAdapter(
     RecyclerView.Adapter<LastMatchViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): LastMatchViewHolder =
-        LastMatchViewHolder(LayoutInflater.from(context).inflate(R.layout.list_match, parent, false))
+        LastMatchViewHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout.list_match,
+                parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = lastmatch.size
 

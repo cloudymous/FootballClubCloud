@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.matches
+package com.example.cloudymous.footballclubcloud.view.matches.lastmatch
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

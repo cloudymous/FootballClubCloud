@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.db.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.db.databaseFavoriteMatch
-import com.example.cloudymous.footballclubcloud.view.details.DetailMatchActivity
+import com.example.cloudymous.footballclubcloud.view.matches.detail.DetailMatchActivity
 import kotlinx.android.synthetic.main.fragment_favorites.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
