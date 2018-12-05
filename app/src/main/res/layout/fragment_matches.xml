@@ -4,7 +4,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context=".view.lastmatch.LastMatchFragment">
+              tools:context=".view.matches.LastMatchFragment">
+
+    <Spinner
+            android:id="@+id/league_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    </Spinner>
 
 
     <android.support.v4.widget.SwipeRefreshLayout

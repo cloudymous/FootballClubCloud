@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.lastmatch
+package com.example.cloudymous.footballclubcloud.view.matches
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -12,7 +12,7 @@ import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.presenter.LastMatchPresenter
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
-import com.example.cloudymous.footballclubcloud.view.detailmatch.DetailMatchActivity
+import com.example.cloudymous.footballclubcloud.view.details.DetailMatchActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_matches.*
 import org.jetbrains.anko.startActivity

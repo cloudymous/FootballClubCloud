@@ -4,7 +4,7 @@ import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.api.TheSportDBApi
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.model.DetailMatchResponse
-import com.example.cloudymous.footballclubcloud.view.nextmatch.NextMatchView
+import com.example.cloudymous.footballclubcloud.view.teams.NextMatchView
 import com.google.gson.Gson
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
