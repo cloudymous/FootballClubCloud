@@ -19,17 +19,13 @@ class FavoriteTeamDbHelper(ctx: Context) :
     }
 
     override fun onCreate(db: SQLiteDatabase) {
+
         db.createTable(
-            FavoriteMatch.TABLE_FAVORITE_MATCH,
-            true,
-            FavoriteMatch.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-            FavoriteMatch.EVENT_ID to TEXT + UNIQUE,
-            FavoriteMatch.EVENT_DATE to TEXT,
-            FavoriteMatch.EVENT_TIME to TEXT,
-            FavoriteMatch.EVENT_HOMETEAM to TEXT,
-            FavoriteMatch.EVENT_HOMESCORE to TEXT,
-            FavoriteMatch.EVENT_AWAYTEAM to TEXT,
-            FavoriteMatch.EVENT_AWAYSCORE to TEXT
+            FavoriteTeam.TABLE_FAVORITE, true,
+            FavoriteTeam.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            FavoriteTeam.TEAM_ID to TEXT + UNIQUE,
+            FavoriteTeam.TEAM_NAME to TEXT,
+            FavoriteTeam.TEAM_BADGE to TEXT
         )
     }
 
