@@ -18,15 +18,15 @@ class HomeActivity : AppCompatActivity() {
 
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                last_match -> {
+                match_list_fragment -> {
                     loadLastMatchFragment(savedInstanceState)
                 }
 
-                next_match -> {
+                team_list_fragment -> {
                     loadNextMatchFragment(savedInstanceState)
                 }
 
-                favorites -> {
+                favorites_fragment -> {
                     loadFavoriteFragment(savedInstanceState)
                 }
             }

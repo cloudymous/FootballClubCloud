@@ -3,21 +3,21 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-            android:id="@+id/last_match"
+            android:id="@+id/match_list_fragment"
             android:enabled="true"
-            android:title="@string/last_match"
+            android:title="@string/match"
             android:icon="@drawable/ic_last_match"
             app:showAsAction="ifRoom"/>
 
     <item
-            android:id="@+id/next_match"
+            android:id="@+id/team_list_fragment"
             android:enabled="true"
-            android:title="Next Match"
-            android:icon="@drawable/ic_next_event"
+            android:title="@string/teams"
+            android:icon="@drawable/ic_team"
             app:showAsAction="ifRoom"/>
 
     <item
-            android:id="@+id/favorites"
+            android:id="@+id/favorites_fragment"
             android:enabled="true"
             android:title="@string/favorites"
             android:icon="@drawable/ic_favorites"
