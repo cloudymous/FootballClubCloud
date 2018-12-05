@@ -2,7 +2,6 @@ package com.example.cloudymous.footballclubcloud.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import org.jetbrains.anko.db.*
 
 class FavoriteTeamDbHelper(ctx: Context) :

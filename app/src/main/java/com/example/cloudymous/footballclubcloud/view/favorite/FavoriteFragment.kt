@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
-import com.example.cloudymous.footballclubcloud.db.databaseFavorite
-import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
+import com.example.cloudymous.footballclubcloud.db.FavoriteMatch
+import com.example.cloudymous.footballclubcloud.db.databaseFavoriteMatch
 import com.example.cloudymous.footballclubcloud.view.details.DetailMatchActivity
 import kotlinx.android.synthetic.main.fragment_favorites.*
 import org.jetbrains.anko.db.classParser
@@ -48,7 +48,7 @@ class FavoriteFragment : Fragment() {
 
     private fun showFavorites() {
         favoritesMatch.clear()
-        context?.databaseFavorite?.use {
+        context?.databaseFavoriteMatch?.use {
             swipe_refresh.isRefreshing = false
             val result = select(FavoriteMatch.TABLE_FAVORITE_MATCH)
             val favorites = result.parseList(classParser<FavoriteMatch>())

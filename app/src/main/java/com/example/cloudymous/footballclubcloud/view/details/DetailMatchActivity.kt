@@ -9,9 +9,9 @@ import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.add_to_favorite
 import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
+import com.example.cloudymous.footballclubcloud.db.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.db.databaseFavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
-import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.presenter.DetailMatchPresenter
 import com.example.cloudymous.footballclubcloud.utils.formatDate

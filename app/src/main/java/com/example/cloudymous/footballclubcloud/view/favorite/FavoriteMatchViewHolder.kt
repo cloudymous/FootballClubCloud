@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 import com.example.cloudymous.footballclubcloud.R.id.*
-import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
+import com.example.cloudymous.footballclubcloud.db.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.utils.formatDate
 import com.example.cloudymous.footballclubcloud.utils.formatTime
 import org.jetbrains.anko.find

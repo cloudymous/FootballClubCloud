@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.model
+package com.example.cloudymous.footballclubcloud.db
 
 data class FavoriteMatch(
     val id: Long?,

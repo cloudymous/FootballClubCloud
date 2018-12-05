@@ -2,11 +2,10 @@ package com.example.cloudymous.footballclubcloud.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import org.jetbrains.anko.db.*
 
 class FavoriteMatchDbHelper(ctx: Context) :
-    ManagedSQLiteOpenHelper(ctx, "com.example.cloudymous.footballclubcloud.model.FavoriteMatch.db", null, 1) {
+    ManagedSQLiteOpenHelper(ctx, "com.example.cloudymous.footballclubcloud.db.FavoriteMatch.db", null, 1) {
     companion object {
         private var instance: FavoriteMatchDbHelper? = null
 
