@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.teams
+package com.example.cloudymous.footballclubcloud.view.matches
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -16,7 +16,13 @@ class NextMatchAdapter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NextMatchViewHolder =
-        NextMatchViewHolder(LayoutInflater.from(context).inflate(R.layout.list_match, parent, false))
+        NextMatchViewHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout.list_match,
+                parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = nextmatch.size
 

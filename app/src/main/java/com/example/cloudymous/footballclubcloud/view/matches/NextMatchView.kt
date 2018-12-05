@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.teams
+package com.example.cloudymous.footballclubcloud.view.matches
 
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 
