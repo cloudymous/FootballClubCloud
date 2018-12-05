@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
@@ -34,6 +35,11 @@ class LastMatchFragment : Fragment(), LastMatchView {
 
         last_match_list.layoutManager = LinearLayoutManager(context)
         last_match_list.adapter = adapter
+
+        val spinnerItems = resources.getStringArray(R.array.league)
+        val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, spinnerItems)
+
+        league_spinner.adapter = spinnerAdapter
 
         val request = ApiRepository()
         val gson = Gson()
