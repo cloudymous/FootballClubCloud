@@ -10,7 +10,7 @@ import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.db.databaseFavorite
 import com.example.cloudymous.footballclubcloud.model.FavoriteMatch
 import com.example.cloudymous.footballclubcloud.view.detailmatch.DetailMatchActivity
-import kotlinx.android.synthetic.main.fragment_favorite_match.*
+import kotlinx.android.synthetic.main.fragment_favorites.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.startActivity
@@ -38,7 +38,7 @@ class FavoriteFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_favorite_match, container, false)
+        return inflater.inflate(R.layout.fragment_favorites, container, false)
     }
 
     override fun onResume() {

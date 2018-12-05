@@ -14,7 +14,7 @@ import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
 import com.example.cloudymous.footballclubcloud.view.detailmatch.DetailMatchActivity
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_next_match.*
+import kotlinx.android.synthetic.main.fragment_teams.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 
@@ -48,7 +48,7 @@ class NextMatchFragment : Fragment(), NextMatchView {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_next_match, container, false)
+        return inflater.inflate(R.layout.fragment_teams, container, false)
     }
 
     override fun showLoading() {
