@@ -7,6 +7,12 @@
               android:paddingTop="50dp"
               tools:context=".view.matches.nextmatch.NextMatchFragment">
 
+    <Spinner
+            android:id="@+id/league_spinner_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    </Spinner>
+
     <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh"
             android:layout_width="match_parent"
