@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
@@ -24,6 +26,7 @@ class NextMatchFragment : Fragment(), NextMatchView {
 
     private lateinit var adapter: NextMatchAdapter
     private lateinit var presenter: NextMatchPresenter
+    private lateinit var leagueName: String
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -38,15 +41,38 @@ class NextMatchFragment : Fragment(), NextMatchView {
         next_match_list.layoutManager = LinearLayoutManager(context)
         next_match_list.adapter = adapter
 
+        val spinnerItems = resources.getStringArray(R.array.league)
+        val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, spinnerItems)
+
+        league_spinner_next.adapter = spinnerAdapter
+
         val request = ApiRepository()
         val gson = Gson()
 
-        val leagueId = resources.getString(R.string.leagueId)
+        league_spinner_next.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                leagueName = league_spinner_next.selectedItem.toString()
+                when (leagueName) {
+                    "English Premier League" -> presenter.getNextMatch("4328")
+                    "German Bundesliga" -> presenter.getNextMatch("4331")
+                    "Italian Serie A" -> presenter.getNextMatch("4332")
+                    "French Ligue 1" -> presenter.getNextMatch("4334")
+                    "Spanish La Liga" -> presenter.getNextMatch("4335")
+                    "Netherlands Eredivisie" -> presenter.getNextMatch("4337")
+
+                    else -> presenter.getNextMatch(leagueName)
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
+
         presenter = NextMatchPresenter(this, request, gson)
-        presenter.getNextMatch(leagueId)
 
         swipe_refresh.onRefresh {
-            presenter.getNextMatch(leagueId)
+            presenter.getNextMatch(leagueName)
         }
     }
 
