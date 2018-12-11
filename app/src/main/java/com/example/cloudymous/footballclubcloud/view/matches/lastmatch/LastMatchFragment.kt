@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
@@ -25,6 +26,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
 
     private lateinit var adapter: LastMatchAdapter
     private lateinit var presenter: LastMatchPresenter
+    private lateinit var leagueName: String
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -47,11 +49,21 @@ class LastMatchFragment : Fragment(), LastMatchView {
         val request = ApiRepository()
         val gson = Gson()
 
-        val leagueId = resources.getString(R.string.leagueId)
+        league_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                leagueName = league_spinner.selectedItem.toString()
+                presenter.getLastMatch(leagueName)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
+
         presenter = LastMatchPresenter(this, request, gson)
-        presenter.getLastMatch(leagueId)
+        presenter.getLastMatch(leagueName)
         swipe_refresh.onRefresh {
-            presenter.getLastMatch(leagueId)
+            presenter.getLastMatch(leagueName)
         }
 
     }
