@@ -4,7 +4,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context=".view.matches.lastmatch.LastMatchFragment" android:paddingTop="50dp">
+              android:paddingTop="50dp"
+              tools:context=".view.matches.lastmatch.LastMatchFragment">
 
     <Spinner
             android:id="@+id/league_spinner"
