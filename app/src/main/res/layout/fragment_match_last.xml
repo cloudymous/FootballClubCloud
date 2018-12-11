@@ -4,7 +4,14 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context=".view.matches.nextmatch.NextMatchFragment">
+              tools:context=".view.matches.lastmatch.LastMatchFragment" android:paddingTop="50dp">
+
+    <Spinner
+            android:id="@+id/league_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    </Spinner>
+
 
     <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh"
@@ -15,7 +22,7 @@
                         android:layout_height="wrap_content">
 
             <android.support.v7.widget.RecyclerView
-                    android:id="@+id/next_match_list"
+                    android:id="@+id/last_match_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
