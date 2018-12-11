@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud
+package com.example.cloudymous.footballclubcloud.view
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
