@@ -6,7 +6,6 @@ import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.*
 import com.example.cloudymous.footballclubcloud.R.layout.activity_home
 import com.example.cloudymous.footballclubcloud.view.favorite.FavoriteFragment
-import com.example.cloudymous.footballclubcloud.view.matches.nextmatch.NextMatchFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -50,7 +49,7 @@ class HomeActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.main_container,
-                    NextMatchFragment(), NextMatchFragment::class.java.simpleName
+                    TeamsListFragment(), TeamsListFragment::class.java.simpleName
                 ).commit()
         }
     }
