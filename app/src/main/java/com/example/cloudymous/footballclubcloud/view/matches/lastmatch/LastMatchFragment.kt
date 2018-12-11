@@ -52,7 +52,16 @@ class LastMatchFragment : Fragment(), LastMatchView {
         league_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 leagueName = league_spinner.selectedItem.toString()
-                presenter.getLastMatch(leagueName)
+                when (leagueName) {
+                    "English Premier League" -> presenter.getLastMatch("4328")
+                    "German Bundesliga" -> presenter.getLastMatch("4331")
+                    "Italian Serie A" -> presenter.getLastMatch("4332")
+                    "French Ligue 1" -> presenter.getLastMatch("4334")
+                    "Spanish La Liga" -> presenter.getLastMatch("4335")
+                    "Netherlands Eredivisie" -> presenter.getLastMatch("4337")
+
+                    else -> presenter.getLastMatch(leagueName)
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -61,7 +70,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
         }
 
         presenter = LastMatchPresenter(this, request, gson)
-        presenter.getLastMatch(leagueName)
+
         swipe_refresh.onRefresh {
             presenter.getLastMatch(leagueName)
         }
