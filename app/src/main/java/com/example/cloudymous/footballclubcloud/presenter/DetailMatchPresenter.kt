@@ -6,9 +6,8 @@ import com.example.cloudymous.footballclubcloud.model.DetailMatchResponse
 import com.example.cloudymous.footballclubcloud.model.TeamResponse
 import com.example.cloudymous.footballclubcloud.view.matches.detail.DetailMatchView
 import com.google.gson.Gson
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class DetailMatchPresenter(
     private val view: DetailMatchView,
@@ -18,35 +17,43 @@ class DetailMatchPresenter(
 
     fun getDetailMatch(eventId: String?) {
         view.showLoading()
-        GlobalScope.launch(Dispatchers.Main) {
+        doAsync {
             val data = gson.fromJson(
                 apiRepository
-                    .doRequest(TheSportDBApi.getDetailMatch(eventId)).await(),
+                    .doRequest(TheSportDBApi.getDetailMatch(eventId)),
                 DetailMatchResponse::class.java
             )
 
-            view.showTeam(data.events)
-            view.hideLoading()
+            uiThread {
+                view.hideLoading()
+                view.showTeam(data.events)
+            }
+
+
         }
     }
 
     fun getTeamBadge(homeTeamId: String?, awayTeamId: String?) {
         view.showLoading()
-        GlobalScope.launch(Dispatchers.Main) {
+        doAsync {
             val homeBadge = gson.fromJson(
                 apiRepository
-                    .doRequest(TheSportDBApi.getTeamDetail(homeTeamId)).await(),
+                    .doRequest(TheSportDBApi.getTeamDetail(homeTeamId)),
                 TeamResponse::class.java
             )
 
             val awayBadge = gson.fromJson(
                 apiRepository
-                    .doRequest(TheSportDBApi.getTeamDetail(awayTeamId)).await(),
+                    .doRequest(TheSportDBApi.getTeamDetail(awayTeamId)),
                 TeamResponse::class.java
             )
 
-            view.showBadge(homeBadge.teams, awayBadge.teams)
-            view.hideLoading()
+            uiThread {
+                view.hideLoading()
+                view.showBadge(homeBadge.teams, awayBadge.teams)
+            }
+
+
         }
     }
 }

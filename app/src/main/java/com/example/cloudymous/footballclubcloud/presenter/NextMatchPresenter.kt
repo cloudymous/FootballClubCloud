@@ -5,9 +5,8 @@ import com.example.cloudymous.footballclubcloud.api.TheSportDBApi
 import com.example.cloudymous.footballclubcloud.model.DetailMatchResponse
 import com.example.cloudymous.footballclubcloud.view.matches.nextmatch.NextMatchView
 import com.google.gson.Gson
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class NextMatchPresenter(
     private val view: NextMatchView,
@@ -17,15 +16,18 @@ class NextMatchPresenter(
 
     fun getNextMatch(leagueId: String?) {
         view.showLoading()
-        GlobalScope.launch(Dispatchers.Main) {
+        doAsync {
             val data = gson.fromJson(
                 apiRepository
-                    .doRequest(TheSportDBApi.getNextMatch(leagueId)).await(),
+                    .doRequest(TheSportDBApi.getNextMatch(leagueId)),
                 DetailMatchResponse::class.java
             )
 
-            view.showNextMatchList(data.events)
-            view.hideLoading()
+            uiThread {
+                view.hideLoading()
+                view.showNextMatchList(data.events)
+            }
+
         }
     }
 }

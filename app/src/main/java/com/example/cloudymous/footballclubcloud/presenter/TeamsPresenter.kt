@@ -5,9 +5,8 @@ import com.example.cloudymous.footballclubcloud.api.TheSportDBApi
 import com.example.cloudymous.footballclubcloud.model.TeamResponse
 import com.example.cloudymous.footballclubcloud.view.teams.TeamView
 import com.google.gson.Gson
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class TeamsPresenter(
     private val view: TeamView,
@@ -17,15 +16,17 @@ class TeamsPresenter(
 
     fun getTeams(leagueId: String?) {
         view.showLoading()
-        GlobalScope.launch(Dispatchers.Main) {
+        doAsync {
             val data = gson.fromJson(
                 apiRepository
-                    .doRequest(TheSportDBApi.getTeams(leagueId)).await(),
+                    .doRequest(TheSportDBApi.getTeams(leagueId)),
                 TeamResponse::class.java
             )
 
-            view.showTeamList(data.teams)
-            view.hideLoading()
+            uiThread {
+                view.hideLoading()
+                view.showTeamList(data.teams)
+            }
         }
     }
 }
