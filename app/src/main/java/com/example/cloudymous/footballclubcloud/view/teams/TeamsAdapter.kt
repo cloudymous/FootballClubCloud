@@ -1,16 +1,28 @@
 package com.example.cloudymous.footballclubcloud.view.teams
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.model.Team
-import org.jetbrains.anko.AnkoContext
 
-class TeamsAdapter(private val teams: List<Team>, private val listener: (Team) -> Unit) :
+class TeamsAdapter(
+    private val context: Context,
+    private val teams: List<Team>,
+    private val listener: (Team) -> Unit
+) :
     RecyclerView.Adapter<TeamViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {
-        return TeamViewHolder(TeamUI().createView(AnkoContext.create(parent.context, parent)))
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, position: Int): TeamViewHolder =
+        TeamViewHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout.list_team,
+                parent,
+                false
+            )
+        )
+
 
     override fun onBindViewHolder(holder: TeamViewHolder, position: Int) {
         holder.bindItem(teams[position], listener)
