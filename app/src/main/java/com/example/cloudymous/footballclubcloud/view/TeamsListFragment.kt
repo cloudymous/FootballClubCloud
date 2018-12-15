@@ -12,7 +12,6 @@ import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.presenter.TeamsPresenter
 import com.example.cloudymous.footballclubcloud.utils.invisible
-import com.example.cloudymous.footballclubcloud.utils.visible
 import com.example.cloudymous.footballclubcloud.view.teams.TeamView
 import com.example.cloudymous.footballclubcloud.view.teams.TeamsAdapter
 import com.google.gson.Gson
@@ -47,16 +46,7 @@ class TeamsListFragment : Fragment(), TeamView {
         league_spinner_team.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 leagueName = league_spinner_team.selectedItem.toString()
-                when (leagueName) {
-                    "English Premier League" -> presenter.getTeams("4328")
-                    "German Bundesliga" -> presenter.getTeams("4331")
-                    "Italian Serie A" -> presenter.getTeams("4332")
-                    "French Ligue 1" -> presenter.getTeams("4334")
-                    "Spanish La Liga" -> presenter.getTeams("4335")
-                    "Netherlands Eredivisie" -> presenter.getTeams("4337")
-
-                    else -> presenter.getTeams(leagueName)
-                }
+                presenter.getTeams(leagueName)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {}
@@ -72,7 +62,7 @@ class TeamsListFragment : Fragment(), TeamView {
     }
 
     override fun showLoading() {
-        progress_bar.visible()
+
     }
 
     override fun hideLoading() {

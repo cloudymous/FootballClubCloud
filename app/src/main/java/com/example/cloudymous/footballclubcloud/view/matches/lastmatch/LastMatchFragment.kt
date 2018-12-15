@@ -60,7 +60,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
                     "Spanish La Liga" -> presenter.getLastMatch("4335")
                     "Netherlands Eredivisie" -> presenter.getLastMatch("4337")
                 }
-//                presenter.getLastMatch(leagueName)
+                presenter.getLastMatch(leagueName)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
