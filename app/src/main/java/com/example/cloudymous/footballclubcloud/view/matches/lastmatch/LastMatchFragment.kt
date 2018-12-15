@@ -59,9 +59,8 @@ class LastMatchFragment : Fragment(), LastMatchView {
                     "French Ligue 1" -> presenter.getLastMatch("4334")
                     "Spanish La Liga" -> presenter.getLastMatch("4335")
                     "Netherlands Eredivisie" -> presenter.getLastMatch("4337")
-
-                    else -> presenter.getLastMatch(leagueName)
                 }
+//                presenter.getLastMatch(leagueName)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -90,6 +89,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
     }
 
     override fun showLastMatchList(data: List<DetailMatch>) {
+        swipe_refresh.isRefreshing
         lastmatch.clear()
         lastmatch.addAll(data)
         adapter.notifyDataSetChanged()
