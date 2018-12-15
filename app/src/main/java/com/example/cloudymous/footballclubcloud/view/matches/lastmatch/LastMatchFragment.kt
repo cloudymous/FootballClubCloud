@@ -90,7 +90,6 @@ class LastMatchFragment : Fragment(), LastMatchView {
     }
 
     override fun showLastMatchList(data: List<DetailMatch>) {
-        swipe_refresh.isRefreshing = false
         lastmatch.clear()
         lastmatch.addAll(data)
         adapter.notifyDataSetChanged()

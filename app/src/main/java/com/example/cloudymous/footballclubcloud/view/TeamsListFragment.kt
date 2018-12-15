@@ -47,7 +47,16 @@ class TeamsListFragment : Fragment(), TeamView {
         league_spinner_team.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 leagueName = league_spinner_team.selectedItem.toString()
-                presenter.getTeams(leagueName)
+                when (leagueName) {
+                    "English Premier League" -> presenter.getTeams("4328")
+                    "German Bundesliga" -> presenter.getTeams("4331")
+                    "Italian Serie A" -> presenter.getTeams("4332")
+                    "French Ligue 1" -> presenter.getTeams("4334")
+                    "Spanish La Liga" -> presenter.getTeams("4335")
+                    "Netherlands Eredivisie" -> presenter.getTeams("4337")
+
+                    else -> presenter.getTeams(leagueName)
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {}
