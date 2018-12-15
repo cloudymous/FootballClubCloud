@@ -1,6 +1,7 @@
 package com.example.cloudymous.footballclubcloud.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Team(
     @SerializedName("idTeam")
@@ -20,4 +21,4 @@ data class Team(
 
     @SerializedName("strDescriptionEN")
     var teamDescription: String? = null
-)
+) : Serializable
