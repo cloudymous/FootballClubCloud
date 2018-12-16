@@ -41,7 +41,7 @@ class TeamsFragment : Fragment(), TeamView {
 
         val request = ApiRepository()
         val gson = Gson()
-        presenter = TeamsPresenter(this, request, gson)
+
 
         league_spinner_team.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -59,6 +59,8 @@ class TeamsFragment : Fragment(), TeamView {
 
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
+
+        presenter = TeamsPresenter(this, request, gson)
 
         swipe_refresh.onRefresh {
             presenter.getTeams(leagueName)
