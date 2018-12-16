@@ -2,6 +2,7 @@ package com.example.cloudymous.footballclubcloud.view.teams
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,16 +29,17 @@ class TeamsFragment : Fragment(), TeamView {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
-        val spinnerItems = resources.getStringArray(R.array.league)
-        val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, spinnerItems)
-        league_spinner_team.adapter = spinnerAdapter
-
         adapter = TeamsAdapter(requireContext(), teams) {
             //            context?.startActivity<TeamDetailActivity>("id" to "${it.teamId}")
             toast("Hello").show()
         }
+
+        team_list.layoutManager = LinearLayoutManager(context)
         team_list.adapter = adapter
+
+        val spinnerItems = resources.getStringArray(R.array.league)
+        val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, spinnerItems)
+        league_spinner_team.adapter = spinnerAdapter
 
         val request = ApiRepository()
         val gson = Gson()
