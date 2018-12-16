@@ -44,18 +44,9 @@ class TeamsFragment : Fragment(), TeamView {
         val request = ApiRepository()
         val gson = Gson()
 
-
         league_spinner_team.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 leagueName = league_spinner_team.selectedItem.toString()
-                when (leagueName) {
-                    "English Premier League" -> leagueName = "4328"
-                    "German Bundesliga" -> leagueName = "4331"
-                    "Italian Serie A" -> leagueName = "4332"
-                    "French Ligue 1" -> leagueName = "4334"
-                    "Spanish La Liga" -> leagueName = "4335"
-                    "Netherlands Eredivisie" -> leagueName = "4337"
-                }
                 presenter.getTeams(leagueName)
             }
 
