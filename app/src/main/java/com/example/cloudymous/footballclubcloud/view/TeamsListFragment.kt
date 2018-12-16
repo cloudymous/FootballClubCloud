@@ -12,6 +12,7 @@ import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.presenter.TeamsPresenter
 import com.example.cloudymous.footballclubcloud.utils.invisible
+import com.example.cloudymous.footballclubcloud.utils.visible
 import com.example.cloudymous.footballclubcloud.view.teams.TeamView
 import com.example.cloudymous.footballclubcloud.view.teams.TeamsAdapter
 import com.google.gson.Gson
@@ -62,7 +63,7 @@ class TeamsListFragment : Fragment(), TeamView {
     }
 
     override fun showLoading() {
-
+        progress_bar.visible()
     }
 
     override fun hideLoading() {
