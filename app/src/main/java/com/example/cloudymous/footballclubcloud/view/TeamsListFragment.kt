@@ -44,6 +44,7 @@ class TeamsListFragment : Fragment(), TeamView {
         val request = ApiRepository()
         val gson = Gson()
         presenter = TeamsPresenter(this, request, gson)
+
         league_spinner_team.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 leagueName = league_spinner_team.selectedItem.toString()
