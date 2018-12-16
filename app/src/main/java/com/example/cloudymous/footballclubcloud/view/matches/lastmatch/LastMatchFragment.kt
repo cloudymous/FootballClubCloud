@@ -50,22 +50,22 @@ class LastMatchFragment : Fragment(), LastMatchView {
         val gson = Gson()
 
         league_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 leagueName = league_spinner.selectedItem.toString()
                 when (leagueName) {
-                    "English Premier League" -> presenter.getLastMatch("4328")
-                    "German Bundesliga" -> presenter.getLastMatch("4331")
-                    "Italian Serie A" -> presenter.getLastMatch("4332")
-                    "French Ligue 1" -> presenter.getLastMatch("4334")
-                    "Spanish La Liga" -> presenter.getLastMatch("4335")
-                    "Netherlands Eredivisie" -> presenter.getLastMatch("4337")
+                    "English Premier League" -> leagueName = "4328"
+                    "German Bundesliga" -> leagueName = "4331"
+                    "Italian Serie A" -> leagueName = "4332"
+                    "French Ligue 1" -> leagueName = "4334"
+                    "Spanish La Liga" -> leagueName = "4335"
+                    "Netherlands Eredivisie" -> leagueName = "4337"
                 }
                 presenter.getLastMatch(leagueName)
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
 
-            }
         }
 
         presenter = LastMatchPresenter(this, request, gson)
