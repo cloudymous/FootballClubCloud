@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view
+package com.example.cloudymous.footballclubcloud.view.pageradapter
 
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -27,7 +27,9 @@ class MatchScheduleFragment : Fragment() {
 
 //        setHasOptionsMenu(true)
 
-        pager.adapter = MatchSchedulePagerAdapter(childFragmentManager)
+        pager.adapter = MatchSchedulePagerAdapter(
+            childFragmentManager
+        )
         tabs.setupWithViewPager(pager)
     }
 }

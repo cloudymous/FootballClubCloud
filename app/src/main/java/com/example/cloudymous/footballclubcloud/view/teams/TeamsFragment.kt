@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view
+package com.example.cloudymous.footballclubcloud.view.teams
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -13,14 +13,12 @@ import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.presenter.TeamsPresenter
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
-import com.example.cloudymous.footballclubcloud.view.teams.TeamView
-import com.example.cloudymous.footballclubcloud.view.teams.TeamsAdapter
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_team_list.*
+import kotlinx.android.synthetic.main.fragment_team.*
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.toast
 
-class TeamsListFragment : Fragment(), TeamView {
+class TeamsFragment : Fragment(), TeamView {
 
     private var teams: MutableList<Team> = mutableListOf()
     private lateinit var presenter: TeamsPresenter
@@ -60,7 +58,7 @@ class TeamsListFragment : Fragment(), TeamView {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_team_list, container, false)
+        return inflater.inflate(R.layout.fragment_team, container, false)
     }
 
     override fun showLoading() {

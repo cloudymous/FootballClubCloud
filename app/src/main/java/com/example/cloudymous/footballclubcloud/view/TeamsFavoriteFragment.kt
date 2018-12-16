@@ -16,7 +16,7 @@ import com.example.cloudymous.footballclubcloud.utils.visible
 import com.example.cloudymous.footballclubcloud.view.teams.TeamView
 import com.example.cloudymous.footballclubcloud.view.teams.TeamsAdapter
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_team_list.*
+import kotlinx.android.synthetic.main.fragment_team.*
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.toast
 
@@ -60,7 +60,7 @@ class TeamsFavoriteFragment : Fragment(), TeamView {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_team_list, container, false)
+        return inflater.inflate(R.layout.fragment_team, container, false)
     }
 
     override fun showLoading() {
