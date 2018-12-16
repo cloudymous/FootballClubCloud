@@ -53,15 +53,14 @@ class NextMatchFragment : Fragment(), NextMatchView {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 leagueName = league_spinner_next.selectedItem.toString()
                 when (leagueName) {
-                    "English Premier League" -> presenter.getNextMatch("4328")
-                    "German Bundesliga" -> presenter.getNextMatch("4331")
-                    "Italian Serie A" -> presenter.getNextMatch("4332")
-                    "French Ligue 1" -> presenter.getNextMatch("4334")
-                    "Spanish La Liga" -> presenter.getNextMatch("4335")
-                    "Netherlands Eredivisie" -> presenter.getNextMatch("4337")
-
-                    else -> presenter.getNextMatch(leagueName)
+                    "English Premier League" -> leagueName = "4328"
+                    "German Bundesliga" -> leagueName = "4331"
+                    "Italian Serie A" -> leagueName = "4332"
+                    "French Ligue 1" -> leagueName = "4334"
+                    "Spanish La Liga" -> leagueName = "4335"
+                    "Netherlands Eredivisie" -> leagueName = "4337"
                 }
+                presenter.getNextMatch(leagueName)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
