@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.*
 import com.example.cloudymous.footballclubcloud.R.layout.activity_home
-import com.example.cloudymous.footballclubcloud.view.favorites.matchfavorite.FavoriteMatchFragment
+import com.example.cloudymous.footballclubcloud.view.pageradapter.FavoritesFragment
 import com.example.cloudymous.footballclubcloud.view.pageradapter.MatchScheduleFragment
 import com.example.cloudymous.footballclubcloud.view.teams.TeamsFragment
 import kotlinx.android.synthetic.main.activity_home.*
@@ -61,7 +61,7 @@ class HomeActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.main_container,
-                    FavoriteMatchFragment(), FavoriteMatchFragment::class.java.simpleName
+                    FavoritesFragment(), FavoritesFragment::class.java.simpleName
                 ).commit()
         }
     }
