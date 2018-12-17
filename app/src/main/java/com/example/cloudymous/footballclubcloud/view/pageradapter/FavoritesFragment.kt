@@ -9,14 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
 
-class TeamListFragment : Fragment() {
+class FavoritesFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_team_list, container, false)
+        return inflater.inflate(R.layout.fragment_favorite_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,7 +27,7 @@ class TeamListFragment : Fragment() {
 
 //        setHasOptionsMenu(true)
 
-        pager.adapter = TeamListPagerAdapter(
+        pager.adapter = FavoritesPagerAdapter(
             childFragmentManager
         )
 

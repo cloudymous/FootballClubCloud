@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.matches.detail
+package com.example.cloudymous.footballclubcloud.view.matches.detailmatch
 
 import android.os.Bundle
 import android.support.v4.content.ContextCompat

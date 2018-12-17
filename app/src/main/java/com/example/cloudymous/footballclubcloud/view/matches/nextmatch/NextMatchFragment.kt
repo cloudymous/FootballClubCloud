@@ -14,7 +14,7 @@ import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.presenter.NextMatchPresenter
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
-import com.example.cloudymous.footballclubcloud.view.matches.detail.DetailMatchActivity
+import com.example.cloudymous.footballclubcloud.view.matches.detailmatch.DetailMatchActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_match_next.*
 import org.jetbrains.anko.startActivity
