@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.model.Team
 
-class TeamsAdapter(
+class FavoriteTeamAdapter(
     private val context: Context,
     private val teams: List<Team>,
     private val listener: (Team) -> Unit
