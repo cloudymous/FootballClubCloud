@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.matches.favoritematch
+package com.example.cloudymous.footballclubcloud.view.favorites.matchfavorite
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -25,7 +25,10 @@ class FavoriteMatchFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapter = FavoriteMatchAdapter(requireContext(), favoritesMatch) {
+        adapter = FavoriteMatchAdapter(
+            requireContext(),
+            favoritesMatch
+        ) {
             requireContext().startActivity<DetailMatchActivity>("eventId" to "${it.eventId}")
         }
 

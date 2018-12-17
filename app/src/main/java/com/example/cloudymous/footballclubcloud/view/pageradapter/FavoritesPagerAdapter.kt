@@ -3,7 +3,7 @@ package com.example.cloudymous.footballclubcloud.view.pageradapter
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.example.cloudymous.footballclubcloud.view.matches.favoritematch.FavoriteMatchFragment
+import com.example.cloudymous.footballclubcloud.view.favorites.matchfavorite.FavoriteMatchFragment
 import com.example.cloudymous.footballclubcloud.view.matches.nextmatch.NextMatchFragment
 
 class FavoritesPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {

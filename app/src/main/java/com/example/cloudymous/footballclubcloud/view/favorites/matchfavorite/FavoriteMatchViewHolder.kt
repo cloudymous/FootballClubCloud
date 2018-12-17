@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.matches.favoritematch
+package com.example.cloudymous.footballclubcloud.view.favorites.matchfavorite
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

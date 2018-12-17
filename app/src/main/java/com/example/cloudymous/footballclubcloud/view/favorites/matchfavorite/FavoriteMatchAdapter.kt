@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.matches.favoritematch
+package com.example.cloudymous.footballclubcloud.view.favorites.matchfavorite
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -14,7 +14,11 @@ class FavoriteMatchAdapter(
 ) : RecyclerView.Adapter<FavoriteMatchViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): FavoriteMatchViewHolder =
-        FavoriteMatchViewHolder(LayoutInflater.from(context).inflate(R.layout.list_match, parent, false))
+        FavoriteMatchViewHolder(
+            LayoutInflater.from(
+                context
+            ).inflate(R.layout.list_match, parent, false)
+        )
 
     override fun getItemCount(): Int = favorites.size
 
