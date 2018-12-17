@@ -4,13 +4,13 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.example.cloudymous.footballclubcloud.view.favorites.matchfavorite.FavoriteMatchFragment
-import com.example.cloudymous.footballclubcloud.view.matches.nextmatch.NextMatchFragment
+import com.example.cloudymous.footballclubcloud.view.favorites.teamsfavorite.FavoriteTeamFragment
 
 class FavoritesPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     private val pages = listOf(
         FavoriteMatchFragment(),
-        NextMatchFragment()
+        FavoriteTeamFragment()
     )
 
     override fun getItem(position: Int): Fragment {
