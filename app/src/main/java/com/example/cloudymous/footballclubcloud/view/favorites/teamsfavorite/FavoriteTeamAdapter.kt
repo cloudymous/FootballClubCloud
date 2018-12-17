@@ -5,12 +5,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
-import com.example.cloudymous.footballclubcloud.model.Team
+import com.example.cloudymous.footballclubcloud.db.FavoriteTeam
 
 class FavoriteTeamAdapter(
     private val context: Context,
-    private val teams: List<Team>,
-    private val listener: (Team) -> Unit
+    private val favorites: List<FavoriteTeam>,
+    private val listener: (FavoriteTeam) -> Unit
 ) :
     RecyclerView.Adapter<FavoriteTeamViewHolder>() {
 
@@ -24,9 +24,9 @@ class FavoriteTeamAdapter(
         )
 
     override fun onBindViewHolder(holder: FavoriteTeamViewHolder, position: Int) {
-        holder.bindItem(teams[position], listener)
+        holder.bindItem(favorites[position], listener)
     }
 
-    override fun getItemCount(): Int = teams.size
+    override fun getItemCount(): Int = favorites.size
 }
 
