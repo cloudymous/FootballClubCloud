@@ -26,4 +26,22 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:tools="http://schemas.android.com/tools"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 tools:context=".view.pageradapter.MatchScheduleFragment">
+
+        <android.support.v4.view.ViewPager
+                android:id="@+id/team_pager_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <android.support.design.widget.TabLayout
+                android:id="@+id/tabs_team"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"/>
+    </FrameLayout>
+
 </LinearLayout>
