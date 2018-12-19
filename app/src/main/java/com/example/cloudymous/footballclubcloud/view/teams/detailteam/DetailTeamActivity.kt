@@ -3,10 +3,15 @@ package com.example.cloudymous.footballclubcloud.view.teams.detailteam
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.cloudymous.footballclubcloud.R
+import com.example.cloudymous.footballclubcloud.api.ApiRepository
+import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.view.pageradapter.DetailTeamPagerAdapter
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_detail_team.*
 
-class DetailTeamActivity : AppCompatActivity() {
+class DetailTeamActivity : AppCompatActivity(), DetailTeamView {
+
+    private lateinit var id: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,9 +20,19 @@ class DetailTeamActivity : AppCompatActivity() {
         supportActionBar?.title = "Team Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        val intent = intent
+        id = intent.getStringExtra("id")
+
+        val request = ApiRepository()
+        val gson = Gson()
+
         team_pager_main.adapter = DetailTeamPagerAdapter(supportFragmentManager)
         tabs_team.setupWithViewPager(team_pager_main)
 
+
+    }
+
+    override fun showTeamDetail(data: List<Team>) {
 
     }
 }
