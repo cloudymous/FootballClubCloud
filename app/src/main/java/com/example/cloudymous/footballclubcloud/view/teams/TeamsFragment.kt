@@ -14,10 +14,11 @@ import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.presenter.TeamsPresenter
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
+import com.example.cloudymous.footballclubcloud.view.teams.detailteam.DetailTeamActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_team.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
-import org.jetbrains.anko.support.v4.toast
 
 class TeamsFragment : Fragment(), TeamView {
 
@@ -30,8 +31,7 @@ class TeamsFragment : Fragment(), TeamView {
         super.onActivityCreated(savedInstanceState)
 
         adapter = TeamsAdapter(requireContext(), teams) {
-            //            context?.startActivity<TeamDetailActivity>("id" to "${it.teamId}")
-            toast("Hello").show()
+            requireContext().startActivity<DetailTeamActivity>("teamId" to "${it.teamId}")
         }
 
         team_list.layoutManager = LinearLayoutManager(context)
