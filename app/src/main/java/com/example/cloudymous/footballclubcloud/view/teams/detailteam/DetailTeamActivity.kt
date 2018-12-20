@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_detail_team.*
 class DetailTeamActivity : AppCompatActivity(), DetailTeamView {
 
     private lateinit var presenter: DetailTeamPresenter
-    private lateinit var team: Team
+//    private lateinit var team: Team
 
     private lateinit var id: String
 
