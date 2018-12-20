@@ -15,13 +15,11 @@ import kotlinx.android.synthetic.main.fragment_team_overview.*
 class DetailTeamOverviewFragment : Fragment(), DetailTeamView {
 
     private lateinit var presenter: DetailTeamPresenter
-    private var id: String? = null
+    private lateinit var id: String
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val intent = activity.intent
-        id = intent.getStringExtra("teamId")
 
         val request = ApiRepository()
         val gson = Gson()
