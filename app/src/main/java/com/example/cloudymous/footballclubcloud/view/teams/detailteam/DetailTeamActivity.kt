@@ -26,7 +26,7 @@ class DetailTeamActivity : AppCompatActivity(), DetailTeamView {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        id = intent.getStringExtra("id")
+        id = intent.getStringExtra("teamId")
 
         val request = ApiRepository()
         val gson = Gson()
