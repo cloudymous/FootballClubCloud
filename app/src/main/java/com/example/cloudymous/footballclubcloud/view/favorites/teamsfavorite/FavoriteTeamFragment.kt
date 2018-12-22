@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.db.FavoriteTeam
 import com.example.cloudymous.footballclubcloud.db.databaseFavoriteTeam
+import com.example.cloudymous.footballclubcloud.view.teams.detailteam.DetailTeamActivity
 import kotlinx.android.synthetic.main.fragment_team_favorite.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
-import org.jetbrains.anko.support.v4.toast
 
 class FavoriteTeamFragment : Fragment() {
 
@@ -28,7 +29,7 @@ class FavoriteTeamFragment : Fragment() {
             requireContext(),
             favoritesTeam
         ) {
-            toast("Hello").show()
+            requireContext().startActivity<DetailTeamActivity>("teamId" to "${it.teamId}")
         }
 
         team_list.layoutManager = LinearLayoutManager(context)
