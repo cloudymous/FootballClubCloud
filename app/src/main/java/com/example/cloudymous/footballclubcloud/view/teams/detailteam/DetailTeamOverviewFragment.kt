@@ -2,7 +2,6 @@ package com.example.cloudymous.footballclubcloud.view.teams.detailteam
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +28,6 @@ class DetailTeamOverviewFragment : Fragment(), DetailTeamView {
         presenter = DetailTeamPresenter(this, request, gson)
         presenter.getDetailTeam(teamId)
 
-        Log.v("teamId", teamId)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
