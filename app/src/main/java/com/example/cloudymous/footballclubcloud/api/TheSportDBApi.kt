@@ -35,7 +35,7 @@ object TheSportDBApi {
             .appendPath("v1")
             .appendPath("json")
             .appendPath(BuildConfig.TSDB_API_KEY)
-            .appendPath("lookupplayer.php")
+            .appendPath("lookup_all_players.php")
             .appendQueryParameter("id", playerId)
             .build()
             .toString()
