@@ -24,7 +24,7 @@ class PlayersPresenter(
 
             uiThread {
                 view.hideLoading()
-                view.showPlayerDetail(data.players)
+                view.showPlayerDetail(data.player)
             }
         }
     }
