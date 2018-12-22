@@ -1,5 +1,5 @@
 package com.example.cloudymous.footballclubcloud.model
 
-data class PlayerResponse(
+data class PlayerDetailResponse(
     val players: List<Player>
 )
