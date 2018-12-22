@@ -1,7 +1,7 @@
-package com.example.cloudymous.footballclubcloud.view.teams.detailteam
+package com.example.cloudymous.footballclubcloud.view.teams.player
 
 import com.example.cloudymous.footballclubcloud.model.Player
 
-interface DetailTeamPlayerView {
+interface TeamPlayerView {
     fun showPlayerDetail(data: List<Player>)
 }

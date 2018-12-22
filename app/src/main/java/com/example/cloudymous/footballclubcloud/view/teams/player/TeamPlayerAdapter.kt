@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.teams.detailteam
+package com.example.cloudymous.footballclubcloud.view.teams.player
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.model.Player
 
-class DetailTeamPlayerAdapter(
+class TeamPlayerAdapter(
     private val context: Context,
     private val players: List<Player>,
     private val listener: (Player) -> Unit
 ) :
 
-    RecyclerView.Adapter<DetailTeamPlayerViewHolder>() {
+    RecyclerView.Adapter<TeamPlayerViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): DetailTeamPlayerViewHolder =
-        DetailTeamPlayerViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, position: Int): TeamPlayerViewHolder =
+        TeamPlayerViewHolder(
             LayoutInflater.from(context).inflate(
                 R.layout.list_player,
                 parent,
@@ -24,7 +24,7 @@ class DetailTeamPlayerAdapter(
             )
         )
 
-    override fun onBindViewHolder(holder: DetailTeamPlayerViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TeamPlayerViewHolder, position: Int) {
         holder.bindItem(players[position], listener)
     }
 
