@@ -3,6 +3,7 @@ package com.example.cloudymous.footballclubcloud.view.teams.player
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ import org.jetbrains.anko.support.v4.onRefresh
 class TeamPlayerFragment : Fragment(), TeamPlayerView {
 
     private var players: MutableList<Player> = mutableListOf()
+
     private lateinit var presenter: PlayersPresenter
     private lateinit var adapter: TeamPlayerAdapter
     private lateinit var teamId: String
@@ -44,9 +46,10 @@ class TeamPlayerFragment : Fragment(), TeamPlayerView {
         presenter = PlayersPresenter(this, request, gson)
 
         swipe_refresh.onRefresh {
-            presenter.getPlayers(teamId)
+            presenter.getTeamPlayers(teamId)
         }
 
+        Log.v("TeamId", teamId)
 
     }
 

@@ -13,12 +13,12 @@ class PlayersPresenter(
     private val apiRepository: ApiRepository,
     private val gson: Gson
 ) {
-    fun getPlayers(playerId: String?) {
+    fun getTeamPlayers(teamId: String?) {
         view.showLoading()
         doAsync {
             val data = gson.fromJson(
                 apiRepository
-                    .doRequest(TheSportDBApi.getTeamPlayer(playerId)),
+                    .doRequest(TheSportDBApi.getTeamPlayer(teamId)),
                 PlayerResponse::class.java
             )
 
