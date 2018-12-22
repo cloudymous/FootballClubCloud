@@ -16,7 +16,7 @@ class DetailTeamActivity : AppCompatActivity(), DetailTeamView {
     private lateinit var presenter: DetailTeamPresenter
 //    private lateinit var team: Team
 
-    private lateinit var id: String
+    private lateinit var teamId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,18 +26,22 @@ class DetailTeamActivity : AppCompatActivity(), DetailTeamView {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
-        id = intent.getStringExtra("teamId")
+        teamId = intent.getStringExtra("teamId")
 
         val request = ApiRepository()
         val gson = Gson()
 
         presenter = DetailTeamPresenter(this, request, gson)
-        presenter.getDetailTeam(id)
+        presenter.getDetailTeam(teamId)
 
         team_pager_main.adapter = DetailTeamPagerAdapter(supportFragmentManager)
         tabs_team.setupWithViewPager(team_pager_main)
 
 
+    }
+
+    fun getTeamId(): String {
+        return teamId
     }
 
     override fun showTeamDetail(data: List<Team>) {
