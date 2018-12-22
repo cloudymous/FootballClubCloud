@@ -49,7 +49,7 @@ class TeamPlayerFragment : Fragment(), TeamPlayerView {
             presenter.getTeamPlayers(teamId)
         }
 
-        Log.v("TeamId", teamId)
+        Log.v("TeamId is", teamId)
 
     }
 
