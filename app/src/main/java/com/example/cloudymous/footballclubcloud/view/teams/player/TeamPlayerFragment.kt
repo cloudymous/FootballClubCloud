@@ -44,6 +44,8 @@ class TeamPlayerFragment : Fragment(), TeamPlayerView {
 
         presenter = PlayersPresenter(this, request, gson)
 
+        presenter.getTeamPlayers(teamId)
+
         swipe_refresh.onRefresh {
             presenter.getTeamPlayers(teamId)
         }
