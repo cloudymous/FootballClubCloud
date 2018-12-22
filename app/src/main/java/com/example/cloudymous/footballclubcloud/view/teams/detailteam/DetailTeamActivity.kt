@@ -64,7 +64,7 @@ class DetailTeamActivity : AppCompatActivity(), DetailTeamView {
     private fun favState() {
         databaseFavoriteTeam.use {
             val result = select(FavoriteTeam.TABLE_FAVORITE)
-                .whereArgs("(TEAM_ID = {id)", "id" to teamId)
+                .whereArgs("(TEAM_ID = {id}", "id" to teamId)
 
             val favorite = result.parseList(classParser<FavoriteTeam>())
             if (!favorite.isEmpty()) isFavorite = true
