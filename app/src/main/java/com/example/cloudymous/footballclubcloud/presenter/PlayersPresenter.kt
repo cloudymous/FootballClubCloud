@@ -13,6 +13,7 @@ class PlayersPresenter(
     private val apiRepository: ApiRepository,
     private val gson: Gson
 ) {
+
     fun getTeamPlayers(teamId: String?) {
         view.showLoading()
         doAsync {
