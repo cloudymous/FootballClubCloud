@@ -14,6 +14,7 @@ class PlayersPresenter(
     private val gson: Gson
 ) {
     fun getPlayers(playerId: String?) {
+        view.showLoading()
         doAsync {
             val data = gson.fromJson(
                 apiRepository
@@ -22,6 +23,7 @@ class PlayersPresenter(
             )
 
             uiThread {
+                view.hideLoading()
                 view.showPlayerDetail(data.players)
             }
         }
