@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.teams.player
+package com.example.cloudymous.footballclubcloud.view.player
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -12,7 +12,7 @@ import com.example.cloudymous.footballclubcloud.model.Player
 import com.example.cloudymous.footballclubcloud.presenter.PlayersPresenter
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
-import com.example.cloudymous.footballclubcloud.view.teams.detailplayer.DetailPlayerActivity
+import com.example.cloudymous.footballclubcloud.view.player.detailplayer.DetailPlayerActivity
 import com.example.cloudymous.footballclubcloud.view.teams.detailteam.DetailTeamActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_player_list.*
@@ -31,7 +31,9 @@ class TeamPlayerFragment : Fragment(), TeamPlayerView {
         super.onActivityCreated(savedInstanceState)
 
         adapter = TeamPlayerAdapter(requireContext(), players) {
-            requireContext().startActivity<DetailPlayerActivity>("playerId" to "${it.playerId}")
+            requireContext().startActivity<DetailPlayerActivity>(
+                "playerId" to "${it.playerId}"
+            )
         }
 
         player_list.layoutManager = LinearLayoutManager(context)

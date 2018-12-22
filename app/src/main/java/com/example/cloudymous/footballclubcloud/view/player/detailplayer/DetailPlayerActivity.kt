@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.teams.detailplayer
+package com.example.cloudymous.footballclubcloud.view.player.detailplayer
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -10,7 +10,8 @@ import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_player.*
 
-class DetailPlayerActivity : AppCompatActivity(), DetailPlayerView {
+class DetailPlayerActivity : AppCompatActivity(),
+    DetailPlayerView {
 
     private lateinit var presenter: DetailPlayerPresenter
     private lateinit var playerId: String

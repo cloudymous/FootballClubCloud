@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.teams.player
+package com.example.cloudymous.footballclubcloud.view.player
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView

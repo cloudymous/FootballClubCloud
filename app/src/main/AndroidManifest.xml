@@ -23,7 +23,7 @@
         <activity android:name=".view.teams.detailteam.DetailTeamActivity">
         </activity>
         <activity
-                android:name=".view.teams.detailplayer.DetailPlayerActivity"
+                android:name=".view.player.detailplayer.DetailPlayerActivity"
                 android:label="@string/title_activity_detail_player"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>

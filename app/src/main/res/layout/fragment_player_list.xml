@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingTop="50dp"
-        tools:context="view.teams.player.TeamPlayerFragment">
+        tools:context=".view.player.TeamPlayerFragment">
 
     <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh"

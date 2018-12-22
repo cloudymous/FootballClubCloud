@@ -3,8 +3,8 @@ package com.example.cloudymous.footballclubcloud.pageradapter
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import com.example.cloudymous.footballclubcloud.view.player.TeamPlayerFragment
 import com.example.cloudymous.footballclubcloud.view.teams.detailteam.DetailTeamOverviewFragment
-import com.example.cloudymous.footballclubcloud.view.teams.player.TeamPlayerFragment
 
 class DetailTeamPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
