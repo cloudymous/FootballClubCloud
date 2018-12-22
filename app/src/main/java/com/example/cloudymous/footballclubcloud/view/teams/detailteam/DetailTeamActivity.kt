@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.Team
+import com.example.cloudymous.footballclubcloud.pageradapter.DetailTeamPagerAdapter
 import com.example.cloudymous.footballclubcloud.presenter.DetailTeamPresenter
-import com.example.cloudymous.footballclubcloud.view.pageradapter.DetailTeamPagerAdapter
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_team.*
