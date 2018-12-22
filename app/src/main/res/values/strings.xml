@@ -27,5 +27,6 @@
         <item>Netherlands Eredivisie</item>
         <item>Spanish La Liga</item>
     </array>
+    <string name="title_activity_detail_player">DetailPlayer</string>
 
 </resources>

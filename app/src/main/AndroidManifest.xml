@@ -22,6 +22,11 @@
         </activity>
         <activity android:name=".view.teams.detailteam.DetailTeamActivity">
         </activity>
+        <activity
+                android:name=".view.teams.detailplayer.DetailPlayerActivity"
+                android:label="@string/title_activity_detail_player"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
