@@ -20,7 +20,7 @@ import com.example.cloudymous.footballclubcloud.ui.view.MatchView
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_match_schedule.*
+import kotlinx.android.synthetic.main.fragment_match.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 
@@ -54,7 +54,7 @@ class MatchScheduleFragment : Fragment(), MatchView {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
 
-        val viewRoot = inflater.inflate(R.layout.fragment_match_schedule, container, false)
+        val viewRoot = inflater.inflate(R.layout.fragment_match, container, false)
         pager = viewRoot.find(R.id.matches_pager_main)
         tabs = viewRoot.find(R.id.tabs_main)
 
@@ -63,7 +63,7 @@ class MatchScheduleFragment : Fragment(), MatchView {
         adapter.addFragment(NextMatchFragment(), "Next Match")
         pager.adapter = adapter
         tabs.setupWithViewPager(pager)
-        search_result_rc.layoutManager = LinearLayoutManager(activity)
+        search_result_rc.layoutManager = LinearLayoutManager(context)
 
         return viewRoot
     }
