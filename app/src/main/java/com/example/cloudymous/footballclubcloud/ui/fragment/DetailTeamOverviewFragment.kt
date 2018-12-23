@@ -10,7 +10,7 @@ import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.presenter.DetailTeamPresenter
 import com.example.cloudymous.footballclubcloud.ui.activity.DetailTeamActivity
-import com.example.cloudymous.footballclubcloud.view.DetailTeamView
+import com.example.cloudymous.footballclubcloud.ui.view.DetailTeamView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_team_overview.*
 

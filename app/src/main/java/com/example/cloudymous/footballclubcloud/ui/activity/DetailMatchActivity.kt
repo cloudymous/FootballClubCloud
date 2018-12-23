@@ -14,11 +14,11 @@ import com.example.cloudymous.footballclubcloud.db.databaseFavoriteMatch
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.presenter.DetailMatchPresenter
+import com.example.cloudymous.footballclubcloud.ui.view.DetailMatchView
 import com.example.cloudymous.footballclubcloud.utils.formatDate
 import com.example.cloudymous.footballclubcloud.utils.formatTime
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
-import com.example.cloudymous.footballclubcloud.view.DetailMatchView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_match.*

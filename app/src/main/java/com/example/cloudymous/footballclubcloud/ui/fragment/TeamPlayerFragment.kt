@@ -13,9 +13,9 @@ import com.example.cloudymous.footballclubcloud.model.Player
 import com.example.cloudymous.footballclubcloud.presenter.PlayersPresenter
 import com.example.cloudymous.footballclubcloud.ui.activity.DetailPlayerActivity
 import com.example.cloudymous.footballclubcloud.ui.activity.DetailTeamActivity
+import com.example.cloudymous.footballclubcloud.ui.view.TeamPlayerView
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
-import com.example.cloudymous.footballclubcloud.view.TeamPlayerView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_player_list.*
 import org.jetbrains.anko.startActivity

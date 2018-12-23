@@ -14,7 +14,7 @@ import com.example.cloudymous.footballclubcloud.db.FavoriteTeam
 import com.example.cloudymous.footballclubcloud.db.databaseFavoriteTeam
 import com.example.cloudymous.footballclubcloud.model.Team
 import com.example.cloudymous.footballclubcloud.presenter.DetailTeamPresenter
-import com.example.cloudymous.footballclubcloud.view.DetailTeamView
+import com.example.cloudymous.footballclubcloud.ui.view.DetailTeamView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_team.*
