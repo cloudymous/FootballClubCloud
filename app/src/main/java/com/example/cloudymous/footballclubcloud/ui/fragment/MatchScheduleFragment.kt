@@ -7,7 +7,6 @@ import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
 import android.view.*
 import com.example.cloudymous.footballclubcloud.R
@@ -64,7 +63,7 @@ class MatchScheduleFragment : Fragment(), MatchView {
         adapter.addFragment(NextMatchFragment(), "Next Match")
         pager.adapter = adapter
         tabs.setupWithViewPager(pager)
-        search_result_rc.layoutManager = LinearLayoutManager(activity)
+        search_result_rc.layoutManager = LinearLayoutManager(context)
 
         return viewRoot
     }
