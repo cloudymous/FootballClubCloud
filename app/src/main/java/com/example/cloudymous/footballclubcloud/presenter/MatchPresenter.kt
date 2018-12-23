@@ -49,7 +49,7 @@ class MatchPresenter(
     }
 
     fun getSearchResult(query: String?) {
-        view.showLoading()
+//        view.showLoading()
         doAsync {
             val data = gson.fromJson(
                 apiRepository
@@ -58,7 +58,7 @@ class MatchPresenter(
             )
 
             uiThread {
-                view.hideLoading()
+                //                view.hideLoading()
                 view.showMatchList(data.events)
             }
 

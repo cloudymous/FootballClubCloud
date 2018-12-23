@@ -7,6 +7,7 @@ import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
 import android.view.*
 import com.example.cloudymous.footballclubcloud.R
@@ -20,7 +21,6 @@ import com.example.cloudymous.footballclubcloud.ui.view.MatchView
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_match.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 
@@ -30,6 +30,7 @@ class MatchScheduleFragment : Fragment(), MatchView {
     private var searchView: SearchView? = null
 
     private lateinit var queryTextListener: SearchView.OnQueryTextListener
+    private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MatchAdapter
     private lateinit var presenter: MatchPresenter
     private lateinit var pager: ViewPager
@@ -46,7 +47,7 @@ class MatchScheduleFragment : Fragment(), MatchView {
         val request = ApiRepository()
         val gson = Gson()
         presenter = MatchPresenter(this, request, gson)
-        search_result_rc.invisible()
+        recyclerView.invisible()
         pager.visible()
         tabs.visible()
     }
@@ -57,13 +58,14 @@ class MatchScheduleFragment : Fragment(), MatchView {
         val viewRoot = inflater.inflate(R.layout.fragment_match, container, false)
         pager = viewRoot.find(R.id.matches_pager_main)
         tabs = viewRoot.find(R.id.tabs_main)
+        recyclerView = viewRoot.find(R.id.search_result_rc)
 
         val adapter = MatchSchedulePagerAdapter(childFragmentManager)
         adapter.addFragment(LastMatchFragment(), "Last Match")
         adapter.addFragment(NextMatchFragment(), "Next Match")
         pager.adapter = adapter
         tabs.setupWithViewPager(pager)
-        search_result_rc.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = LinearLayoutManager(activity)
 
         return viewRoot
     }
@@ -78,6 +80,13 @@ class MatchScheduleFragment : Fragment(), MatchView {
     }
 
     override fun showMatchList(data: List<DetailMatch>) {
+        recyclerView.visible()
+        pager.invisible()
+        tabs.invisible()
+
+        searchMatch.clear()
+        searchMatch.addAll(data)
+        adapter.notifyDataSetChanged()
 
     }
 
@@ -103,7 +112,7 @@ class MatchScheduleFragment : Fragment(), MatchView {
                     adapter = MatchAdapter(requireContext(), searchMatch) {
                         requireContext().startActivity<DetailMatchActivity>("eventId" to "${it.eventId}")
                     }
-                    search_result_rc.adapter = adapter
+                    recyclerView.adapter = adapter
                     presenter.getSearchResult(querySearch)
                     return true
                 }
@@ -117,7 +126,7 @@ class MatchScheduleFragment : Fragment(), MatchView {
             }
 
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                search_result_rc.invisible()
+                recyclerView.invisible()
                 pager.visible()
                 tabs.visible()
                 return true
