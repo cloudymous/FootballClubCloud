@@ -28,9 +28,10 @@ class MatchScheduleFragment : Fragment() {
 
 //        setHasOptionsMenu(true)
 
-        pager.adapter = MatchSchedulePagerAdapter(
-            childFragmentManager
-        )
+        val adapter = MatchSchedulePagerAdapter(childFragmentManager)
+        adapter.addFragment(LastMatchFragment(), "Last Match")
+        adapter.addFragment(NextMatchFragment(), "Next Match")
+        pager.adapter = adapter
         tabs.setupWithViewPager(pager)
     }
 }
