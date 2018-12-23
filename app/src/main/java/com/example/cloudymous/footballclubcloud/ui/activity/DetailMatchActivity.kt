@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.matches.detailmatch
+package com.example.cloudymous.footballclubcloud.ui.activity
 
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -18,6 +18,7 @@ import com.example.cloudymous.footballclubcloud.utils.formatDate
 import com.example.cloudymous.footballclubcloud.utils.formatTime
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
+import com.example.cloudymous.footballclubcloud.view.DetailMatchView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_match.*

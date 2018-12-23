@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.view.player.detailplayer
+package com.example.cloudymous.footballclubcloud.ui.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -6,6 +6,7 @@ import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.Player
 import com.example.cloudymous.footballclubcloud.presenter.DetailPlayerPresenter
+import com.example.cloudymous.footballclubcloud.view.DetailPlayerView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_player.*
