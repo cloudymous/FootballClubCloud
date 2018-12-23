@@ -11,19 +11,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".view.HomeActivity">
+        <activity android:name=".ui.activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.matches.detailmatch.DetailMatchActivity">
+        <activity android:name=".ui.activity.DetailMatchActivity">
         </activity>
-        <activity android:name=".view.teams.detailteam.DetailTeamActivity">
+        <activity android:name=".ui.activity.DetailTeamActivity">
         </activity>
         <activity
-                android:name=".view.player.detailplayer.DetailPlayerActivity"
+                android:name=".ui.activity.DetailPlayerActivity"
                 android:label="@string/title_activity_detail_player"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
