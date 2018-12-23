@@ -17,7 +17,7 @@
                     android:layout_height="wrap_content"/>
 
             <android.support.v7.widget.RecyclerView
-                    android:id="@+id/search_result"
+                    android:id="@+id/search_result_rc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

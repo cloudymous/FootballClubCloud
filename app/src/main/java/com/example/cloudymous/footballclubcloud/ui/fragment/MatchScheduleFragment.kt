@@ -21,6 +21,7 @@ import com.example.cloudymous.footballclubcloud.ui.view.MatchView
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
+import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 
 class MatchScheduleFragment : Fragment(), MatchView {
@@ -51,20 +52,13 @@ class MatchScheduleFragment : Fragment(), MatchView {
         tabs.visible()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_match_schedule, container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?): View? {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        pager = view.findViewById(R.id.matches_pager_main)
-        tabs = view.findViewById(R.id.tabs_main)
-        rcSearchView = view.findViewById(R.id.search_result)
+        val viewRoot = inflater.inflate(R.layout.fragment_match_schedule, container, false)
+        pager = viewRoot.find(R.id.matches_pager_main)
+        tabs = viewRoot.find(R.id.tabs_main)
+        rcSearchView = viewRoot.find(R.id.search_result_rc)
 
         val adapter = MatchSchedulePagerAdapter(childFragmentManager)
         adapter.addFragment(LastMatchFragment(), "Last Match")
@@ -72,6 +66,8 @@ class MatchScheduleFragment : Fragment(), MatchView {
         pager.adapter = adapter
         tabs.setupWithViewPager(pager)
         rcSearchView.layoutManager = LinearLayoutManager(activity)
+
+        return viewRoot
     }
 
 
