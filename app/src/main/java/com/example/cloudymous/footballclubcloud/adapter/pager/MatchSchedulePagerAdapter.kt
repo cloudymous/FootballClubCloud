@@ -5,12 +5,14 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.example.cloudymous.footballclubcloud.ui.fragment.LastMatchFragment
 import com.example.cloudymous.footballclubcloud.ui.fragment.NextMatchFragment
+import com.example.cloudymous.footballclubcloud.ui.fragment.TeamsFragment
 
 class MatchSchedulePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     private val pages = listOf(
         LastMatchFragment(),
-        NextMatchFragment()
+        NextMatchFragment(),
+        TeamsFragment()
     )
 
     override fun getItem(position: Int): Fragment {
