@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="50dp"
-        tools:context=".view.teams.detailteam.DetailTeamOverviewFragment">
+        tools:context=".ui.fragment.DetailTeamOverviewFragment">
 
     <TextView
             android:id="@+id/team_overview"

@@ -5,7 +5,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:paddingTop="50dp"
-              tools:context=".view.matches.nextmatch.NextMatchFragment">
+              tools:context=".ui.fragment.NextMatchFragment">
 
     <Spinner
             android:id="@+id/league_spinner_next"
