@@ -1,8 +1,7 @@
 package com.example.cloudymous.footballclubcloud.utils
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 import java.text.SimpleDateFormat
 import java.util.*
 
