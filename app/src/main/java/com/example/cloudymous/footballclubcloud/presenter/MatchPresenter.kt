@@ -47,4 +47,21 @@ class MatchPresenter(
 
         }
     }
+
+    fun getSearchResult(query: String?) {
+        view.showLoading()
+        doAsync {
+            val data = gson.fromJson(
+                apiRepository
+                    .doRequest(TheSportDBApi.searchMatch(query)),
+                DetailMatchResponse::class.java
+            )
+
+            uiThread {
+                view.hideLoading()
+                view.showMatchList(data.events)
+            }
+
+        }
+    }
 }
