@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.pageradapter
+package com.example.cloudymous.footballclubcloud.ui.fragment
 
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
+import com.example.cloudymous.footballclubcloud.pageradapter.MatchSchedulePagerAdapter
 
 class MatchScheduleFragment : Fragment() {
 
