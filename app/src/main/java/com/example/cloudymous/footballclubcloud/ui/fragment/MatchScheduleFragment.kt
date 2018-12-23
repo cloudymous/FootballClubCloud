@@ -91,14 +91,13 @@ class MatchScheduleFragment : Fragment(), MatchView {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.search_menu, menu)
         val searchItem: MenuItem = menu.findItem(R.id.search_action)
         val searchManager: SearchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
         if (searchItem != null) {
             searchView = searchItem.actionView as SearchView
         }
-        if (searchItem !== null) {
+        if (searchView != null) {
             searchView?.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
             queryTextListener = object : SearchView.OnQueryTextListener {
                 override fun onQueryTextChange(newText: String): Boolean {
@@ -109,7 +108,10 @@ class MatchScheduleFragment : Fragment(), MatchView {
                     var querySearch = query
                     querySearch.toLowerCase()
                     querySearch = querySearch.replace(" ", "_")
-                    adapter = MatchAdapter(requireContext(), searchMatch) {
+                    adapter = MatchAdapter(
+                        requireContext(),
+                        searchMatch
+                    ) {
                         requireContext().startActivity<DetailMatchActivity>("eventId" to "${it.eventId}")
                     }
                     recyclerView.adapter = adapter
@@ -118,14 +120,14 @@ class MatchScheduleFragment : Fragment(), MatchView {
                 }
             }
             searchView?.setOnQueryTextListener(queryTextListener)
-        }
 
+        }
         searchItem.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
             override fun onMenuItemActionExpand(menuItem: MenuItem): Boolean {
                 return true
             }
 
-            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+            override fun onMenuItemActionCollapse(menuItem: MenuItem): Boolean {
                 recyclerView.invisible()
                 pager.visible()
                 tabs.visible()
@@ -133,6 +135,7 @@ class MatchScheduleFragment : Fragment(), MatchView {
             }
         })
         super.onCreateOptionsMenu(menu, inflater)
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
