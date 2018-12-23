@@ -7,11 +7,16 @@
         android:orientation="vertical"
         tools:context=".ui.activity.DetailPlayerActivity">
 
-    <ImageView
-            android:id="@+id/player_banner"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"/>
+    <android.support.design.widget.AppBarLayout android:layout_width="match_parent"
+                                                android:layout_height="200dp"
+                                                android:gravity="center">
 
+        <ImageView
+                android:id="@+id/player_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
             android:padding="8dp"
