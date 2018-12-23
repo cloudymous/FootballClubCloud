@@ -1,4 +1,4 @@
-package com.example.cloudymous.footballclubcloud.holder
+package com.example.cloudymous.footballclubcloud.adapter.holder
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

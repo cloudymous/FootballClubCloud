@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
-import com.example.cloudymous.footballclubcloud.pager.MatchSchedulePagerAdapter
+import com.example.cloudymous.footballclubcloud.adapter.pager.MatchSchedulePagerAdapter
 
 class MatchScheduleFragment : Fragment() {
 

@@ -8,11 +8,11 @@ import android.view.MenuItem
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.R.id.add_to_favorite
 import com.example.cloudymous.footballclubcloud.R.menu.detail_menu
+import com.example.cloudymous.footballclubcloud.adapter.pager.DetailTeamPagerAdapter
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.db.FavoriteTeam
 import com.example.cloudymous.footballclubcloud.db.databaseFavoriteTeam
 import com.example.cloudymous.footballclubcloud.model.Team
-import com.example.cloudymous.footballclubcloud.pager.DetailTeamPagerAdapter
 import com.example.cloudymous.footballclubcloud.presenter.DetailTeamPresenter
 import com.example.cloudymous.footballclubcloud.view.DetailTeamView
 import com.google.gson.Gson
@@ -53,7 +53,8 @@ class DetailTeamActivity : AppCompatActivity(),
         presenter = DetailTeamPresenter(this, request, gson)
         presenter.getDetailTeam(teamId)
 
-        team_pager_main.adapter = DetailTeamPagerAdapter(supportFragmentManager)
+        team_pager_main.adapter =
+                DetailTeamPagerAdapter(supportFragmentManager)
         tabs_team.setupWithViewPager(team_pager_main)
 
 

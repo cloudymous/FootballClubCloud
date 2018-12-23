@@ -1,16 +1,16 @@
-package com.example.cloudymous.footballclubcloud.holder
+package com.example.cloudymous.footballclubcloud.adapter.holder
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.example.cloudymous.footballclubcloud.model.Team
+import com.example.cloudymous.footballclubcloud.db.FavoriteTeam
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_team.*
 
-class TeamViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
+class FavoriteTeamViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
+    LayoutContainer {
 
-
-    fun bindItem(teams: Team, listener: (Team) -> Unit) {
+    fun bindItem(teams: FavoriteTeam, listener: (FavoriteTeam) -> Unit) {
         Picasso.get().load(teams.teamBadge).into(team_badge)
         team_name.text = teams.teamName
         itemView.setOnClickListener { listener(teams) }

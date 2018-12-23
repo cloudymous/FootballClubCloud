@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
-import com.example.cloudymous.footballclubcloud.holder.NextMatchViewHolder
+import com.example.cloudymous.footballclubcloud.adapter.holder.NextMatchViewHolder
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 
 class NextMatchAdapter(

@@ -5,8 +5,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.cloudymous.footballclubcloud.R
+import com.example.cloudymous.footballclubcloud.adapter.holder.FavoriteMatchViewHolder
 import com.example.cloudymous.footballclubcloud.db.FavoriteMatch
-import com.example.cloudymous.footballclubcloud.holder.FavoriteMatchViewHolder
 
 class FavoriteMatchAdapter(
     private val context: Context,
