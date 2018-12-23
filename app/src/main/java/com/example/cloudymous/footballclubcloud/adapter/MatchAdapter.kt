@@ -15,14 +15,9 @@ class MatchAdapter(
 ) :
     RecyclerView.Adapter<MatchViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): MatchViewHolder =
-        MatchViewHolder(
-            LayoutInflater.from(context).inflate(
-                R.layout.list_match,
-                parent,
-                false
-            )
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, position: Int): MatchViewHolder {
+        return MatchViewHolder(LayoutInflater.from(context).inflate(R.layout.list_match, parent, false))
+    }
 
     override fun getItemCount(): Int = match.size
 
