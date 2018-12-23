@@ -14,7 +14,7 @@ import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.presenter.LastMatchPresenter
 import com.example.cloudymous.footballclubcloud.ui.activity.DetailMatchActivity
-import com.example.cloudymous.footballclubcloud.ui.view.LastMatchView
+import com.example.cloudymous.footballclubcloud.ui.view.MatchView
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_match_last.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 
-class LastMatchFragment : Fragment(), LastMatchView {
+class LastMatchFragment : Fragment(), MatchView {
 
     private var lastmatch: MutableList<DetailMatch> = mutableListOf()
 
@@ -90,7 +90,7 @@ class LastMatchFragment : Fragment(), LastMatchView {
         progress_bar.invisible()
     }
 
-    override fun showLastMatchList(data: List<DetailMatch>) {
+    override fun showMatchList(data: List<DetailMatch>) {
         swipe_refresh.isRefreshing
         lastmatch.clear()
         lastmatch.addAll(data)
