@@ -12,7 +12,7 @@ import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.adapter.NextMatchAdapter
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
-import com.example.cloudymous.footballclubcloud.presenter.NextMatchPresenter
+import com.example.cloudymous.footballclubcloud.presenter.MatchPresenter
 import com.example.cloudymous.footballclubcloud.ui.activity.DetailMatchActivity
 import com.example.cloudymous.footballclubcloud.ui.view.MatchView
 import com.example.cloudymous.footballclubcloud.utils.invisible
@@ -27,7 +27,7 @@ class NextMatchFragment : Fragment(), MatchView {
     private var nextmatch: MutableList<DetailMatch> = mutableListOf()
 
     private lateinit var adapter: NextMatchAdapter
-    private lateinit var presenter: NextMatchPresenter
+    private lateinit var presenter: MatchPresenter
     private lateinit var leagueName: String
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -70,7 +70,7 @@ class NextMatchFragment : Fragment(), MatchView {
             }
         }
 
-        presenter = NextMatchPresenter(this, request, gson)
+        presenter = MatchPresenter(this, request, gson)
 
         swipe_refresh.onRefresh {
             presenter.getNextMatch(leagueName)
