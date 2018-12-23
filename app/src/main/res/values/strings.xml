@@ -27,5 +27,6 @@
     <string name="title_activity_detail_player">DetailPlayer</string>
     <string name="weight_kg">Weight (Kg)</string>
     <string name="heigh_m">Heigh (m)</string>
+    <string name="search_str">Search</string>
 
 </resources>
