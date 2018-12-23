@@ -18,6 +18,11 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <TextView
+            android:id="@+id/player_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     <LinearLayout
             android:padding="8dp"
             android:layout_width="match_parent"

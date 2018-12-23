@@ -36,10 +36,9 @@ class DetailPlayerActivity : AppCompatActivity(),
     }
 
     override fun showPlayerDetail(data: List<Player>) {
-        supportActionBar?.title = data[0].playerName
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         Picasso.get().load(data[0].playerThumb).into(player_banner)
+        player_name.text = data[0].playerName
         player_weight.text = data[0].playerWeight
         player_height.text = data[0].playerHeight
         player_position.text = data[0].playerPosition
