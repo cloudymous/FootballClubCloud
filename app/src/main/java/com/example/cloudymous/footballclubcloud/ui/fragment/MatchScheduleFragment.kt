@@ -20,7 +20,7 @@ import com.example.cloudymous.footballclubcloud.ui.view.MatchView
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_match.*
+import kotlinx.android.synthetic.main.fragment_match_schedule.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 
@@ -63,7 +63,7 @@ class MatchScheduleFragment : Fragment(), MatchView {
         adapter.addFragment(NextMatchFragment(), "Next Match")
         pager.adapter = adapter
         tabs.setupWithViewPager(pager)
-        search_result_rc.layoutManager = LinearLayoutManager(context)
+        search_result_rc.layoutManager = LinearLayoutManager(activity)
 
         return viewRoot
     }
