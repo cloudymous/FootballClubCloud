@@ -144,4 +144,14 @@ class TeamsFragment : Fragment(), TeamView {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.search_action -> {
+                return false
+            }
+        }
+        searchView?.setOnQueryTextListener(queryTextListener)
+        return super.onOptionsItemSelected(item)
+    }
+
 }
