@@ -95,8 +95,20 @@ object TheSportDBApi {
             .appendPath("v1")
             .appendPath("json")
             .appendPath(BuildConfig.TSDB_API_KEY)
-            .appendPath("searchevents.php.php")
+            .appendPath("searchevents.php")
             .appendQueryParameter("e", query)
+            .build()
+            .toString()
+    }
+
+    fun searchTeam(query: String?): String {
+        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
+            .appendPath("api")
+            .appendPath("v1")
+            .appendPath("json")
+            .appendPath(BuildConfig.TSDB_API_KEY)
+            .appendPath("searchteams.php")
+            .appendQueryParameter("t", query)
             .build()
             .toString()
     }
