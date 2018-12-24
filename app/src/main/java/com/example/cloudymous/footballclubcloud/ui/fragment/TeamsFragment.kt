@@ -137,7 +137,8 @@ class TeamsFragment : Fragment(), TeamView {
             }
 
             override fun onMenuItemActionCollapse(menuItem: MenuItem): Boolean {
-                team_list.invisible()
+                search_result.invisible()
+                team_list.visible()
                 return true
             }
         })
