@@ -5,10 +5,10 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.SearchView
 import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.SearchView
 import com.example.cloudymous.footballclubcloud.R
 import com.example.cloudymous.footballclubcloud.adapter.TeamsAdapter
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
