@@ -29,4 +29,18 @@ class TeamsPresenter(
             }
         }
     }
+
+    fun searchTeams(query: String?) {
+        doAsync {
+            val data = gson.fromJson(
+                apiRepository
+                    .doRequest(TheSportDBApi.searchTeam(query)),
+                TeamResponse::class.java
+            )
+
+            uiThread {
+                view.showSearchTeam(data.teams)
+            }
+        }
+    }
 }
