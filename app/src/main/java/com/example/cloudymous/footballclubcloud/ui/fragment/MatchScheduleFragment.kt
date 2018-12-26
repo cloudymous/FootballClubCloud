@@ -1,5 +1,7 @@
 package com.example.cloudymous.footballclubcloud.ui.fragment
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
@@ -14,15 +16,18 @@ import com.example.cloudymous.footballclubcloud.adapter.pager.MatchSchedulePager
 import com.example.cloudymous.footballclubcloud.api.ApiRepository
 import com.example.cloudymous.footballclubcloud.model.DetailMatch
 import com.example.cloudymous.footballclubcloud.presenter.MatchPresenter
+import com.example.cloudymous.footballclubcloud.ui.activity.DetailMatchActivity
 import com.example.cloudymous.footballclubcloud.ui.view.MatchView
 import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 
 class MatchScheduleFragment : Fragment(), MatchView {
 
     private var searchMatch: MutableList<DetailMatch> = mutableListOf()
+    private var searchView: SearchView? = null
 
     private lateinit var queryTextListener: SearchView.OnQueryTextListener
     private lateinit var recyclerView: RecyclerView
@@ -85,23 +90,62 @@ class MatchScheduleFragment : Fragment(), MatchView {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater?.inflate(R.menu.search_menu, menu)
-        val searchView = menu?.findItem(R.id.search_action)?.actionView as SearchView?
-        searchView?.queryHint = "Search Matches"
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.search_menu, menu)
+        val searchItem: MenuItem = menu.findItem(R.id.search_action)
+        val searchManager: SearchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        if (searchItem != null) {
+            searchView = searchItem.actionView as SearchView
+        }
+        if (searchView != null) {
+            searchView?.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
+            queryTextListener = object : SearchView.OnQueryTextListener {
+                override fun onQueryTextChange(newText: String): Boolean {
+                    return true
+                }
 
-        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    var querySearch = query
+                    querySearch.toLowerCase()
+                    querySearch = querySearch.replace(" ", "_")
+                    adapter = MatchAdapter(
+                        requireContext(),
+                        searchMatch
+                    ) {
+                        requireContext().startActivity<DetailMatchActivity>("eventId" to "${it.eventId}")
+                    }
+                    recyclerView.adapter = adapter
+                    presenter.getSearchResult(querySearch)
+                    return true
+                }
+            }
+            searchView?.setOnQueryTextListener(queryTextListener)
 
-                return false
+        }
+        searchItem.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionExpand(menuItem: MenuItem): Boolean {
+                return true
             }
 
-            override fun onQueryTextChange(query: String?): Boolean {
-                presenter.getSearchResult(query)
-                return false
+            override fun onMenuItemActionCollapse(menuItem: MenuItem): Boolean {
+                recyclerView.invisible()
+                pager.visible()
+                tabs.visible()
+                return true
             }
         })
+        super.onCreateOptionsMenu(menu, inflater)
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.search_action -> {
+                return false
+            }
+        }
+        searchView?.setOnQueryTextListener(queryTextListener)
+        return super.onOptionsItemSelected(item)
     }
 
 }
