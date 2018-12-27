@@ -31,6 +31,7 @@ class TeamsPresenter(
     }
 
     fun searchTeams(query: String?) {
+        view.showLoading()
         doAsync {
             val data = gson.fromJson(
                 apiRepository
@@ -39,6 +40,7 @@ class TeamsPresenter(
             )
 
             uiThread {
+                view.hideLoading()
                 view.showSearchTeam(data.teams)
             }
         }
