@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
 import android.view.*
 import android.widget.AdapterView
@@ -20,6 +21,7 @@ import com.example.cloudymous.footballclubcloud.utils.invisible
 import com.example.cloudymous.footballclubcloud.utils.visible
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_team.*
+import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 
@@ -29,6 +31,7 @@ class TeamsFragment : Fragment(), TeamView {
     private var searchResult: MutableList<Team> = mutableListOf()
     private var searchView: SearchView? = null
 
+    private lateinit var recyclerView: RecyclerView
     private lateinit var queryTextListener: SearchView.OnQueryTextListener
     private lateinit var presenter: TeamsPresenter
     private lateinit var adapter: TeamsAdapter
@@ -46,11 +49,7 @@ class TeamsFragment : Fragment(), TeamView {
             requireContext().startActivity<DetailTeamActivity>("teamId" to "${it.teamId}")
         }
 
-        search_result.invisible()
-
-        team_list.layoutManager = LinearLayoutManager(context)
-        search_result.layoutManager = LinearLayoutManager(context)
-        team_list.adapter = adapter
+        recyclerView.invisible()
 
         val spinnerItems = resources.getStringArray(R.array.league)
         val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, spinnerItems)
@@ -76,7 +75,13 @@ class TeamsFragment : Fragment(), TeamView {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_team, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_team, container, false)
+        recyclerView = rootView.find(R.id.search_result)
+        team_list.layoutManager = LinearLayoutManager(context)
+        search_result.layoutManager = LinearLayoutManager(context)
+        team_list.adapter = adapter
+
+        return rootView
     }
 
     override fun showLoading() {
@@ -121,7 +126,10 @@ class TeamsFragment : Fragment(), TeamView {
                     var querySearch = query
                     querySearch.toLowerCase()
                     querySearch = querySearch.replace(" ", "_")
-                    adapter = TeamsAdapter(requireContext(), teams) {
+                    adapter = TeamsAdapter(
+                        requireContext(),
+                        teams
+                    ) {
                         requireContext().startActivity<DetailTeamActivity>("teamId" to "${it.teamId}")
                     }
                     search_result.adapter = adapter
