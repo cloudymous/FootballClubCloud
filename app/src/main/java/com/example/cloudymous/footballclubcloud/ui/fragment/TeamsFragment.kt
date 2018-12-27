@@ -49,7 +49,11 @@ class TeamsFragment : Fragment(), TeamView {
             requireContext().startActivity<DetailTeamActivity>("teamId" to "${it.teamId}")
         }
 
-        recyclerView.invisible()
+//        recyclerView.invisible()
+
+        team_list.layoutManager = LinearLayoutManager(context)
+        search_result.layoutManager = LinearLayoutManager(context)
+        team_list.adapter = adapter
 
         val spinnerItems = resources.getStringArray(R.array.league)
         val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, spinnerItems)
@@ -77,9 +81,6 @@ class TeamsFragment : Fragment(), TeamView {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_team, container, false)
         recyclerView = rootView.find(R.id.search_result)
-        team_list.layoutManager = LinearLayoutManager(context)
-        search_result.layoutManager = LinearLayoutManager(context)
-        team_list.adapter = adapter
 
         return rootView
     }
