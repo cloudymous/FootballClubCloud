@@ -74,6 +74,11 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:2.23.0'
     testImplementation "org.mockito:mockito-inline:2.23.0"
 
+    def nav_version = "1.0.0-alpha09"
+
+    implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version" // use -ktx for Kotlin
+    implementation "android.arch.navigation:navigation-ui-ktx:$nav_version" // use -ktx for Kotlin
+
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:support-v4:28.0.0'
