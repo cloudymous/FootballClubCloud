@@ -55,8 +55,6 @@ class DetailMatchActivity : AppCompatActivity(),
         val request = ApiRepository()
         val gson = Gson()
 
-
-
         presenter = DetailMatchPresenter(this, request, gson)
         presenter.getDetailMatch(id)
 
